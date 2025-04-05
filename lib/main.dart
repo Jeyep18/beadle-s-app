@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:prototype1/class-dashboard.dart';
+import 'package:prototype1/home.dart';
 
 void main() {
   runApp(const MainApp());
@@ -9,12 +11,9 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+    return MaterialApp(
+      home: const HomePage(),
+      routes: {'/class-dashboard': (context) => ClassPage()},
     );
   }
 }
