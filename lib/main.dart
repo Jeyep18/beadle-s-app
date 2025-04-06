@@ -6,9 +6,8 @@ import 'package:beadles_app_prototype1/home.dart';
 void main() {
   runApp(const MainApp());
 }
-
 //NIGGAS WOHOOO!
-//PUTANGINA MO NIGGERS
+// im just a nigga
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
 
