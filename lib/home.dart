@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:prototype1/utils/class_tile.dart';
+import 'package:prototype1/utils/create_new_class_popup.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -27,6 +28,16 @@ class _HomePageState extends State<HomePage> {
       "Prof. Michael Roland Hernandez",
     ],
   ];
+
+  //create new class
+  void createNewClass() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return CreateNewClassPopup();
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -97,11 +108,30 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       backgroundColor: const Color.fromARGB(235, 247, 247, 247),
+      floatingActionButton: FloatingActionButton(
+        onPressed: createNewClass,
+        child: Container(
+          width: 60,
+          height: 60,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment(0.6, 1),
+              colors: [
+                Color.fromARGB(255, 10, 96, 255),
+                Color.fromARGB(255, 0, 65, 185),
+              ],
+            ),
+          ),
+          child: Icon(Icons.add, size: 30, color: Colors.white),
+        ),
+      ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsets.only(left: 5, top: 10),
+            padding: EdgeInsets.only(left: 15, top: 10),
             child: Text(
               'My Classes:',
               textAlign: TextAlign.right,

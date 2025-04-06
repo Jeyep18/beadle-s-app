@@ -22,7 +22,6 @@ class ClassTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // Navigate to the class dashboard page with the arguments
         Navigator.pushNamed(
           context,
           '/class-dashboard',
