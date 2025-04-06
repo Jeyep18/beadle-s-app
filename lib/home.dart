@@ -10,6 +10,24 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  //List of classes
+  List classList = [
+    [
+      "HCI200",
+      "ZC12Am",
+      "MW 1:30PM - 3:00PM",
+      "P116",
+      "Prof. Angelo Melecio Agawa",
+    ],
+    [
+      "SOCS102",
+      "ZC11Am",
+      "TTH 12:00PM - 1:30PM",
+      "P211",
+      "Prof. Michael Roland Hernandez",
+    ],
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,7 +112,21 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          ClassTile(),
+
+          ListView.builder(
+            scrollDirection: Axis.vertical,
+            shrinkWrap: true,
+            itemCount: classList.length,
+            itemBuilder: (context, index) {
+              return ClassTile(
+                subjectCode: classList[index][0],
+                classSection: classList[index][1],
+                schedule: classList[index][2],
+                roomNumber: classList[index][3],
+                professorName: classList[index][4],
+              );
+            },
+          ),
         ],
       ),
     );
