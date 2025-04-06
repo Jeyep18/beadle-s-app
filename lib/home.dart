@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:prototype1/utils/class_tile.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,12 +80,13 @@ class HomePage extends StatelessWidget {
       ),
       backgroundColor: const Color.fromARGB(235, 247, 247, 247),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          //Text "My Classes:"
-          Container(
-            padding: EdgeInsets.all(16.0),
+          Padding(
+            padding: EdgeInsets.only(left: 5, top: 10),
             child: Text(
               'My Classes:',
+              textAlign: TextAlign.right,
               style: GoogleFonts.poppins(
                 fontSize: 20,
                 fontWeight: FontWeight.w500,
@@ -87,14 +94,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ),
-
-          //class list
-          ListView(
-            children: [
-              //subject 1
-              Container(width: double.infinity, height: 100, color: Colors.red),
-            ],
-          ),
+          ClassTile(),
         ],
       ),
     );
