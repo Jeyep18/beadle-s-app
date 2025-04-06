@@ -16,22 +16,14 @@ class CreateNewClassPopup extends StatelessWidget {
           children: [
             Text(
               'Create Class',
-              style: GoogleFonts.poppins(
-                fontSize: 18,
-                color: const Color.fromARGB(255, 51, 51, 51),
-                fontWeight: FontWeight.w500,
-              ),
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
             const SizedBox(height: 10),
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
                 'Subject Details:',
-                style: GoogleFonts.poppins(
-                  fontSize: 16,
-                  color: const Color.fromARGB(255, 51, 51, 51),
-                  fontWeight: FontWeight.w400,
-                ),
+                style: Theme.of(context).textTheme.headlineSmall,
               ),
             ),
             const SizedBox(height: 10),
