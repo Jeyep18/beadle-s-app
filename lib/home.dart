@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:prototype1/utils/class_tile.dart';
-import 'package:prototype1/utils/create_new_class_popup.dart';
+
+import 'package:beadles_app_prototype1/utils/class_tile.dart';
+import 'package:beadles_app_prototype1/utils/create_new_class_popup.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -47,20 +47,16 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
         title: Text(
           'Beadles App',
-          style: GoogleFonts.poppins(
-            fontSize: 22,
-            color: Color.fromARGB(255, 255, 255, 255),
-            fontWeight: FontWeight.bold,
-          ),
+          style: Theme.of(context).textTheme.headlineLarge,
         ),
         flexibleSpace: Container(
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              colors: <Color>[
-                Color.fromARGB(255, 10, 96, 255),
-                Color.fromARGB(255, 0, 55, 158),
+              colors: [
+                Theme.of(context).colorScheme.primary,
+                Theme.of(context).colorScheme.secondary,
               ],
             ),
           ),
@@ -69,7 +65,7 @@ class _HomePageState extends State<HomePage> {
           IconButton(
             icon: const Icon(Icons.person),
             onPressed: () {
-              // Handle settings action
+              //for opening profile page
             },
             color: Colors.white,
             iconSize: 30,
@@ -107,7 +103,7 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      backgroundColor: const Color.fromARGB(235, 247, 247, 247),
+
       floatingActionButton: FloatingActionButton(
         onPressed: createNewClass,
         child: Container(
@@ -119,8 +115,8 @@ class _HomePageState extends State<HomePage> {
               begin: Alignment.topLeft,
               end: Alignment(0.6, 1),
               colors: [
-                Color.fromARGB(255, 10, 96, 255),
-                Color.fromARGB(255, 0, 65, 185),
+                Theme.of(context).colorScheme.primary,
+                Theme.of(context).colorScheme.secondary,
               ],
             ),
           ),
@@ -135,11 +131,7 @@ class _HomePageState extends State<HomePage> {
             child: Text(
               'My Classes:',
               textAlign: TextAlign.right,
-              style: GoogleFonts.poppins(
-                fontSize: 20,
-                fontWeight: FontWeight.w500,
-                color: const Color.fromARGB(255, 86, 95, 122),
-              ),
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
           ),
 

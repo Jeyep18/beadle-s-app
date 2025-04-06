@@ -1,7 +1,7 @@
+import 'package:beadles_app_prototype1/utils/themes/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:prototype1/class_dashboard.dart';
-import 'package:prototype1/home.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:beadles_app_prototype1/class_dashboard.dart';
+import 'package:beadles_app_prototype1/home.dart';
 
 void main() {
   runApp(const MainApp());
@@ -13,12 +13,12 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: const HomePage(),
       routes: {'/class-dashboard': (context) => ClassPage()},
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        textTheme: GoogleFonts.poppinsTextTheme(),
-      ),
+      themeMode: ThemeMode.light,
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
     );
   }
 }

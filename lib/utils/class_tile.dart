@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class ClassTile extends StatelessWidget {
   //required variables
@@ -45,14 +44,14 @@ class ClassTile extends StatelessWidget {
               begin: Alignment.topLeft,
               end: Alignment(0.6, 1),
               colors: <Color>[
-                Color.fromARGB(255, 0, 55, 158),
-                Color.fromARGB(255, 10, 96, 255),
+                Theme.of(context).colorScheme.primary,
+                Theme.of(context).colorScheme.secondary,
               ],
             ),
             borderRadius: BorderRadius.circular(12),
           ),
           child: Padding(
-            padding: const EdgeInsets.only(top: 45.0, bottom: 10.0),
+            padding: const EdgeInsets.only(top: 50.0, bottom: 10.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -60,31 +59,19 @@ class ClassTile extends StatelessWidget {
                 //Subject Code
                 Text(
                   '$subjectCode - $classSection',
-                  style: GoogleFonts.poppins(
-                    fontSize: 24,
-                    color: const Color.fromARGB(255, 255, 255, 255),
-                    fontWeight: FontWeight.w500,
-                  ),
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
 
                 //Schedule Text
                 Text(
                   '$schedule $roomNumber',
-                  style: GoogleFonts.poppins(
-                    fontSize: 14,
-                    color: const Color.fromARGB(255, 255, 255, 255),
-                    fontWeight: FontWeight.w400,
-                  ),
+                  style: Theme.of(context).textTheme.titleMedium,
                 ),
 
                 //Professor Name Text
                 Text(
                   professorName,
-                  style: GoogleFonts.poppins(
-                    fontSize: 14,
-                    color: const Color.fromARGB(255, 255, 255, 255),
-                    fontWeight: FontWeight.w400,
-                  ),
+                  style: Theme.of(context).textTheme.titleMedium,
                 ),
               ],
             ),

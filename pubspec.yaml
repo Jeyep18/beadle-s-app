@@ -1,6 +1,6 @@
-name: prototype1
-description: "A new Flutter project."
-publish_to: 'none'
+name: beadles_app_prototype1
+description: "Beadles App Prototype 1"
+publish_to: "none"
 version: 0.1.0
 
 environment:
@@ -15,6 +15,11 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
+
+assets:
+  - assets/images/
+  - assets/icons/
+  - assets/logo/
 
 flutter:
   uses-material-design: true
