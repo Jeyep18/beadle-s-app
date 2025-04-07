@@ -17,14 +17,14 @@ class AppTheme {
       //for section title [My Classes:, History:, etc.]
       headlineMedium: GoogleFonts.poppins(
         fontSize: 20,
-        color: const Color.fromARGB(255, 86, 95, 122),
+        color: Color(0xFF312c4a),
         fontWeight: FontWeight.w500,
       ),
 
       //for modal subtitles
       headlineSmall: GoogleFonts.poppins(
         fontSize: 16,
-        color: const Color.fromARGB(255, 86, 95, 122),
+        color: Color(0xFF312c4a),
         fontWeight: FontWeight.w400,
       ),
 
@@ -60,8 +60,11 @@ class AppTheme {
     brightness: Brightness.light,
     primarySwatch: Colors.blue,
     colorScheme: ColorScheme.light(
-      primary: Color(0xFF3368FA),
-      secondary: Color(0xFF002DAA),
+      // primary: Color(0xFF3368FA),
+      // secondary: Color(0xFF002DAA),
+      primary: Color(0xFF3546df),
+      secondary: Color(0xFF3546df),
+      tertiary: Color(0xFF48bea2),
     ),
   );
 
@@ -111,12 +114,15 @@ class AppTheme {
         fontWeight: FontWeight.w400,
       ),
     ),
-    scaffoldBackgroundColor: const Color.fromARGB(255, 39, 39, 39),
+    scaffoldBackgroundColor: Color(0xFF312c4a),
     brightness: Brightness.dark,
     primarySwatch: Colors.blue,
     colorScheme: ColorScheme.dark(
-      primary: Color(0xFF002DAA),
-      secondary: Color(0xFF3368FA),
+      // primary: Color(0xFF002DAA),
+      // secondary: Color(0xFF3368FA),
+      primary: Color(0xFF3546df),
+      secondary: Color(0xFF3546df),
+      tertiary: Color(0xFF48bea2),
     ),
   );
 }
