@@ -64,7 +64,7 @@ class AppTheme {
       // secondary: Color(0xFF002DAA),
       primary: Color(0xFF3546df),
       secondary: Color(0xFF3546df),
-      tertiary: Color(0xFF48bea2),
+      tertiary: Color.fromARGB(255, 173, 173, 173),
     ),
   );
 
@@ -84,6 +84,13 @@ class AppTheme {
         fontSize: 20,
         color: const Color.fromARGB(255, 223, 223, 223),
         fontWeight: FontWeight.w500,
+      ),
+
+      //for modal subtitles
+      headlineSmall: GoogleFonts.poppins(
+        fontSize: 16,
+        color: Color.fromARGB(255, 255, 255, 255),
+        fontWeight: FontWeight.w400,
       ),
 
       //for subject code titles
@@ -122,7 +129,7 @@ class AppTheme {
       // secondary: Color(0xFF3368FA),
       primary: Color(0xFF3546df),
       secondary: Color(0xFF3546df),
-      tertiary: Color(0xFF48bea2),
+      tertiary: Color.fromARGB(255, 110, 110, 110),
     ),
   );
 }

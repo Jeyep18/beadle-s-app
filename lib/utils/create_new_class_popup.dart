@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class CreateNewClassPopup extends StatelessWidget {
   const CreateNewClassPopup({super.key});
@@ -7,7 +6,7 @@ class CreateNewClassPopup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       child: SingleChildScrollView(
         padding: const EdgeInsets.all(15),
@@ -33,8 +32,12 @@ class CreateNewClassPopup extends StatelessWidget {
               height: 70,
               width: double.infinity,
               decoration: BoxDecoration(
-                color: Colors.grey[200],
+                color: Theme.of(context).scaffoldBackgroundColor,
                 borderRadius: BorderRadius.circular(10),
+                border: Border.all(
+                  color: const Color.fromARGB(255, 117, 117, 117),
+                  width: 1,
+                ),
               ),
               child: Icon(Icons.add, size: 40, color: Colors.grey),
             ),
@@ -45,16 +48,18 @@ class CreateNewClassPopup extends StatelessWidget {
               decoration: InputDecoration(
                 prefixIcon: Icon(Icons.book, size: 20),
                 hintText: 'Subject Code',
-                hintStyle: GoogleFonts.poppins(
-                  fontSize: 15,
-                  color: const Color.fromARGB(255, 128, 128, 128),
-                  fontWeight: FontWeight.w400,
-                ),
+                hintStyle: Theme.of(context).textTheme.labelSmall,
                 filled: true,
-                fillColor: Colors.grey[200],
+                fillColor: Theme.of(context).scaffoldBackgroundColor,
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(
+                    color: const Color.fromARGB(255, 117, 117, 117),
+                    width: 1,
+                  ),
+                ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide.none,
                 ),
               ),
             ),
@@ -65,16 +70,18 @@ class CreateNewClassPopup extends StatelessWidget {
               decoration: InputDecoration(
                 prefixIcon: Icon(Icons.person, size: 25),
                 hintText: 'Teacher\'s name',
-                hintStyle: GoogleFonts.poppins(
-                  fontSize: 15,
-                  color: const Color.fromARGB(255, 128, 128, 128),
-                  fontWeight: FontWeight.w400,
-                ),
+                hintStyle: Theme.of(context).textTheme.labelSmall,
                 filled: true,
-                fillColor: Colors.grey[200],
+                fillColor: Theme.of(context).scaffoldBackgroundColor,
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(
+                    color: const Color.fromARGB(255, 117, 117, 117),
+                    width: 1,
+                  ),
+                ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide.none,
                 ),
               ),
             ),
@@ -88,16 +95,18 @@ class CreateNewClassPopup extends StatelessWidget {
                     decoration: InputDecoration(
                       prefixIcon: Icon(Icons.group, size: 25),
                       hintText: 'Section',
-                      hintStyle: GoogleFonts.poppins(
-                        fontSize: 15,
-                        color: const Color.fromARGB(255, 128, 128, 128),
-                        fontWeight: FontWeight.w400,
-                      ),
+                      hintStyle: Theme.of(context).textTheme.labelSmall,
                       filled: true,
-                      fillColor: Colors.grey[200],
+                      fillColor: Theme.of(context).scaffoldBackgroundColor,
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                          color: const Color.fromARGB(255, 117, 117, 117),
+                          width: 1,
+                        ),
+                      ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide.none,
                       ),
                     ),
                   ),
@@ -108,16 +117,18 @@ class CreateNewClassPopup extends StatelessWidget {
                     decoration: InputDecoration(
                       prefixIcon: Icon(Icons.room, size: 25),
                       hintText: 'Room',
-                      hintStyle: GoogleFonts.poppins(
-                        fontSize: 15,
-                        color: const Color.fromARGB(255, 128, 128, 128),
-                        fontWeight: FontWeight.w400,
-                      ),
+                      hintStyle: Theme.of(context).textTheme.labelSmall,
                       filled: true,
-                      fillColor: Colors.grey[200],
+                      fillColor: Theme.of(context).scaffoldBackgroundColor,
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                          color: const Color.fromARGB(255, 117, 117, 117),
+                          width: 1,
+                        ),
+                      ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide.none,
                       ),
                     ),
                   ),
@@ -130,14 +141,26 @@ class CreateNewClassPopup extends StatelessWidget {
             DropdownButtonFormField<String>(
               decoration: InputDecoration(
                 filled: true,
-                fillColor: Colors.grey[200],
+                fillColor: Theme.of(context).scaffoldBackgroundColor,
                 hintText: 'Class Modality',
+                hintStyle: Theme.of(context).textTheme.labelSmall,
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(
+                    color: const Color.fromARGB(255, 117, 117, 117),
+                    width: 1,
+                  ),
+                ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide.none,
+                  borderSide: BorderSide(
+                    color: const Color.fromARGB(255, 117, 117, 117),
+                    width: 1,
+                  ),
                 ),
               ),
-              dropdownColor: Colors.white,
+              dropdownColor: Theme.of(context).scaffoldBackgroundColor,
+              style: Theme.of(context).textTheme.labelSmall,
               items:
                   ['Online', 'Blended Online', 'Face to Face']
                       .map(
@@ -158,11 +181,22 @@ class CreateNewClassPopup extends StatelessWidget {
                   child: TextField(
                     decoration: InputDecoration(
                       hintText: '2024',
+                      hintStyle: Theme.of(context).textTheme.labelSmall,
                       filled: true,
-                      fillColor: Colors.grey[200],
+                      fillColor: Theme.of(context).scaffoldBackgroundColor,
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                          color: const Color.fromARGB(255, 117, 117, 117),
+                          width: 1,
+                        ),
+                      ),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                          color: const Color.fromARGB(255, 117, 117, 117),
+                          width: 1,
+                        ),
                       ),
                     ),
                   ),
@@ -175,11 +209,22 @@ class CreateNewClassPopup extends StatelessWidget {
                   child: TextField(
                     decoration: InputDecoration(
                       hintText: '2025',
+                      hintStyle: Theme.of(context).textTheme.labelSmall,
                       filled: true,
-                      fillColor: Colors.grey[200],
+                      fillColor: Theme.of(context).scaffoldBackgroundColor,
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                          color: const Color.fromARGB(255, 117, 117, 117),
+                          width: 1,
+                        ),
+                      ),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                          color: const Color.fromARGB(255, 117, 117, 117),
+                          width: 1,
+                        ),
                       ),
                     ),
                   ),
@@ -191,14 +236,27 @@ class CreateNewClassPopup extends StatelessWidget {
             // Semester Dropdown
             DropdownButtonFormField<String>(
               decoration: InputDecoration(
-                filled: true,
-                fillColor: Colors.grey[200],
                 hintText: 'Semester',
+                hintStyle: Theme.of(context).textTheme.labelSmall,
+                filled: true,
+                fillColor: Theme.of(context).scaffoldBackgroundColor,
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(
+                    color: const Color.fromARGB(255, 117, 117, 117),
+                    width: 1,
+                  ),
+                ),
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide.none,
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(
+                    color: const Color.fromARGB(255, 117, 117, 117),
+                    width: 1,
+                  ),
                 ),
               ),
+              dropdownColor: Theme.of(context).scaffoldBackgroundColor,
+              style: Theme.of(context).textTheme.labelSmall,
               items:
                   ['1st Semester', '2nd Semester']
                       .map(
@@ -210,29 +268,53 @@ class CreateNewClassPopup extends StatelessWidget {
 
             const SizedBox(height: 20),
 
-            // Submit Button
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color.fromARGB(255, 0, 47, 128),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Cancel Button
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color.fromARGB(255, 173, 173, 173),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 33,
+                      vertical: 12,
+                    ),
+                  ),
+                  child: Text(
+                    "Cancel",
+                    style: Theme.of(context).textTheme.labelLarge,
+                  ),
                 ),
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 40,
-                  vertical: 12,
+
+                SizedBox(width: 10),
+
+                // Save Button
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Theme.of(context).colorScheme.primary,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 40,
+                      vertical: 12,
+                    ),
+                  ),
+                  child: Text(
+                    "Save",
+                    style: Theme.of(context).textTheme.labelLarge,
+                  ),
                 ),
-              ),
-              child: Text(
-                "Save",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
+              ],
             ),
           ],
         ),
