@@ -3,6 +3,7 @@ import 'package:beadles_app_prototype1/whole_class_history_page.dart';
 import 'package:flutter/material.dart';
 import 'package:beadles_app_prototype1/utils/class_tile.dart';
 import 'package:beadles_app_prototype1/utils/create_new_class_popup.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -54,30 +55,54 @@ class _HomePageState extends State<HomePage> {
         iconTheme: IconThemeData(color: const Color.fromARGB(255, 0, 0, 0)),
         centerTitle: false,
         titleSpacing: 0,
-        title: Text(
-          'Beadle\'s App',
-          style: Theme.of(context).textTheme.headlineLarge,
+        title: Animate(
+          effects: [
+            FadeEffect(duration: 0.6.seconds),
+            SlideEffect(duration: 0.4.seconds, begin: Offset(-0.1, 0)),
+          ],
+          child: Text(
+            'Beadle\'s App',
+            style: Theme.of(context).textTheme.headlineLarge,
+          ),
         ),
         backgroundColor: Colors.transparent,
-        leading: Icon(Icons.book),
+        leading: Animate(
+          effects: [
+            FadeEffect(duration: 0.6.seconds),
+            SlideEffect(duration: 0.4.seconds, begin: Offset(-0.2, 0)),
+          ],
+          child: Icon(Icons.book),
+        ),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.person),
-            onPressed: () {
-              //for opening profile page
-            },
-            color: const Color.fromARGB(255, 3, 3, 3),
-            iconSize: 30,
+          Animate(
+            effects: [
+              FadeEffect(duration: 0.6.seconds),
+              SlideEffect(duration: 0.4.seconds, begin: Offset(0.2, 0)),
+            ],
+            child: IconButton(
+              icon: const Icon(Icons.person),
+              onPressed: () {
+                //for opening profile page
+              },
+              color: const Color.fromARGB(255, 3, 3, 3),
+              iconSize: 30,
+            ),
           ),
-          IconButton(
-            onPressed: () {
-              //settings page here
-            },
-            icon: Icon(Icons.settings),
-            iconSize: 30,
+          Animate(
+            effects: [
+              FadeEffect(duration: 0.6.seconds),
+              SlideEffect(duration: 0.4.seconds, begin: Offset(0.2, 0)),
+            ],
+            child: IconButton(
+              onPressed: () {
+                //settings page here
+              },
+              icon: Icon(Icons.settings),
+              iconSize: 30,
+            ),
           ),
         ],
-        actionsPadding: const EdgeInsets.only(right: 10),
+        actionsPadding: const EdgeInsets.only(right: 5),
       ),
 
       body: Stack(
@@ -109,7 +134,7 @@ class _HomePageState extends State<HomePage> {
           Align(
             alignment: Alignment(85, 1.5),
             child: Container(
-              height: 300,
+              height: 250,
               width: 400,
               decoration: BoxDecoration(
                 shape: BoxShape.rectangle,
@@ -119,7 +144,7 @@ class _HomePageState extends State<HomePage> {
           ),
 
           BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 100.0, sigmaY: 200.0),
+            filter: ImageFilter.blur(sigmaX: 100.0, sigmaY: 300.0),
             child: Container(),
           ),
 
@@ -137,22 +162,41 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(left: 10.0),
-                    child: Text(
-                      'Taking Attendance made easy!',
-                      textAlign: TextAlign.start,
-                      style: Theme.of(context).textTheme.titleLarge,
+                    child: Animate(
+                      effects: [
+                        FadeEffect(duration: 0.6.seconds, delay: 0.2.seconds),
+                        SlideEffect(
+                          duration: 0.4.seconds,
+                          begin: Offset(0, 0.3),
+                        ),
+                      ],
+                      child: Text(
+                        'Taking Attendance made easy!',
+                        textAlign: TextAlign.start,
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ),
                     ),
                   ),
                   SizedBox(height: 18),
                   Padding(
                     padding: const EdgeInsets.only(left: 10.0),
-                    child: Text(
-                      'My Classes:',
-                      textAlign: TextAlign.start,
-                      style: Theme.of(context).textTheme.headlineMedium,
+                    child: Animate(
+                      effects: [
+                        FadeEffect(duration: 0.6.seconds, delay: 0.4.seconds),
+                        SlideEffect(
+                          duration: 0.3.seconds,
+                          begin: Offset(0, 0.5),
+                        ),
+                      ],
+                      child: Text(
+                        'My Classes:',
+                        textAlign: TextAlign.start,
+                        style: Theme.of(context).textTheme.headlineMedium,
+                      ),
                     ),
                   ),
-                  SizedBox(height: 10),
+
+                  SizedBox(height: 5),
 
                   //List of classes
                   ...classList.map(

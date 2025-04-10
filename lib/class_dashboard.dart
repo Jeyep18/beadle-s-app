@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class ClassPage extends StatelessWidget {
@@ -6,12 +8,78 @@ class ClassPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Class Dashboard')),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [const Text('Welcome to the Class Dashboard!')],
+      appBar: AppBar(
+        iconTheme: IconThemeData(color: Color(0xFF312c4a)),
+        centerTitle: true,
+        titleSpacing: 0,
+        title: Text(
+          'Take Attendance',
+          style: Theme.of(context).textTheme.headlineLarge,
         ),
+        backgroundColor: Colors.transparent,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.info_outline),
+            onPressed: () {
+              //opens information page
+            },
+            color: Color(0xFF312c4a),
+            iconSize: 25,
+          ),
+          IconButton(
+            onPressed: () {
+              //menu page here
+            },
+            icon: Icon(Icons.more_vert),
+            color: Color(0xFF312c4a),
+            iconSize: 25,
+          ),
+        ],
+      ),
+
+      body: Stack(
+        children: [
+          Align(
+            alignment: Alignment(85, -0.7),
+            child: Container(
+              height: 400,
+              width: 400,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Theme.of(context).colorScheme.secondary,
+              ),
+            ),
+          ),
+
+          Align(
+            alignment: Alignment(-95, -0.2),
+            child: Container(
+              height: 400,
+              width: 400,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Theme.of(context).colorScheme.primary,
+              ),
+            ),
+          ),
+
+          Align(
+            alignment: Alignment(60, 1.5),
+            child: Container(
+              height: 300,
+              width: 400,
+              decoration: BoxDecoration(
+                shape: BoxShape.rectangle,
+                color: Theme.of(context).colorScheme.primary,
+              ),
+            ),
+          ),
+
+          BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 100.0, sigmaY: 200.0),
+            child: Container(),
+          ),
+        ],
       ),
     );
   }

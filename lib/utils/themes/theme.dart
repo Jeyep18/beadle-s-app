@@ -67,12 +67,10 @@ class AppTheme {
     brightness: Brightness.light,
     primarySwatch: Colors.blue,
     colorScheme: ColorScheme.light(
-      // primary: Color(0xFF3368FA),
-      // secondary: Color(0xFF002DAA),
       primary: Color(0xFF48bea2),
       secondary: Color(0xFF3546df),
       tertiary: Color(0xFFF7F7F7),
-      primaryContainer: Color(0x40E8E8E8)
+      primaryContainer: Color(0x40E8E8E8),
     ),
   );
 

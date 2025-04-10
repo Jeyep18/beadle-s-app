@@ -11,7 +11,6 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-
   //create new class
   void createNewClass() {
     showDialog(
@@ -26,10 +25,7 @@ class _MainPageState extends State<MainPage> {
   int currentPage = 0;
 
   //widget pages
-  final List _pages = [
-    HomePage(),
-    WholeClassHistoryPage(),
-  ];
+  final List _pages = [HomePage(), WholeClassHistoryPage()];
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +49,7 @@ class _MainPageState extends State<MainPage> {
           child: Icon(Icons.add, size: 30, color: Colors.white),
         ),
       ),
-      
+
       body: _pages[currentPage],
 
       bottomNavigationBar: BottomNavigationBar(
@@ -64,16 +60,11 @@ class _MainPageState extends State<MainPage> {
           });
         },
         items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home), 
-              label: "Home",
-            ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.calendar_month), 
-              label: "History",  
-            ),
+            icon: Icon(Icons.calendar_month),
+            label: "History",
+          ),
         ],
       ),
     );
