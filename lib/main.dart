@@ -7,10 +7,6 @@ void main() {
   runApp(const MainApp());
 }
 
-//NIGGAS WOHOOO!
-// im just a nigga
-//PUTANGINA NIYO LAHAT MGA PAKYUUUUUUUU
-//NIGGERS
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
 
@@ -20,7 +16,7 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: const HomePage(),
       routes: {'/class-dashboard': (context) => ClassPage()},
-      themeMode: ThemeMode.system,
+      themeMode: ThemeMode.light,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
     );
