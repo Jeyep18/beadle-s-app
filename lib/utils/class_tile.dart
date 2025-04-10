@@ -40,18 +40,12 @@ class ClassTile extends StatelessWidget {
           width: double.infinity,
           height: 130,
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment(0.6, 1),
-              colors: <Color>[
-                Theme.of(context).colorScheme.primary,
-                Theme.of(context).colorScheme.secondary,
-              ],
+            color: Color(0x40E8E8E8),
+            borderRadius: BorderRadius.circular(15),
+            border: Border.all(color: Color(0xFFE8E8E8))
             ),
-            borderRadius: BorderRadius.circular(12),
-          ),
           child: Padding(
-            padding: const EdgeInsets.only(top: 50.0, bottom: 10.0),
+            padding: const EdgeInsets.only(top: 40.0, bottom: 10.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -59,19 +53,19 @@ class ClassTile extends StatelessWidget {
                 //Subject Code
                 Text(
                   '$subjectCode - $classSection',
-                  style: Theme.of(context).textTheme.titleLarge,
+                  style: Theme.of(context).textTheme.titleMedium,
                 ),
 
                 //Schedule Text
                 Text(
                   '$schedule $roomNumber',
-                  style: Theme.of(context).textTheme.titleMedium,
+                  style: Theme.of(context).textTheme.titleSmall,
                 ),
 
                 //Professor Name Text
                 Text(
                   professorName,
-                  style: Theme.of(context).textTheme.titleMedium,
+                  style: Theme.of(context).textTheme.titleSmall,
                 ),
               ],
             ),

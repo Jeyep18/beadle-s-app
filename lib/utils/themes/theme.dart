@@ -9,16 +9,16 @@ class AppTheme {
     textTheme: TextTheme(
       //for app bar title
       headlineLarge: GoogleFonts.poppins(
-        fontSize: 22,
-        color: const Color.fromARGB(255, 255, 255, 255),
+        fontSize: 24,
+        color: Color(0xFF1c1a27),
         fontWeight: FontWeight.bold,
       ),
 
       //for section title [My Classes:, History:, etc.]
       headlineMedium: GoogleFonts.poppins(
         fontSize: 20,
-        color: Color(0xFF312c4a),
-        fontWeight: FontWeight.w500,
+        color: Color(0xFF1c1a27),
+        fontWeight: FontWeight.w600,
       ),
 
       //for modal subtitles
@@ -28,17 +28,24 @@ class AppTheme {
         fontWeight: FontWeight.w400,
       ),
 
-      //for subject code titles
+      //For 'taking attendance made easy' text sabnfjabfa
       titleLarge: GoogleFonts.poppins(
+        fontSize: 34,
+        color: Color(0xFF312c4a),
+        fontWeight: FontWeight.w400,
+      ),
+
+      //for subject code titles
+      titleMedium: GoogleFonts.poppins(
         fontSize: 24,
-        color: const Color.fromARGB(255, 255, 255, 255),
+        color: Color(0xFF312c4a),
         fontWeight: FontWeight.w500,
       ),
 
       //this is under subject code title [schedule and prof name]
-      titleMedium: GoogleFonts.poppins(
+      titleSmall: GoogleFonts.poppins(
         fontSize: 14,
-        color: const Color.fromARGB(255, 255, 255, 255),
+        color: Color(0xFF312c4a),
         fontWeight: FontWeight.w400,
       ),
 
@@ -62,9 +69,10 @@ class AppTheme {
     colorScheme: ColorScheme.light(
       // primary: Color(0xFF3368FA),
       // secondary: Color(0xFF002DAA),
-      primary: Color(0xFF3546df),
+      primary: Color(0xFF48bea2),
       secondary: Color(0xFF3546df),
-      tertiary: Color.fromARGB(255, 173, 173, 173),
+      tertiary: Color(0xFFF7F7F7),
+      primaryContainer: Color(0x40E8E8E8)
     ),
   );
 
