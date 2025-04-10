@@ -1,7 +1,7 @@
+import 'package:beadles_app_prototype1/main_page.dart';
 import 'package:beadles_app_prototype1/utils/themes/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:beadles_app_prototype1/class_dashboard.dart';
-import 'package:beadles_app_prototype1/home.dart';
 
 void main() {
   runApp(const MainApp());
@@ -14,7 +14,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const HomePage(),
+      home: const MainPage(),
       routes: {'/class-dashboard': (context) => ClassPage()},
       themeMode: ThemeMode.light,
       theme: AppTheme.lightTheme,

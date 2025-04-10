@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:beadles_app_prototype1/whole_class_history_page.dart';
 import 'package:flutter/material.dart';
 import 'package:beadles_app_prototype1/utils/class_tile.dart';
 import 'package:beadles_app_prototype1/utils/create_new_class_popup.dart';
@@ -28,6 +29,13 @@ class _HomePageState extends State<HomePage> {
       "P211",
       "Prof. Michael Roland Hernandez",
     ],
+    [
+      "CSDC200",
+      "ZC14Am",
+      "TTH 1:00PM - 3:00PM",
+      "AL122",
+      "Prof. Kurt Sereno",
+    ],
   ];
 
   //create new class
@@ -39,6 +47,15 @@ class _HomePageState extends State<HomePage> {
       },
     );
   }
+
+  //current page
+  int currentPage = 0;
+
+  //widget pages
+  final List<Widget> pages = [
+    const HomePage(),
+    WholeClassHistoryPage()
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -69,29 +86,7 @@ class _HomePageState extends State<HomePage> {
         ],
         actionsPadding: const EdgeInsets.only(right: 10),
       ),
-      
-      
-      floatingActionButton: FloatingActionButton(
-        onPressed: createNewClass,
-        child: Container(
-          width: 60,
-          height: 60,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment(0.6, 1),
-              colors: [
-                Theme.of(context).colorScheme.primary,
-                Theme.of(context).colorScheme.secondary,
-              ],
-            ),
-          ),
-          child: Icon(Icons.add, size: 30, color: Colors.white),
-        ),
-      ),
-      
-      
+
       body: Stack(
         children: [
           Align(
