@@ -22,13 +22,6 @@ class _HomePageState extends State<HomePage> {
       "P116",
       "Prof. Angelo Melecio Agawa",
     ],
-    [
-      "SOCS102",
-      "ZC11Am",
-      "TTH 12:00PM - 1:30PM",
-      "P211",
-      "Prof. Michael Roland Hernandez",
-    ],
   ];
 
   //create new class
@@ -52,7 +45,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         scrolledUnderElevation: 0,
-        iconTheme: IconThemeData(color: const Color.fromARGB(255, 0, 0, 0)),
+        iconTheme: IconThemeData(color: Theme.of(context).colorScheme.tertiary),
         centerTitle: false,
         titleSpacing: 0,
         title: Animate(
@@ -84,7 +77,7 @@ class _HomePageState extends State<HomePage> {
               onPressed: () {
                 //for opening profile page
               },
-              color: const Color.fromARGB(255, 3, 3, 3),
+              color: Theme.of(context).colorScheme.tertiary,
               iconSize: 30,
             ),
           ),
@@ -98,6 +91,7 @@ class _HomePageState extends State<HomePage> {
                 //settings page here
               },
               icon: Icon(Icons.settings),
+              color: Theme.of(context).colorScheme.tertiary,
               iconSize: 30,
             ),
           ),

@@ -16,7 +16,7 @@ class _WholeClassHistoryPageState extends State<WholeClassHistoryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: const Color.fromARGB(255, 0, 0, 0)),
+        iconTheme: IconThemeData(color: Theme.of(context).colorScheme.tertiary),
         centerTitle: false,
         titleSpacing: 20,
         title: Text(
@@ -26,11 +26,11 @@ class _WholeClassHistoryPageState extends State<WholeClassHistoryPage> {
         backgroundColor: Colors.transparent,
         actions: [
           IconButton(
-            icon: const Icon(Icons.info),
+            icon: const Icon(Icons.info_outline),
             onPressed: () {
               //opens information page
             },
-            color: const Color.fromARGB(255, 3, 3, 3),
+            color: Theme.of(context).colorScheme.tertiary,
             iconSize: 25,
           ),
           IconButton(
@@ -38,6 +38,7 @@ class _WholeClassHistoryPageState extends State<WholeClassHistoryPage> {
               //menu page here
             },
             icon: Icon(Icons.more_vert),
+            color: Theme.of(context).colorScheme.tertiary,
             iconSize: 25,
           ),
         ],

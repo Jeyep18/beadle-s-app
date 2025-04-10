@@ -17,7 +17,7 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: const SplashScreen(),
       routes: {'/class-dashboard': (context) => ClassPage()},
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.system,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
     );

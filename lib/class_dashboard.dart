@@ -9,7 +9,7 @@ class ClassPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Color(0xFF312c4a)),
+        iconTheme: IconThemeData(color: Theme.of(context).colorScheme.tertiary),
         centerTitle: true,
         titleSpacing: 0,
         title: Text(
@@ -23,7 +23,7 @@ class ClassPage extends StatelessWidget {
             onPressed: () {
               //opens information page
             },
-            color: Color(0xFF312c4a),
+            color: Theme.of(context).colorScheme.tertiary,
             iconSize: 25,
           ),
           IconButton(
@@ -31,7 +31,7 @@ class ClassPage extends StatelessWidget {
               //menu page here
             },
             icon: Icon(Icons.more_vert),
-            color: Color(0xFF312c4a),
+            color: Theme.of(context).colorScheme.tertiary,
             iconSize: 25,
           ),
         ],

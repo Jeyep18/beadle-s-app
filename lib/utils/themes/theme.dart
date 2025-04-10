@@ -63,14 +63,13 @@ class AppTheme {
         fontWeight: FontWeight.w400,
       ),
     ),
-    scaffoldBackgroundColor: const Color(0xFFF5F5F5),
+    scaffoldBackgroundColor: const Color(0xFFF7F7F7),
     brightness: Brightness.light,
     primarySwatch: Colors.blue,
     colorScheme: ColorScheme.light(
       primary: Color(0xFF48bea2),
       secondary: Color(0xFF3546df),
-      tertiary: Color(0xFFF7F7F7),
-      primaryContainer: Color(0x40E8E8E8),
+      tertiary: Color(0xFF312c4a),
     ),
   );
 
@@ -80,7 +79,7 @@ class AppTheme {
     textTheme: TextTheme(
       //for app bar title
       headlineLarge: GoogleFonts.poppins(
-        fontSize: 22,
+        fontSize: 24,
         color: const Color.fromARGB(255, 255, 255, 255),
         fontWeight: FontWeight.bold,
       ),
@@ -88,7 +87,7 @@ class AppTheme {
       //for section title [My Classes:, History:, etc.]
       headlineMedium: GoogleFonts.poppins(
         fontSize: 20,
-        color: const Color.fromARGB(255, 223, 223, 223),
+        color: const Color.fromARGB(255, 255, 255, 255),
         fontWeight: FontWeight.w500,
       ),
 
@@ -99,15 +98,22 @@ class AppTheme {
         fontWeight: FontWeight.w400,
       ),
 
-      //for subject code titles
+      //For 'taking attendance made easy' text sabnfjabfa
       titleLarge: GoogleFonts.poppins(
+        fontSize: 34,
+        color: Color.fromARGB(255, 255, 255, 255),
+        fontWeight: FontWeight.w400,
+      ),
+
+      //for subject code titles
+      titleMedium: GoogleFonts.poppins(
         fontSize: 24,
         color: const Color.fromARGB(255, 255, 255, 255),
         fontWeight: FontWeight.w500,
       ),
 
       //this is under subject code title [schedule and prof name]
-      titleMedium: GoogleFonts.poppins(
+      titleSmall: GoogleFonts.poppins(
         fontSize: 14,
         color: const Color.fromARGB(255, 255, 255, 255),
         fontWeight: FontWeight.w400,
@@ -116,7 +122,7 @@ class AppTheme {
       //for buttons
       labelLarge: GoogleFonts.poppins(
         fontSize: 16,
-        color: const Color.fromARGB(255, 255, 255, 255),
+        color: const Color(0xFF312c4a),
         fontWeight: FontWeight.w600,
       ),
 
@@ -127,15 +133,13 @@ class AppTheme {
         fontWeight: FontWeight.w400,
       ),
     ),
-    scaffoldBackgroundColor: Color(0xFF312c4a),
+    scaffoldBackgroundColor: Color.fromARGB(255, 7, 7, 7),
     brightness: Brightness.dark,
     primarySwatch: Colors.blue,
     colorScheme: ColorScheme.dark(
-      // primary: Color(0xFF002DAA),
-      // secondary: Color(0xFF3368FA),
-      primary: Color(0xFF3546df),
+      primary: Color(0xFF48bea2),
       secondary: Color(0xFF3546df),
-      tertiary: Color.fromARGB(255, 110, 110, 110),
+      tertiary: Color(0xFFF7F7F7),
     ),
   );
 }
