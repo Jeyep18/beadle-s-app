@@ -30,13 +30,16 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButtonLocation:
+          FloatingActionButtonLocation.miniCenterDocked,
       floatingActionButton: FloatingActionButton(
         onPressed: createNewClass,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
         child: Container(
           width: 60,
           height: 60,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(25),
             gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment(0.6, 1),
@@ -52,20 +55,78 @@ class _MainPageState extends State<MainPage> {
 
       body: _pages[currentPage],
 
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: currentPage,
-        onTap: (value) {
-          setState(() {
-            currentPage = value;
-          });
-        },
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_month),
-            label: "History",
+      // bottomNavigationBar: SizedBox(
+      //   height: 100,
+      //   child: BottomNavigationBar(
+
+      //     currentIndex: currentPage,
+      //     onTap: (value) {
+      //       setState(() {
+      //         currentPage = value;
+      //       });
+      //     },
+      //     items: [
+      //       BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+      //       BottomNavigationBarItem(
+      //         icon: Icon(Icons.calendar_month),
+      //         label: "History",
+      //       ),
+      //     ],
+      //   ),
+      // ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 1, vertical: 1),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(24),
+          child: Container(
+            decoration: BoxDecoration(color: Colors.transparent),
+            child: BottomAppBar(
+              shape: const CircularNotchedRectangle(),
+              notchMargin: 8,
+
+              height: 100,
+              //child: SizedBox(
+              //height: 60,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  Column(
+                    children: [
+                      IconButton(
+                        iconSize: 35,
+                        icon: const Icon(Icons.home),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 0,
+                          vertical: 0,
+                        ),
+                        onPressed: () {
+                          setState(() => currentPage = 0);
+                        },
+                        color:
+                            currentPage == 0
+                                ? Theme.of(context).colorScheme.primary
+                                : Colors.grey,
+                      ),
+                      Text('Home', style: TextStyle(fontSize: 5)),
+                    ],
+                  ),
+                  const SizedBox(width: 40), // Gap for FAB
+                  IconButton(
+                    iconSize: 45,
+                    icon: const Icon(Icons.calendar_month),
+                    onPressed: () {
+                      setState(() => currentPage = 1);
+                    },
+                    color:
+                        currentPage == 1
+                            ? Theme.of(context).colorScheme.primary
+                            : const Color.fromARGB(255, 0, 0, 0),
+                  ),
+                ],
+              ),
+            ),
           ),
-        ],
+        ),
       ),
     );
   }
