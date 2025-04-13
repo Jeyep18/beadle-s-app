@@ -1,5 +1,5 @@
 import 'package:beadles_app_prototype1/home.dart';
-import 'package:beadles_app_prototype1/utils/create_new_class_popup.dart';
+import 'package:beadles_app_prototype1/utils/create_new_class_bottom_sheet.dart';
 import 'package:beadles_app_prototype1/whole_class_history_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -13,11 +13,15 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   //create new class
-  void createNewClass() {
-    showDialog(
+  void createNewClass(BuildContext context) {
+    showModalBottomSheet(
       context: context,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
       builder: (context) {
-        return CreateNewClassPopup();
+        return const CreateNewClassBottomsheet();
       },
     );
   }
@@ -34,13 +38,13 @@ class _MainPageState extends State<MainPage> {
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterDocked,
       floatingActionButton: FloatingActionButton(
-        onPressed: createNewClass,
+        onPressed: () => createNewClass(context),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
         child: Container(
           width: 60,
           height: 60,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(25),
+            borderRadius: BorderRadius.circular(50),
             gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment(0.6, 1),
@@ -81,7 +85,7 @@ class _MainPageState extends State<MainPage> {
       // ),
       bottomNavigationBar: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 1, vertical: 1),
+          padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(24),
             child: Container(
@@ -89,7 +93,7 @@ class _MainPageState extends State<MainPage> {
               child: BottomAppBar(
                 color: Color(0x40E8E8E8),
                 shape: const CircularNotchedRectangle(),
-                notchMargin: 10,
+                notchMargin: 8,
                 height: 90,
                 //child: SizedBox(
                 //height: 60,
