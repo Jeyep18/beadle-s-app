@@ -47,7 +47,7 @@ class _WholeClassHistoryPageState extends State<WholeClassHistoryPage> {
       body: Stack(
         children: [
           Align(
-            alignment: Alignment(85, -0.7),
+            alignment: Alignment(85, -0.9),
             child: Container(
               height: 400,
               width: 400,
@@ -71,9 +71,9 @@ class _WholeClassHistoryPageState extends State<WholeClassHistoryPage> {
           ),
 
           Align(
-            alignment: Alignment(60, 1.5),
+            alignment: Alignment(110, 1.5),
             child: Container(
-              height: 300,
+              height: 250,
               width: 400,
               decoration: BoxDecoration(
                 shape: BoxShape.rectangle,
@@ -83,7 +83,7 @@ class _WholeClassHistoryPageState extends State<WholeClassHistoryPage> {
           ),
 
           BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 100.0, sigmaY: 200.0),
+            filter: ImageFilter.blur(sigmaX: 300.0, sigmaY: 300.0),
             child: Container(),
           ),
         ],

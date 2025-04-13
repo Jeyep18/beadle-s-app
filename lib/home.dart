@@ -102,7 +102,7 @@ class _HomePageState extends State<HomePage> {
       body: Stack(
         children: [
           Align(
-            alignment: Alignment(85, -0.7),
+            alignment: Alignment(85, -0.9),
             child: Container(
               height: 400,
               width: 400,
@@ -126,7 +126,7 @@ class _HomePageState extends State<HomePage> {
           ),
 
           Align(
-            alignment: Alignment(85, 1.5),
+            alignment: Alignment(110, 1.5),
             child: Container(
               height: 250,
               width: 400,
@@ -138,7 +138,7 @@ class _HomePageState extends State<HomePage> {
           ),
 
           BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 100.0, sigmaY: 300.0),
+            filter: ImageFilter.blur(sigmaX: 300.0, sigmaY: 300.0),
             child: Container(),
           ),
 
