@@ -1,4 +1,5 @@
 //import 'package:beadles_app_prototype1/main_page.dart';
+import 'package:beadles_app_prototype1/settings_page.dart';
 import 'package:beadles_app_prototype1/utils/pseudo_loading.dart';
 import 'package:beadles_app_prototype1/utils/themes/theme.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,10 @@ class MainApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: const SplashScreen(),
         locale: Locale('en', 'US'),
-        routes: {'/class-dashboard': (context) => ClassPage()},
+        routes: {
+          '/class-dashboard': (context) => ClassPage(),
+          '/settings-page': (context) => SettingsPage(),
+        },
         themeMode: ThemeMode.system,
         theme: AppTheme.lightTheme,
         darkTheme: AppTheme.darkTheme,

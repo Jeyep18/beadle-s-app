@@ -95,6 +95,7 @@ class _HomePageState extends State<HomePage> {
             child: IconButton(
               onPressed: () {
                 //settings page here
+                Navigator.pushNamed(context, '/settings-page');
               },
               icon: Icon(Icons.settings),
               color: Theme.of(context).colorScheme.tertiary,

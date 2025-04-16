@@ -1,10 +1,15 @@
 import 'dart:ui';
-import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-class ClassPage extends StatelessWidget {
-  const ClassPage({super.key});
+class SettingsPage extends StatefulWidget {
+  const SettingsPage({super.key});
 
+  @override
+  State<SettingsPage> createState() => _SettingsPageState();
+}
+
+class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,28 +23,10 @@ class ClassPage extends StatelessWidget {
         centerTitle: true,
         titleSpacing: 0,
         title: Text(
-          'Take Attendance',
+          'Settings',
           style: Theme.of(context).textTheme.headlineLarge,
         ),
         backgroundColor: Colors.transparent,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.info_outline),
-            onPressed: () {
-              //opens information page
-            },
-            color: Theme.of(context).colorScheme.tertiary,
-            iconSize: 25,
-          ),
-          IconButton(
-            onPressed: () {
-              //menu page here
-            },
-            icon: Icon(Icons.more_vert),
-            color: Theme.of(context).colorScheme.tertiary,
-            iconSize: 25,
-          ),
-        ],
       ),
 
       body: Stack(
