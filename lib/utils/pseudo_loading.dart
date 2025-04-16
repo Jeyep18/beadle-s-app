@@ -30,6 +30,25 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.book,
+                  size: 40,
+                  color: Theme.of(context).colorScheme.tertiary,
+                ),
+                SizedBox(width: 10),
+                Text(
+                  'Beadle\'s App',
+                  style: Theme.of(context).textTheme.headlineLarge?.copyWith(
+                    color: Theme.of(context).colorScheme.tertiary,
+                    fontSize: 35,
+                  ),
+                ),
+              ],
+            ),
+
             LoadingAnimationWidget.waveDots(
               color: Theme.of(context).colorScheme.primary,
               size: 100,

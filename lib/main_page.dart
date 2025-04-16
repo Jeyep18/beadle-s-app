@@ -4,7 +4,6 @@ import 'package:beadles_app_prototype1/whole_class_history_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
@@ -65,25 +64,6 @@ class _MainPageState extends State<MainPage> {
 
       body: _pages[currentPage],
 
-      // bottomNavigationBar: SizedBox(
-      //   height: 100,
-      //   child: BottomNavigationBar(
-
-      //     currentIndex: currentPage,
-      //     onTap: (value) {
-      //       setState(() {
-      //         currentPage = value;
-      //       });
-      //     },
-      //     items: [
-      //       BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-      //       BottomNavigationBarItem(
-      //         icon: Icon(Icons.calendar_month),
-      //         label: "History",
-      //       ),
-      //     ],
-      //   ),
-      // ),
       bottomNavigationBar: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),

@@ -83,7 +83,7 @@ class _WholeClassHistoryPageState extends State<WholeClassHistoryPage> {
           ),
 
           BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 300.0, sigmaY: 300.0),
+            filter: ImageFilter.blur(sigmaX: 200.0, sigmaY: 200.0),
             child: Container(),
           ),
         ],

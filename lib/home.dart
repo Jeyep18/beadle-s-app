@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:beadles_app_prototype1/utils/class_tile.dart';
 import 'package:beadles_app_prototype1/utils/create_new_class_popup.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter/services.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -44,6 +45,11 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        systemOverlayStyle:
+            Theme.of(context).brightness == Brightness.dark
+                ? SystemUiOverlayStyle
+                    .light // white icons for dark mode
+                : SystemUiOverlayStyle.dark, // black icons for light mode
         scrolledUnderElevation: 0,
         iconTheme: IconThemeData(color: Theme.of(context).colorScheme.tertiary),
         centerTitle: false,
@@ -138,7 +144,7 @@ class _HomePageState extends State<HomePage> {
           ),
 
           BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 300.0, sigmaY: 300.0),
+            filter: ImageFilter.blur(sigmaX: 200.0, sigmaY: 200.0),
             child: Container(),
           ),
 

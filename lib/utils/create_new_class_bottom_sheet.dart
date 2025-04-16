@@ -651,7 +651,7 @@ class _CreateNewClassBottomsheetState extends State<CreateNewClassBottomsheet> {
                           ],
                         ),
                       ),
-                      const SizedBox(height: 30),
+                      const SizedBox(height: 15),
 
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
