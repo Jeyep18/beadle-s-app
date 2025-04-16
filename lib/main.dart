@@ -16,6 +16,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: const SplashScreen(),
+      locale: Locale('en', 'US'),
       routes: {'/class-dashboard': (context) => ClassPage()},
       themeMode: ThemeMode.system,
       theme: AppTheme.lightTheme,
