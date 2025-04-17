@@ -8,6 +8,8 @@ class ClassTile extends StatelessWidget {
   final String schedule;
   final String roomNumber;
   final String professorName;
+  final String schoolYear;
+  final String semester;
 
   const ClassTile({
     super.key,
@@ -16,6 +18,8 @@ class ClassTile extends StatelessWidget {
     required this.schedule,
     required this.roomNumber,
     required this.professorName,
+    required this.schoolYear,
+    required this.semester,
   });
 
   @override
@@ -31,6 +35,8 @@ class ClassTile extends StatelessWidget {
             'schedule': schedule,
             'roomNumber': roomNumber,
             'professorName': professorName,
+            'schoolYear': schoolYear,
+            'semester': semester,
           },
         );
       },

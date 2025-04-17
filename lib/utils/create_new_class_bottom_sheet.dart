@@ -1,4 +1,5 @@
 import 'package:beadles_app_prototype1/utils/radio_buttons_day_selector.dart';
+import 'package:beadles_app_prototype1/utils/save_button.dart';
 import 'package:beadles_app_prototype1/utils/time_picker.dart';
 import 'package:flutter/material.dart';
 
@@ -93,7 +94,7 @@ class _CreateNewClassBottomsheetState extends State<CreateNewClassBottomsheet> {
                   //CONTENTS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
-                    children: [
+                    children: <Widget>[
                       SizedBox(
                         width: double.infinity,
                         child: Text(
@@ -653,25 +654,12 @@ class _CreateNewClassBottomsheetState extends State<CreateNewClassBottomsheet> {
                       ),
                       const SizedBox(height: 15),
 
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor:
-                              Theme.of(context).colorScheme.primary,
-                          minimumSize: Size(
-                            MediaQuery.of(context).size.width * 0.92,
-                            55,
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
+                      SaveButton(
+                        title: "Save",
                         onPressed: () {
+                          // Save button action
                           Navigator.pop(context);
                         },
-                        child: Text(
-                          'Create Class',
-                          style: Theme.of(context).textTheme.labelLarge,
-                        ),
                       ),
 
                       const SizedBox(height: 12),

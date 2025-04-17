@@ -4,6 +4,9 @@ import 'package:beadles_app_prototype1/whole_class_history_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+//THIS IS THE MAIN PAGE OF THE APP
+//IT CONTAINS THE BOTTOM NAVIGATION BAR AND THE FLOATING ACTION BUTTON
+
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
 

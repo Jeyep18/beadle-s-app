@@ -2,7 +2,7 @@ import 'dart:ui';
 import 'package:beadles_app_prototype1/whole_class_history_page.dart';
 import 'package:flutter/material.dart';
 import 'package:beadles_app_prototype1/utils/class_tile.dart';
-import 'package:beadles_app_prototype1/utils/create_new_class_popup.dart';
+//import 'package:beadles_app_prototype1/utils/create_new_class_popup.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter/services.dart';
 
@@ -21,19 +21,30 @@ class _HomePageState extends State<HomePage> {
       "ZC12Am",
       "MW 1:30PM - 3:00PM",
       "P116",
-      "Prof. Angelo Melecio Agawa",
+      "Mr. Angelo Melecio Agawa",
+      "S.Y. 2024-2025",
+      "2nd Semester",
+    ],
+    [
+      "CSMC101",
+      "ZC11Am",
+      "TTH 3:00PM - 4:30PM",
+      "P211",
+      "Mr. Solomon Olayta",
+      "S.Y. 2024-2025",
+      "2nd Semester",
     ],
   ];
 
   //create new class
-  void createNewClass() {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return CreateNewClassPopup();
-      },
-    );
-  }
+  // void createNewClass() {
+  //   showDialog(
+  //     context: context,
+  //     builder: (context) {
+  //       return CreateNewClassPopup();
+  //     },
+  //   );
+  // }
 
   //current page
   int currentPage = 0;
@@ -109,7 +120,7 @@ class _HomePageState extends State<HomePage> {
       body: Stack(
         children: [
           Align(
-            alignment: Alignment(85, -0.9),
+            alignment: Alignment(80, -1.2),
             child: Container(
               height: 400,
               width: 400,
@@ -121,7 +132,7 @@ class _HomePageState extends State<HomePage> {
           ),
 
           Align(
-            alignment: Alignment(-95, -0.2),
+            alignment: Alignment(-85, 0.1),
             child: Container(
               height: 400,
               width: 400,
@@ -133,12 +144,12 @@ class _HomePageState extends State<HomePage> {
           ),
 
           Align(
-            alignment: Alignment(110, 1.5),
+            alignment: Alignment(80, 1.7),
             child: Container(
-              height: 250,
+              height: 300,
               width: 400,
               decoration: BoxDecoration(
-                shape: BoxShape.rectangle,
+                shape: BoxShape.circle,
                 color: Theme.of(context).colorScheme.primary,
               ),
             ),
@@ -148,7 +159,6 @@ class _HomePageState extends State<HomePage> {
             filter: ImageFilter.blur(sigmaX: 200.0, sigmaY: 200.0),
             child: Container(),
           ),
-
           //==================================MAIN CONTENT==================================
           SingleChildScrollView(
             child: Padding(
@@ -207,6 +217,8 @@ class _HomePageState extends State<HomePage> {
                       schedule: cls[2],
                       roomNumber: cls[3],
                       professorName: cls[4],
+                      schoolYear: cls[5],
+                      semester: cls[6],
                     ),
                   ),
                 ],

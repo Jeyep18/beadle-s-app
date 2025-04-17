@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:beadles_app_prototype1/utils/background.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -70,46 +71,7 @@ class _WholeClassHistoryPageState extends State<WholeClassHistoryPage> {
 
       body: Stack(
         children: [
-          Align(
-            alignment: Alignment(85, -0.9),
-            child: Container(
-              height: 400,
-              width: 400,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Theme.of(context).colorScheme.secondary,
-              ),
-            ),
-          ),
-
-          Align(
-            alignment: Alignment(-95, -0.2),
-            child: Container(
-              height: 400,
-              width: 400,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Theme.of(context).colorScheme.primary,
-              ),
-            ),
-          ),
-
-          Align(
-            alignment: Alignment(110, 1.5),
-            child: Container(
-              height: 250,
-              width: 400,
-              decoration: BoxDecoration(
-                shape: BoxShape.rectangle,
-                color: Theme.of(context).colorScheme.primary,
-              ),
-            ),
-          ),
-
-          BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 200.0, sigmaY: 200.0),
-            child: Container(),
-          ),
+          BackgroundPage(), // Background widget
         ],
       ),
     );
