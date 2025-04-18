@@ -37,7 +37,7 @@ class _WholeClassHistoryPageState extends State<WholeClassHistoryPage> {
             style: Theme.of(context).textTheme.headlineLarge,
           ),
         ),
-        backgroundColor: Colors.transparent,
+        backgroundColor: const Color.fromARGB(0, 0, 0, 0),
         actions: [
           Animate(
             effects: [
@@ -70,9 +70,27 @@ class _WholeClassHistoryPageState extends State<WholeClassHistoryPage> {
         ],
       ),
 
+      extendBodyBehindAppBar: true,
+      extendBody: true,
+
       body: Stack(
         children: [
-          BackgroundPage(), // Background widget
+          const Positioned.fill(child: BackgroundPage()),
+
+          //==================================MAIN CONTENT==================================
+          Column(
+            children: [
+              SizedBox(
+                height: kToolbarHeight + MediaQuery.of(context).padding.top,
+              ),
+
+              Expanded(
+                child: Container(color: Colors.transparent),
+              ), //REPLACE THIS WITH CONTENTS
+
+              SizedBox(height: MediaQuery.of(context).padding.bottom),
+            ],
+          ),
         ],
       ),
     );

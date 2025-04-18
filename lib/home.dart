@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:beadles_app_prototype1/utils/background.dart';
 import 'package:beadles_app_prototype1/whole_class_history_page.dart';
 import 'package:flutter/material.dart';
 import 'package:beadles_app_prototype1/utils/class_tile.dart';
@@ -35,16 +36,6 @@ class _HomePageState extends State<HomePage> {
       "2nd Semester",
     ],
   ];
-
-  //create new class
-  // void createNewClass() {
-  //   showDialog(
-  //     context: context,
-  //     builder: (context) {
-  //       return CreateNewClassPopup();
-  //     },
-  //   );
-  // }
 
   //current page
   int currentPage = 0;
@@ -117,113 +108,99 @@ class _HomePageState extends State<HomePage> {
         actionsPadding: const EdgeInsets.only(right: 5),
       ),
 
+      extendBodyBehindAppBar: true,
+      extendBody: true,
+
       body: Stack(
         children: [
-          Align(
-            alignment: Alignment(80, -1.2),
-            child: Container(
-              height: 400,
-              width: 400,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Theme.of(context).colorScheme.secondary,
-              ),
-            ),
-          ),
-
-          Align(
-            alignment: Alignment(-85, 0.1),
-            child: Container(
-              height: 400,
-              width: 400,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Theme.of(context).colorScheme.primary,
-              ),
-            ),
-          ),
-
-          Align(
-            alignment: Alignment(80, 1.7),
-            child: Container(
-              height: 300,
-              width: 400,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Theme.of(context).colorScheme.primary,
-              ),
-            ),
-          ),
-
-          BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 200.0, sigmaY: 200.0),
-            child: Container(),
-          ),
+          const Positioned.fill(child: BackgroundPage()),
           //==================================MAIN CONTENT==================================
-          SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.only(
-                left: 5,
-                top: 10,
-                right: 5,
-                bottom: 20,
+          Column(
+            children: [
+              SizedBox(
+                //PADDING APP BAR
+                height: kToolbarHeight + MediaQuery.of(context).padding.top,
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10.0),
-                    child: Animate(
-                      effects: [
-                        FadeEffect(duration: 0.6.seconds, delay: 0.2.seconds),
-                        SlideEffect(
-                          duration: 0.4.seconds,
-                          begin: Offset(0, 0.3),
+
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                      left: 5,
+                      top: 10,
+                      right: 5,
+                      bottom: 20,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10.0),
+                          child: Animate(
+                            effects: [
+                              FadeEffect(
+                                duration: 0.6.seconds,
+                                delay: 0.2.seconds,
+                              ),
+                              SlideEffect(
+                                duration: 0.4.seconds,
+                                begin: Offset(0, 0.3),
+                              ),
+                            ],
+                            child: Text(
+                              'Taking Attendance made easy!',
+                              textAlign: TextAlign.start,
+                              style: Theme.of(context).textTheme.titleLarge,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 18),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10.0),
+                          child: Animate(
+                            effects: [
+                              FadeEffect(
+                                duration: 0.6.seconds,
+                                delay: 0.4.seconds,
+                              ),
+                              SlideEffect(
+                                duration: 0.3.seconds,
+                                begin: Offset(0, 0.5),
+                              ),
+                            ],
+                            child: Text(
+                              'My Classes:',
+                              textAlign: TextAlign.start,
+                              style: Theme.of(context).textTheme.headlineMedium,
+                            ),
+                          ),
+                        ),
+
+                        SizedBox(height: 5),
+
+                        //List of classes
+                        ...classList.map(
+                          (cls) => ClassTile(
+                            subjectCode: cls[0],
+                            classSection: cls[1],
+                            schedule: cls[2],
+                            roomNumber: cls[3],
+                            professorName: cls[4],
+                            schoolYear: cls[5],
+                            semester: cls[6],
+                          ),
                         ),
                       ],
-                      child: Text(
-                        'Taking Attendance made easy!',
-                        textAlign: TextAlign.start,
-                        style: Theme.of(context).textTheme.titleLarge,
-                      ),
                     ),
                   ),
-                  SizedBox(height: 18),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10.0),
-                    child: Animate(
-                      effects: [
-                        FadeEffect(duration: 0.6.seconds, delay: 0.4.seconds),
-                        SlideEffect(
-                          duration: 0.3.seconds,
-                          begin: Offset(0, 0.5),
-                        ),
-                      ],
-                      child: Text(
-                        'My Classes:',
-                        textAlign: TextAlign.start,
-                        style: Theme.of(context).textTheme.headlineMedium,
-                      ),
-                    ),
-                  ),
-
-                  SizedBox(height: 5),
-
-                  //List of classes
-                  ...classList.map(
-                    (cls) => ClassTile(
-                      subjectCode: cls[0],
-                      classSection: cls[1],
-                      schedule: cls[2],
-                      roomNumber: cls[3],
-                      professorName: cls[4],
-                      schoolYear: cls[5],
-                      semester: cls[6],
-                    ),
-                  ),
-                ],
+                ),
               ),
-            ),
+
+              SizedBox(
+                //PADDING BOTTOM NAVIGATION BAR
+                height: MediaQuery.of(context).padding.bottom,
+              ),
+            ],
           ),
         ],
       ),

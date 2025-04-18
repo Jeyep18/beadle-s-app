@@ -30,10 +30,30 @@ class _SettingsPageState extends State<SettingsPage> {
         backgroundColor: Colors.transparent,
       ),
 
+      extendBodyBehindAppBar: true,
+      extendBody: true,
+
       body: Stack(
         children: [
-          BackgroundPage(), // Background widget
+          const Positioned.fill(child: BackgroundPage()),
           //==================================MAIN CONTENT==================================
+          Column(
+            children: [
+              SizedBox(
+                //PADDING APP BAR
+                height: kToolbarHeight + MediaQuery.of(context).padding.top,
+              ),
+
+              Expanded(
+                child: Container(color: Colors.transparent),
+              ), //REPLACE THIS WITH CONTENTS
+
+              SizedBox(
+                //PADDING BOTTOM NAVIGATION BAR
+                height: MediaQuery.of(context).padding.bottom,
+              ),
+            ],
+          ),
         ],
       ),
     );

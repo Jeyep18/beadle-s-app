@@ -56,12 +56,19 @@ class ClassPage extends StatelessWidget {
         ],
       ),
 
+      extendBodyBehindAppBar: true,
+      extendBody: true,
+
       body: Stack(
         children: [
-          BackgroundPage(), // Background widget
+          const Positioned.fill(child: BackgroundPage()), // Background widget
           //==================================MAIN CONTENT==================================
           Column(
             children: [
+              SizedBox(
+                // PADDING FOR APPBAR
+                height: kToolbarHeight + MediaQuery.of(context).padding.top,
+              ),
               //CLASS TITLE
               Padding(
                 padding: const EdgeInsets.only(right: 10, left: 10, top: 10),
@@ -178,8 +185,9 @@ class ClassPage extends StatelessWidget {
                                       vertical: 6,
                                     ),
                                     filled: true,
-                                    fillColor:
-                                        Theme.of(context).colorScheme.tertiary,
+                                    fillColor: Color(
+                                      0xFFF7F7F7,
+                                    ), // Background color
                                     enabledBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(5),
                                       borderSide: const BorderSide(
@@ -275,6 +283,11 @@ class ClassPage extends StatelessWidget {
                         ),
                       ),
                     ),
+
+                    SizedBox(
+                      //PADDING FOR BOTTOM NAV
+                      height: MediaQuery.of(context).padding.bottom,
+                    ),
                   ],
                 ),
               ),
@@ -282,6 +295,7 @@ class ClassPage extends StatelessWidget {
           ),
         ],
       ),
+
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterDocked,
       floatingActionButton: FloatingActionButton(
