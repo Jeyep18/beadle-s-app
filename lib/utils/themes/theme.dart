@@ -33,6 +33,7 @@ class AppTheme {
         fontSize: 34,
         color: Color(0xFF312c4a),
         fontWeight: FontWeight.w400,
+        height: 1.1,
       ),
 
       //for subject code titles

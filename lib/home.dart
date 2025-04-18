@@ -113,7 +113,7 @@ class _HomePageState extends State<HomePage> {
 
       body: Stack(
         children: [
-          const Positioned.fill(child: BackgroundPage()),
+          const Positioned.fill(child: BackgroundPage()), // Background page
           //==================================MAIN CONTENT==================================
           Column(
             children: [
@@ -154,7 +154,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 18),
+                        SizedBox(height: 18), //GAP
                         Padding(
                           padding: const EdgeInsets.only(left: 10.0),
                           child: Animate(
