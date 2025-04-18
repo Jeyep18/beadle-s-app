@@ -44,14 +44,17 @@ class _CreateNewClassBottomsheetState extends State<CreateNewClassBottomsheet> {
       builder: (context, scrollController) {
         return Container(
           decoration: BoxDecoration(
-            color: Theme.of(context).canvasColor,
+            color:
+                Theme.of(
+                  context,
+                ).scaffoldBackgroundColor, //BG OF THE BOTTOM SHIT
             borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
           ),
           padding: const EdgeInsets.only(top: 13),
           child: Column(
             children: [
               SizedBox(
-                height: 5,
+                height: 4,
                 width: 40,
                 child: Container(
                   decoration: BoxDecoration(
@@ -88,7 +91,6 @@ class _CreateNewClassBottomsheetState extends State<CreateNewClassBottomsheet> {
                   padding: EdgeInsets.only(
                     left: 16,
                     right: 16,
-
                     bottom: MediaQuery.of(context).viewInsets.bottom + 20,
                   ),
                   //CONTENTS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -286,8 +288,7 @@ class _CreateNewClassBottomsheetState extends State<CreateNewClassBottomsheet> {
                                     ),
                                   ),
                                 ),
-                                dropdownColor:
-                                    Theme.of(context).scaffoldBackgroundColor,
+                                dropdownColor: Theme.of(context).canvasColor,
                                 style: Theme.of(context).textTheme.labelSmall,
                                 items:
                                     ['Online', 'Blended Online', 'Face to Face']
@@ -508,8 +509,7 @@ class _CreateNewClassBottomsheetState extends State<CreateNewClassBottomsheet> {
                                     ),
                                   ),
                                 ),
-                                dropdownColor:
-                                    Theme.of(context).scaffoldBackgroundColor,
+                                dropdownColor: Theme.of(context).canvasColor,
                                 style: Theme.of(context).textTheme.labelSmall,
                                 items:
                                     ['1st Semester', '2nd Semester']
@@ -655,7 +655,7 @@ class _CreateNewClassBottomsheetState extends State<CreateNewClassBottomsheet> {
                       const SizedBox(height: 15),
 
                       SaveButton(
-                        title: "Save",
+                        title: "Create Class",
                         onPressed: () {
                           // Save button action
                           Navigator.pop(context);

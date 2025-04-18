@@ -130,7 +130,7 @@ class AppTheme {
       //for text field hints
       labelSmall: GoogleFonts.poppins(
         fontSize: 14,
-        color: const Color.fromARGB(255, 226, 226, 226),
+        color: const Color.fromARGB(255, 116, 116, 116),
         fontWeight: FontWeight.w400,
       ),
     ),

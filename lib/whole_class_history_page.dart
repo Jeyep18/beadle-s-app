@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:beadles_app_prototype1/utils/background.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
