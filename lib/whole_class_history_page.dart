@@ -13,6 +13,7 @@ class WholeClassHistoryPage extends StatefulWidget {
 
 class _WholeClassHistoryPageState extends State<WholeClassHistoryPage> {
   // SAIMO NI LENNARD DIPOTA KA
+  // Matalino ka talaga boss
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,7 @@ class _WholeClassHistoryPageState extends State<WholeClassHistoryPage> {
             SlideEffect(duration: 0.4.seconds, begin: Offset(-0.1, 0)),
           ],
           child: Text(
-            'History Page',
+            'History page',
             style: Theme.of(context).textTheme.headlineLarge,
           ),
         ),

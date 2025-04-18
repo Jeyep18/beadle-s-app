@@ -282,6 +282,17 @@ class ClassPage extends StatelessWidget {
           ),
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Handle FAB action here (e.g., add attendance record)
+        },
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        shape: const CircleBorder(),
+        elevation: 4,
+        child: const Icon(Icons.add, size: 30, color: Colors.white),
+      ),
+
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
