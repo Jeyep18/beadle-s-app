@@ -36,9 +36,9 @@ class _CreateNewClassBottomsheetState extends State<CreateNewClassBottomsheet> {
   @override
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(
-      initialChildSize: 0.85,
-      minChildSize: 0.85,
-      maxChildSize: 0.85,
+      initialChildSize: 0.75,
+      minChildSize: 0.75,
+      maxChildSize: 0.75,
       expand: false,
 
       builder: (context, scrollController) {
@@ -108,20 +108,20 @@ class _CreateNewClassBottomsheetState extends State<CreateNewClassBottomsheet> {
                       const SizedBox(height: 12),
 
                       // Header Image
-                      Container(
-                        height: 70,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).scaffoldBackgroundColor,
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(
-                            color: const Color.fromARGB(255, 117, 117, 117),
-                            width: 1,
-                          ),
-                        ),
-                        child: Icon(Icons.add, size: 40, color: Colors.grey),
-                      ),
-                      const SizedBox(height: 10),
+                      // Container(
+                      //   height: 70,
+                      //   width: double.infinity,
+                      //   decoration: BoxDecoration(
+                      //     color: Theme.of(context).scaffoldBackgroundColor,
+                      //     borderRadius: BorderRadius.circular(10),
+                      //     border: Border.all(
+                      //       color: const Color.fromARGB(255, 117, 117, 117),
+                      //       width: 1,
+                      //     ),
+                      //   ),
+                      //   child: Icon(Icons.add, size: 40, color: Colors.grey),
+                      // ),
+                      // const SizedBox(height: 10),
 
                       // Subject Code
                       TextField(
@@ -289,7 +289,7 @@ class _CreateNewClassBottomsheetState extends State<CreateNewClassBottomsheet> {
                                   ),
                                 ),
                                 dropdownColor: Theme.of(context).canvasColor,
-                                style: Theme.of(context).textTheme.labelSmall,
+                                style: Theme.of(context).textTheme.titleSmall,
                                 items:
                                     ['Online', 'Blended Online', 'Face to Face']
                                         .map(
@@ -510,7 +510,7 @@ class _CreateNewClassBottomsheetState extends State<CreateNewClassBottomsheet> {
                                   ),
                                 ),
                                 dropdownColor: Theme.of(context).canvasColor,
-                                style: Theme.of(context).textTheme.labelSmall,
+                                style: Theme.of(context).textTheme.titleSmall,
                                 items:
                                     ['1st Semester', '2nd Semester']
                                         .map(

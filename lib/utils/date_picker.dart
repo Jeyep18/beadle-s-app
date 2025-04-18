@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 
 class DatePicker extends StatefulWidget {
   const DatePicker({super.key});
@@ -30,94 +31,51 @@ class _DatePickerState extends State<DatePicker> {
       child: SizedBox(
         width: MediaQuery.of(context).size.width * 0.5,
         child: Flexible(
-          child: Row(
-            children: [
-              //MONTH
-              Expanded(
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 8,
-                    vertical: 6,
-                  ),
-                  height: 33,
-                  decoration: BoxDecoration(
-                    color: Color.fromARGB(235, 255, 255, 255),
-                    borderRadius: BorderRadius.circular(5),
-                    border: Border.all(
-                      color: const Color.fromARGB(255, 117, 117, 117),
-                      width: 1,
-                    ),
-                  ),
-                  child: Text(
-                    '${selectedDate.month}',
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.poppins(
-                      fontSize: 15,
-                      color: Color.fromARGB(255, 7, 7, 7),
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
+          child:
+          //MONTH
+          Expanded(
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+              height: 34,
+              decoration: BoxDecoration(
+                color: Color(0xFFF7F7F7),
+                borderRadius: BorderRadius.circular(5),
+                border: Border.all(
+                  color: const Color.fromARGB(255, 117, 117, 117),
+                  width: 1,
                 ),
               ),
-
-              SizedBox(width: 5), // Gap
-              //DATE
-              Expanded(
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 8,
-                    vertical: 6,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  //DATE ICON
+                  const Icon(
+                    Icons.calendar_today,
+                    color: Color.fromARGB(255, 7, 7, 7),
+                    size: 15,
                   ),
-                  height: 33,
-                  decoration: BoxDecoration(
-                    color: Color.fromARGB(235, 255, 255, 255),
-                    borderRadius: BorderRadius.circular(5),
-                    border: Border.all(
-                      color: const Color.fromARGB(255, 117, 117, 117),
-                      width: 1,
-                    ),
-                  ),
-                  child: Text(
-                    '${selectedDate.day}',
+                  const SizedBox(width: 5),
+                  //DATE TEXT
+                  Text(
+                    DateFormat('MMM d, y').format(selectedDate),
                     textAlign: TextAlign.center,
                     style: GoogleFonts.poppins(
-                      fontSize: 15,
+                      fontSize: 14,
                       color: Color.fromARGB(255, 7, 7, 7),
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
-                ),
+                  const SizedBox(width: 5),
+                  //DATE ARROW ICON
+                  const Icon(
+                    Icons.arrow_drop_down,
+                    color: Color.fromARGB(255, 7, 7, 7),
+                    size: 20,
+                  ),
+                ],
               ),
-
-              SizedBox(width: 5), // Gap
-              //YEAR
-              Expanded(
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 8,
-                    vertical: 6,
-                  ),
-                  height: 33,
-                  decoration: BoxDecoration(
-                    color: Color.fromARGB(235, 255, 255, 255),
-                    borderRadius: BorderRadius.circular(5),
-                    border: Border.all(
-                      color: const Color.fromARGB(255, 117, 117, 117),
-                      width: 1,
-                    ),
-                  ),
-                  child: Text(
-                    '${selectedDate.year % 100}',
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.poppins(
-                      fontSize: 15,
-                      color: Color.fromARGB(255, 7, 7, 7),
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-              ),
-            ],
+            ),
           ),
         ),
       ),

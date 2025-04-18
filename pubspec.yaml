@@ -13,6 +13,7 @@ dependencies:
   loading_animation_widget:
   flutter_animate: ^4.5.2
   flutter_slidable: ^4.0.0
+  intl: ^0.18.1
 
 dev_dependencies:
   flutter_test:
