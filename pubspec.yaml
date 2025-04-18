@@ -12,6 +12,7 @@ dependencies:
   google_fonts: ^6.2.1
   loading_animation_widget:
   flutter_animate: ^4.5.2
+  flutter_slidable: ^4.0.0
 
 dev_dependencies:
   flutter_test:

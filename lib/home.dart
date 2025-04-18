@@ -43,6 +43,13 @@ class _HomePageState extends State<HomePage> {
   //widget pages
   final List<Widget> pages = [const HomePage(), WholeClassHistoryPage()];
 
+  //delete tile function
+  void deleteTile(int index) {
+    setState(() {
+      classList.removeAt(index);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -179,15 +186,17 @@ class _HomePageState extends State<HomePage> {
                         SizedBox(height: 5),
 
                         //List of classes
-                        ...classList.map(
-                          (cls) => ClassTile(
-                            subjectCode: cls[0],
-                            classSection: cls[1],
-                            schedule: cls[2],
-                            roomNumber: cls[3],
-                            professorName: cls[4],
-                            schoolYear: cls[5],
-                            semester: cls[6],
+                        ...classList.asMap().entries.map(
+                          (entry) => ClassTile(
+                            deleteTileFunction:
+                                (context) => deleteTile(entry.key),
+                            subjectCode: entry.value[0],
+                            classSection: entry.value[1],
+                            schedule: entry.value[2],
+                            roomNumber: entry.value[3],
+                            professorName: entry.value[4],
+                            schoolYear: entry.value[5],
+                            semester: entry.value[6],
                           ),
                         ),
                       ],
