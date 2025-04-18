@@ -1,4 +1,5 @@
 //import 'package:beadles_app_prototype1/main_page.dart';
+import 'package:beadles_app_prototype1/profile_page.dart';
 import 'package:beadles_app_prototype1/settings_page.dart';
 import 'package:beadles_app_prototype1/utils/pseudo_loading.dart';
 import 'package:beadles_app_prototype1/utils/themes/theme.dart';
@@ -28,6 +29,7 @@ class MainApp extends StatelessWidget {
         routes: {
           '/class-dashboard': (context) => ClassPage(),
           '/settings-page': (context) => SettingsPage(),
+          '/profile-page': (context) => ProfilePage(),
         },
         themeMode: ThemeMode.system,
         theme: AppTheme.lightTheme,

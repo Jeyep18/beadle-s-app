@@ -91,6 +91,7 @@ class _HomePageState extends State<HomePage> {
               icon: const Icon(Icons.person),
               onPressed: () {
                 //for opening profile page
+                Navigator.pushNamed(context, '/profile-page');
               },
               color: Theme.of(context).colorScheme.tertiary,
               iconSize: 30,

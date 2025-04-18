@@ -2,14 +2,9 @@ import 'package:beadles_app_prototype1/utils/background.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class SettingsPage extends StatefulWidget {
-  const SettingsPage({super.key});
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
 
-  @override
-  State<SettingsPage> createState() => _SettingsPageState();
-}
-
-class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +18,7 @@ class _SettingsPageState extends State<SettingsPage> {
         centerTitle: true,
         titleSpacing: 0,
         title: Text(
-          'Settings',
+          'Profile Page',
           style: Theme.of(context).textTheme.headlineLarge,
         ),
         backgroundColor: Colors.transparent,
@@ -45,7 +40,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
               Expanded(
                 child: Container(color: Colors.transparent),
-              ), //REPLACE THIS WITH CONTENTS
+              ), //REPLACE THIS SHIT WITH CONTENTS
 
               SizedBox(
                 //PADDING BOTTOM NAVIGATION BAR
