@@ -134,7 +134,7 @@ class AppTheme {
         fontWeight: FontWeight.w400,
       ),
     ),
-    scaffoldBackgroundColor: Color.fromARGB(255, 7, 7, 7),
+    scaffoldBackgroundColor: Color(0xFF060606),
     brightness: Brightness.dark,
     primarySwatch: Colors.blue,
     colorScheme: ColorScheme.dark(
