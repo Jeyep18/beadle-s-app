@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 void showBottomSheet(BuildContext context) {
   showModalBottomSheet(
     context: context,
+    backgroundColor: Colors.transparent,
+    elevation: 6,
     isScrollControlled: true,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
@@ -40,17 +42,23 @@ class _CreateNewClassBottomsheetState extends State<CreateNewClassBottomsheet> {
       minChildSize: 0.75,
       maxChildSize: 0.75,
       expand: false,
-
       builder: (context, scrollController) {
         return Container(
           decoration: BoxDecoration(
             color:
-                Theme.of(
-                  context,
-                ).scaffoldBackgroundColor, //BG OF THE BOTTOM SHIT
+                Theme.of(context).brightness == Brightness.light
+                    ? Color.fromARGB(255, 243, 248, 253)
+                    : Color.fromARGB(255, 12, 14, 19),
             borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
+            border: Border.all(
+              color:
+                  Theme.of(context).brightness == Brightness.light
+                      ? Color.fromARGB(255, 173, 210, 255)
+                      : Color.fromARGB(255, 61, 74, 109),
+              width: 0.5,
+            ),
           ),
-          padding: const EdgeInsets.only(top: 13),
+          padding: const EdgeInsets.only(top: 12),
           child: Column(
             children: [
               SizedBox(
@@ -64,27 +72,30 @@ class _CreateNewClassBottomsheetState extends State<CreateNewClassBottomsheet> {
                 ),
               ),
 
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SizedBox(width: MediaQuery.of(context).size.width * 0.1),
+              Padding(
+                padding: EdgeInsets.only(right: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(width: MediaQuery.of(context).size.width * 0.14),
 
-                  Text(
-                    'Create Class',
-                    style: Theme.of(context).textTheme.headlineMedium,
-                  ),
-
-                  IconButton(
-                    onPressed: () => Navigator.pop(context),
-                    icon: Icon(
-                      Icons.close,
-                      size: 25,
-                      color: Theme.of(context).colorScheme.tertiary,
+                    Text(
+                      'Create Class',
+                      style: Theme.of(context).textTheme.headlineMedium,
                     ),
-                  ),
-                ],
+
+                    IconButton(
+                      onPressed: () => Navigator.pop(context),
+                      icon: Icon(
+                        Icons.close,
+                        size: 25,
+                        color: Theme.of(context).colorScheme.tertiary,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              const SizedBox(height: 13),
+              const SizedBox(height: 12),
 
               Expanded(
                 child: SingleChildScrollView(
@@ -131,7 +142,10 @@ class _CreateNewClassBottomsheetState extends State<CreateNewClassBottomsheet> {
                           hintText: 'Subject Code',
                           hintStyle: Theme.of(context).textTheme.labelSmall,
                           filled: true,
-                          fillColor: Theme.of(context).scaffoldBackgroundColor,
+                          fillColor:
+                              Theme.of(context).brightness == Brightness.light
+                                  ? Color.fromARGB(255, 239, 246, 250)
+                                  : Color.fromARGB(255, 18, 22, 32),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
@@ -154,7 +168,10 @@ class _CreateNewClassBottomsheetState extends State<CreateNewClassBottomsheet> {
                           hintText: 'Teacher\'s name',
                           hintStyle: Theme.of(context).textTheme.labelSmall,
                           filled: true,
-                          fillColor: Theme.of(context).scaffoldBackgroundColor,
+                          fillColor:
+                              Theme.of(context).brightness == Brightness.light
+                                  ? Color.fromARGB(255, 239, 246, 250)
+                                  : Color.fromARGB(255, 18, 22, 32),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
@@ -182,7 +199,10 @@ class _CreateNewClassBottomsheetState extends State<CreateNewClassBottomsheet> {
                                     Theme.of(context).textTheme.labelSmall,
                                 filled: true,
                                 fillColor:
-                                    Theme.of(context).scaffoldBackgroundColor,
+                                    Theme.of(context).brightness ==
+                                            Brightness.light
+                                        ? Color.fromARGB(255, 239, 246, 250)
+                                        : Color.fromARGB(255, 18, 22, 32),
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                   borderSide: BorderSide(
@@ -212,7 +232,10 @@ class _CreateNewClassBottomsheetState extends State<CreateNewClassBottomsheet> {
                                     Theme.of(context).textTheme.labelSmall,
                                 filled: true,
                                 fillColor:
-                                    Theme.of(context).scaffoldBackgroundColor,
+                                    Theme.of(context).brightness ==
+                                            Brightness.light
+                                        ? Color.fromARGB(255, 239, 246, 250)
+                                        : Color.fromARGB(255, 18, 22, 32),
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                   borderSide: BorderSide(
@@ -239,7 +262,10 @@ class _CreateNewClassBottomsheetState extends State<CreateNewClassBottomsheet> {
                       Container(
                         padding: const EdgeInsets.all(8),
                         decoration: BoxDecoration(
-                          color: Theme.of(context).scaffoldBackgroundColor,
+                          color:
+                              Theme.of(context).brightness == Brightness.light
+                                  ? Color.fromARGB(255, 239, 246, 250)
+                                  : Color.fromARGB(255, 18, 22, 32),
                           borderRadius: BorderRadius.circular(10),
                           border: Border.all(
                             color: const Color.fromARGB(255, 117, 117, 117),
@@ -269,7 +295,10 @@ class _CreateNewClassBottomsheetState extends State<CreateNewClassBottomsheet> {
                                   ),
                                   filled: true,
                                   fillColor:
-                                      Theme.of(context).scaffoldBackgroundColor,
+                                      Theme.of(context).brightness ==
+                                              Brightness.light
+                                          ? Color.fromARGB(255, 243, 248, 253)
+                                          : Color.fromARGB(255, 12, 14, 19),
                                   hintText: 'Select Modality',
                                   hintStyle:
                                       Theme.of(context).textTheme.labelSmall,
@@ -311,7 +340,10 @@ class _CreateNewClassBottomsheetState extends State<CreateNewClassBottomsheet> {
                       Container(
                         padding: const EdgeInsets.all(8),
                         decoration: BoxDecoration(
-                          color: Theme.of(context).scaffoldBackgroundColor,
+                          color:
+                              Theme.of(context).brightness == Brightness.light
+                                  ? Color.fromARGB(255, 239, 246, 250)
+                                  : Color.fromARGB(255, 18, 22, 32),
                           borderRadius: BorderRadius.circular(10),
                           border: Border.all(
                             color: const Color.fromARGB(255, 117, 117, 117),
@@ -353,9 +385,20 @@ class _CreateNewClassBottomsheetState extends State<CreateNewClassBottomsheet> {
                                             ).textTheme.labelSmall,
                                         filled: true,
                                         fillColor:
-                                            Theme.of(
-                                              context,
-                                            ).scaffoldBackgroundColor,
+                                            Theme.of(context).brightness ==
+                                                    Brightness.light
+                                                ? Color.fromARGB(
+                                                  255,
+                                                  243,
+                                                  248,
+                                                  253,
+                                                )
+                                                : Color.fromARGB(
+                                                  255,
+                                                  12,
+                                                  14,
+                                                  19,
+                                                ),
                                         enabledBorder: OutlineInputBorder(
                                           borderRadius: BorderRadius.circular(
                                             10,
@@ -410,9 +453,20 @@ class _CreateNewClassBottomsheetState extends State<CreateNewClassBottomsheet> {
                                             ).textTheme.labelSmall,
                                         filled: true,
                                         fillColor:
-                                            Theme.of(
-                                              context,
-                                            ).scaffoldBackgroundColor,
+                                            Theme.of(context).brightness ==
+                                                    Brightness.light
+                                                ? Color.fromARGB(
+                                                  255,
+                                                  243,
+                                                  248,
+                                                  253,
+                                                )
+                                                : Color.fromARGB(
+                                                  255,
+                                                  12,
+                                                  14,
+                                                  19,
+                                                ),
                                         enabledBorder: OutlineInputBorder(
                                           borderRadius: BorderRadius.circular(
                                             10,
@@ -456,7 +510,10 @@ class _CreateNewClassBottomsheetState extends State<CreateNewClassBottomsheet> {
                       Container(
                         padding: const EdgeInsets.all(8),
                         decoration: BoxDecoration(
-                          color: Theme.of(context).scaffoldBackgroundColor,
+                          color:
+                              Theme.of(context).brightness == Brightness.light
+                                  ? Color.fromARGB(255, 239, 246, 250)
+                                  : Color.fromARGB(255, 18, 22, 32),
                           borderRadius: BorderRadius.circular(10),
                           border: Border.all(
                             color: const Color.fromARGB(255, 117, 117, 117),
@@ -493,7 +550,10 @@ class _CreateNewClassBottomsheetState extends State<CreateNewClassBottomsheet> {
                                       Theme.of(context).textTheme.labelSmall,
                                   filled: true,
                                   fillColor:
-                                      Theme.of(context).scaffoldBackgroundColor,
+                                      Theme.of(context).brightness ==
+                                              Brightness.light
+                                          ? Color.fromARGB(255, 243, 248, 253)
+                                          : Color.fromARGB(255, 12, 14, 19),
                                   enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10),
                                     borderSide: const BorderSide(
@@ -542,7 +602,10 @@ class _CreateNewClassBottomsheetState extends State<CreateNewClassBottomsheet> {
                         height: 120,
                         width: double.infinity,
                         decoration: BoxDecoration(
-                          color: Theme.of(context).scaffoldBackgroundColor,
+                          color:
+                              Theme.of(context).brightness == Brightness.light
+                                  ? Color.fromARGB(255, 239, 246, 250)
+                                  : Color.fromARGB(255, 18, 22, 32),
                           borderRadius: BorderRadius.circular(10),
                           border: Border.all(
                             color: const Color.fromARGB(255, 117, 117, 117),
@@ -579,7 +642,10 @@ class _CreateNewClassBottomsheetState extends State<CreateNewClassBottomsheet> {
                       Container(
                         padding: const EdgeInsets.all(8),
                         decoration: BoxDecoration(
-                          color: Theme.of(context).scaffoldBackgroundColor,
+                          color:
+                              Theme.of(context).brightness == Brightness.light
+                                  ? Color.fromARGB(255, 239, 246, 250)
+                                  : Color.fromARGB(255, 18, 22, 32),
                           borderRadius: BorderRadius.circular(10),
                           border: Border.all(
                             color: const Color.fromARGB(255, 117, 117, 117),
@@ -608,7 +674,10 @@ class _CreateNewClassBottomsheetState extends State<CreateNewClassBottomsheet> {
                               ),
                               decoration: BoxDecoration(
                                 color:
-                                    Theme.of(context).scaffoldBackgroundColor,
+                                    Theme.of(context).brightness ==
+                                            Brightness.light
+                                        ? Color.fromARGB(255, 243, 248, 253)
+                                        : Color.fromARGB(255, 12, 14, 19),
                                 borderRadius: BorderRadius.circular(10),
                                 border: Border.all(
                                   color: const Color.fromARGB(
@@ -635,7 +704,10 @@ class _CreateNewClassBottomsheetState extends State<CreateNewClassBottomsheet> {
                               ),
                               decoration: BoxDecoration(
                                 color:
-                                    Theme.of(context).scaffoldBackgroundColor,
+                                    Theme.of(context).brightness ==
+                                            Brightness.light
+                                        ? Color.fromARGB(255, 243, 248, 253)
+                                        : Color.fromARGB(255, 12, 14, 19),
                                 borderRadius: BorderRadius.circular(10),
                                 border: Border.all(
                                   color: const Color.fromARGB(

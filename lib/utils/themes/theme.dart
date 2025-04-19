@@ -68,8 +68,8 @@ class AppTheme {
     brightness: Brightness.light,
     primarySwatch: Colors.blue,
     colorScheme: ColorScheme.light(
-      primary: Color(0xFF48bea2),
-      secondary: Color(0xFF3546df),
+      primary: Color(0xFF3F51B5),
+      secondary: Color(0xFF2f8983),
       tertiary: Color(0xFF312c4a),
     ),
   );
@@ -123,7 +123,7 @@ class AppTheme {
       //for buttons
       labelLarge: GoogleFonts.poppins(
         fontSize: 16,
-        color: const Color(0xFF312c4a),
+        color: const Color.fromARGB(255, 255, 255, 255),
         fontWeight: FontWeight.w600,
       ),
 
@@ -138,8 +138,8 @@ class AppTheme {
     brightness: Brightness.dark,
     primarySwatch: Colors.blue,
     colorScheme: ColorScheme.dark(
-      primary: Color(0xFF48bea2),
-      secondary: Color(0xFF3546df),
+      primary: Color(0xFF3F51B5),
+      secondary: Color(0xFF2f8983),
       tertiary: Color(0xFFF7F7F7),
     ),
   );

@@ -36,13 +36,13 @@ class _DatePickerState extends State<DatePicker> {
           Expanded(
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
-              height: 34,
+              height: 35,
               decoration: BoxDecoration(
-                color: Color(0xFFF7F7F7),
+                color: Color.fromARGB(255, 245, 244, 255),
                 borderRadius: BorderRadius.circular(5),
                 border: Border.all(
-                  color: const Color.fromARGB(255, 117, 117, 117),
-                  width: 1,
+                  color: const Color.fromARGB(255, 223, 220, 255),
+                  width: 0.5,
                 ),
               ),
               child: Row(

@@ -45,6 +45,8 @@ class _MainPageState extends State<MainPage> {
           FloatingActionButtonLocation.miniCenterDocked,
 
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
         onPressed: () => createNewClass(context),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
         child: Container(
@@ -52,20 +54,25 @@ class _MainPageState extends State<MainPage> {
           height: 60,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(50),
+            border: Border.all(
+              color: Color.fromARGB(158, 63, 81, 181),
+              width: 1,
+            ),
             gradient: LinearGradient(
               begin: Alignment.topLeft,
-              end: Alignment(0.6, 1),
+              end: Alignment.bottomRight,
               colors: [
-                Theme.of(context).colorScheme.primary,
-                Theme.of(context).colorScheme.primary,
+                Theme.of(context).brightness == Brightness.light
+                    ? Color.fromARGB(244, 80, 103, 231)
+                    : Color.fromARGB(151, 63, 81, 181),
+
+                Theme.of(context).brightness == Brightness.light
+                    ? Color.fromARGB(181, 57, 72, 160)
+                    : Color.fromARGB(108, 40, 51, 117),
               ],
             ),
           ),
-          child: Icon(
-            Icons.add,
-            size: 35,
-            color: Theme.of(context).colorScheme.tertiary,
-          ),
+          child: Icon(Icons.add, size: 35, color: const Color(0xFFF7F7F7)),
         ),
       ),
 
@@ -78,13 +85,21 @@ class _MainPageState extends State<MainPage> {
             alignment: Alignment.bottomCenter,
             children: [
               CustomPaint(
-                painter: NotchedBorderPainter(borderColor: Color(0xFFE8E8E8)),
+                painter: NotchedBorderPainter(
+                  borderColor:
+                      Theme.of(context).brightness == Brightness.light
+                          ? Color.fromARGB(255, 173, 210, 255)
+                          : Color.fromARGB(255, 61, 74, 109),
+                ),
                 child: Container(height: 90, color: Colors.transparent),
               ),
               ClipRRect(
                 borderRadius: BorderRadius.circular(24),
                 child: BottomAppBar(
-                  color: Color(0x40E8E8E8),
+                  color:
+                      Theme.of(context).brightness == Brightness.light
+                          ? Color.fromARGB(255, 234, 243, 255)
+                          : Color.fromARGB(255, 26, 30, 41),
                   shape: const CircularNotchedRectangle(),
                   notchMargin: 8,
                   height: 90,

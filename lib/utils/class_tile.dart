@@ -59,7 +59,7 @@ class ClassTile extends StatelessWidget {
               children: [
                 CustomSlidableAction(
                   autoClose: true,
-                  backgroundColor: Color.fromARGB(66, 255, 0, 0),
+                  backgroundColor: Color.fromARGB(38, 255, 0, 0),
                   borderRadius: BorderRadius.circular(15),
                   onPressed: deleteTileFunction,
                   child: Icon(Icons.delete, size: 40, color: Color(0xFFF7F7F7)),
@@ -76,9 +76,16 @@ class ClassTile extends StatelessWidget {
                 width: double.infinity,
                 height: 130,
                 decoration: BoxDecoration(
-                  color: Color(0x40E8E8E8),
+                  gradient: LinearGradient(
+                    colors: [
+                      Color.fromARGB(48, 255, 255, 255),
+                      Color.fromARGB(45, 126, 126, 126),
+                    ],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
                   borderRadius: BorderRadius.circular(15),
-                  border: Border.all(color: Color(0xFFE8E8E8)),
+                  border: Border.all(color: Color.fromARGB(92, 255, 255, 255)),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.only(top: 45.0, bottom: 10.0),
