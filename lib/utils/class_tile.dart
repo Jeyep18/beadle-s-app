@@ -33,7 +33,7 @@ class ClassTile extends StatelessWidget {
       onTap: () {
         Navigator.pushNamed(
           context,
-          '/class-dashboard',
+          '/class-main-nav-page',
           arguments: {
             'subjectCode': subjectCode,
             'classSection': classSection,

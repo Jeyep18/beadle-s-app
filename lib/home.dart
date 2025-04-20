@@ -1,8 +1,6 @@
 import 'package:beadles_app_prototype1/utils/background.dart';
-import 'package:beadles_app_prototype1/whole_class_history_page.dart';
 import 'package:flutter/material.dart';
 import 'package:beadles_app_prototype1/utils/class_tile.dart';
-//import 'package:beadles_app_prototype1/utils/create_new_class_popup.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter/services.dart';
 
@@ -34,13 +32,34 @@ class _HomePageState extends State<HomePage> {
       "S.Y. 2024-2025",
       "2nd Semester",
     ],
+    [
+      "CSDC101",
+      "ZT11Am",
+      "MW 10:30AM - 11:30AM",
+      "AL211",
+      "Mr. Kurt Sereno",
+      "S.Y. 2024-2025",
+      "4th Semester",
+    ],
+    [
+      "SOCS102",
+      "ZC11Am",
+      "TTH 12:00NN - 1:30PM",
+      "P211",
+      "Mr. Michael Roland Hernandez",
+      "S.Y. 2024-2025",
+      "2nd Semester",
+    ],
+    [
+      "THEN101",
+      "ZT12Am",
+      "TTH 4:30PM - 6:00PM",
+      "P116",
+      "Mr. Juan Bautista Janthe Bagadion",
+      "S.Y. 2024-2025",
+      "2nd Semester",
+    ],
   ];
-
-  //current page
-  int currentPage = 0;
-
-  //widget pages
-  final List<Widget> pages = [const HomePage(), WholeClassHistoryPage()];
 
   //delete tile function
   void deleteTile(int index) {
