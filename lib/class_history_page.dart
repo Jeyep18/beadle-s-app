@@ -51,14 +51,14 @@ class _ClassHistoryPageState extends State<ClassHistoryPage> {
           ),
           backgroundColor: const Color.fromARGB(0, 0, 0, 0),
           actions: [
-            IconButton(
-              icon: const Icon(Icons.info_outline),
-              onPressed: () {
-                //opens information page
-              },
-              color: Theme.of(context).colorScheme.tertiary,
-              iconSize: 25,
-            ),
+            // IconButton(
+            //   icon: const Icon(Icons.info_outline),
+            //   onPressed: () {
+            //     //opens information page
+            //   },
+            //   color: Theme.of(context).colorScheme.tertiary,
+            //   iconSize: 25,
+            // ),
             IconButton(
               onPressed: () {
                 //menu page here

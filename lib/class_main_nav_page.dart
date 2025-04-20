@@ -96,7 +96,7 @@ class _ClassMainNavPageState extends State<ClassMainNavPage> {
                         children: [
                           IconButton(
                             iconSize: 45,
-                            icon: const Icon(Icons.person),
+                            icon: const Icon(Icons.group),
                             padding: const EdgeInsets.symmetric(
                               horizontal: 0,
                               vertical: 0,
@@ -110,7 +110,7 @@ class _ClassMainNavPageState extends State<ClassMainNavPage> {
                                     : Theme.of(context).colorScheme.tertiary,
                           ),
                           Text(
-                            'Class',
+                            'Students',
                             style: GoogleFonts.poppins(
                               fontSize: 12,
                               fontWeight: FontWeight.w500,

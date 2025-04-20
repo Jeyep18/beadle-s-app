@@ -200,7 +200,7 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
                           ),
-                          SizedBox(height: 18), //GAP
+                          SizedBox(height: 16), //GAP
                           Padding(
                             padding: const EdgeInsets.only(left: 10.0),
                             child: Animate(
@@ -223,7 +223,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
 
-                          SizedBox(height: 5),
+                          SizedBox(height: 14),
 
                           //List of classes
                           ...classList.asMap().entries.map(

@@ -149,7 +149,7 @@ class ClassPage extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(height: 10),
+                SizedBox(height: 1),
 
                 Padding(
                   padding: EdgeInsets.only(right: 10, left: 10),

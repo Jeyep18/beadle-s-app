@@ -51,7 +51,7 @@ class ClassTile extends StatelessWidget {
           SlideEffect(duration: 0.4.seconds, begin: Offset(0, 0.2)),
         ],
         child: Padding(
-          padding: const EdgeInsets.only(right: 10, left: 10, top: 10),
+          padding: const EdgeInsets.only(right: 10, left: 10, bottom: 14),
           child: Slidable(
             endActionPane: ActionPane(
               motion: StretchMotion(),
