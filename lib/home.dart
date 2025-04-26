@@ -41,24 +41,24 @@ class _HomePageState extends State<HomePage> {
       "S.Y. 2024-2025",
       "4th Semester",
     ],
-    [
-      "SOCS102",
-      "ZC11Am",
-      "TTH 12:00NN - 1:30PM",
-      "P211",
-      "Mr. Michael Roland Hernandez",
-      "S.Y. 2024-2025",
-      "2nd Semester",
-    ],
-    [
-      "THEN101",
-      "ZT12Am",
-      "TTH 4:30PM - 6:00PM",
-      "P116",
-      "Mr. Juan Bautista Janthe Bagadion",
-      "S.Y. 2024-2025",
-      "2nd Semester",
-    ],
+    // [
+    //   "SOCS102",
+    //   "ZC11Am",
+    //   "TTH 12:00NN - 1:30PM",
+    //   "P211",
+    //   "Mr. Michael Roland Hernandez",
+    //   "S.Y. 2024-2025",
+    //   "2nd Semester",
+    // ],
+    // [
+    //   "THEN101",
+    //   "ZT12Am",
+    //   "TTH 4:30PM - 6:00PM",
+    //   "P116",
+    //   "Mr. Juan Bautista Janthe Bagadion",
+    //   "S.Y. 2024-2025",
+    //   "2nd Semester",
+    // ],
   ];
 
   //delete tile function
@@ -107,7 +107,7 @@ class _HomePageState extends State<HomePage> {
               SlideEffect(duration: 0.4.seconds, begin: Offset(-0.1, 0)),
             ],
             child: Text(
-              'Beadle\'s App',
+              'Beadle\'s++',
               style: Theme.of(context).textTheme.headlineLarge,
             ),
           ),

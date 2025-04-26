@@ -1,12 +1,23 @@
 import 'package:beadles_app_prototype1/utils/background.dart';
 import 'package:beadles_app_prototype1/utils/date_picker.dart';
+import 'package:beadles_app_prototype1/utils/student_tile.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ClassPage extends StatelessWidget {
+class ClassPage extends StatefulWidget {
   const ClassPage({super.key});
 
+  @override
+  State<ClassPage> createState() => _ClassPageState();
+}
+
+class _ClassPageState extends State<ClassPage> {
+  List studentList = [
+    ["Espiritu", "John Francis", "M.", "BS Computer Science", "202400614"],
+    ["Belleza", "Lennard Kyle", "T.", "BS Computer Science", "202478811"],
+    ["Tuyay", "Christian Joshua", "A.", "BS Computer Science", "202400951"],
+  ];
   @override
   Widget build(BuildContext context) {
     // Get the arguments passed from the previous page
@@ -83,6 +94,7 @@ class ClassPage extends StatelessWidget {
             const Positioned.fill(child: BackgroundPage()), // Background widget
             //==================================MAIN CONTENT==================================
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
                   // PADDING FOR APPBAR
@@ -151,6 +163,7 @@ class ClassPage extends StatelessWidget {
 
                 SizedBox(height: 1),
 
+                //MODE AND DATE PICKER
                 Padding(
                   padding: EdgeInsets.only(right: 10, left: 10),
                   child: Row(
@@ -345,6 +358,30 @@ class ClassPage extends StatelessWidget {
                         height: MediaQuery.of(context).padding.bottom,
                       ),
                     ],
+                  ),
+                ),
+
+                SizedBox(height: 20),
+
+                Padding(
+                  padding: EdgeInsets.only(left: 10, right: 10),
+                  child: Text(
+                    "Students List: ",
+                    textAlign: TextAlign.start,
+                    style: Theme.of(context).textTheme.headlineMedium,
+                  ),
+                ),
+
+                SizedBox(height: 10),
+
+                //List builder students
+                ...studentList.asMap().entries.map(
+                  (entry) => StudentTile(
+                    studentSurname: entry.value[0],
+                    studentGivenName: entry.value[1],
+                    studentMiddleInitial: entry.value[2],
+                    studentCourse: entry.value[3],
+                    studentID: entry.value[4],
                   ),
                 ),
               ],

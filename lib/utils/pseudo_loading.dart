@@ -62,7 +62,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   ),
                   SizedBox(width: 10),
                   Text(
-                    'Beadle\'s App',
+                    'Beadle\'s++',
                     style: Theme.of(context).textTheme.headlineLarge?.copyWith(
                       color: Theme.of(context).colorScheme.tertiary,
                       fontSize: 35,

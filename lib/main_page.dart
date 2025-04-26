@@ -143,7 +143,7 @@ class _MainPageState extends State<MainPage> {
                         children: [
                           IconButton(
                             iconSize: 40,
-                            icon: const Icon(Icons.calendar_month),
+                            icon: const Icon(Icons.calendar_month_outlined),
                             padding: const EdgeInsets.symmetric(
                               horizontal: 0,
                               vertical: 0,
