@@ -1,3 +1,4 @@
+import 'package:beadles_app_prototype1/utils/status_picker.dart';
 import 'package:flutter/material.dart';
 
 class StudentTile extends StatelessWidget {
@@ -48,7 +49,7 @@ class StudentTile extends StatelessWidget {
             border: Border.all(color: Color.fromARGB(92, 255, 255, 255)),
           ),
           child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               //Student Picture
@@ -64,50 +65,56 @@ class StudentTile extends StatelessWidget {
               SizedBox(width: 10),
 
               //Student Details
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    studentSurname,
-                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      height: 0,
-                      fontWeight: FontWeight.bold,
+              FittedBox(
+                fit: BoxFit.fitWidth,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      studentSurname,
+                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        height: 0,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
-                  Text(
-                    "$studentGivenName $studentMiddleInitial",
-                    style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                      fontWeight: FontWeight.bold,
+                    Text(
+                      "$studentGivenName $studentMiddleInitial",
+                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
 
-                  SizedBox(height: 5),
+                    SizedBox(height: 5),
 
-                  Text(
-                    studentCourse,
-                    style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                      fontSize: 12,
-                      color:
-                          Theme.of(context).brightness == Brightness.light
-                              ? Color.fromARGB(255, 49, 49, 49)
-                              : Color.fromARGB(255, 202, 202, 202),
+                    Text(
+                      studentCourse,
+                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                        fontSize: 12,
+                        color:
+                            Theme.of(context).brightness == Brightness.light
+                                ? Color.fromARGB(255, 49, 49, 49)
+                                : Color.fromARGB(255, 202, 202, 202),
+                      ),
                     ),
-                  ),
-                  Text(
-                    "ID: $studentID",
-                    style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                      fontSize: 12,
-                      color:
-                          Theme.of(context).brightness == Brightness.light
-                              ? Color.fromARGB(255, 49, 49, 49)
-                              : Color.fromARGB(255, 202, 202, 202),
+                    Text(
+                      "ID: $studentID",
+                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                        fontSize: 12,
+                        color:
+                            Theme.of(context).brightness == Brightness.light
+                                ? Color.fromARGB(255, 49, 49, 49)
+                                : Color.fromARGB(255, 202, 202, 202),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
 
+              SizedBox(width: 10),
+
               //CHECKBOXES
+              Expanded(child: StatusPicker()),
             ],
           ),
         ),
