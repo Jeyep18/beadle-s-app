@@ -17,6 +17,8 @@ class _ClassPageState extends State<ClassPage> {
     ["Espiritu", "John Francis", "M.", "BS Computer Science", "202400614"],
     ["Belleza", "Lennard Kyle", "T.", "BS Computer Science", "202478811"],
     ["Tuyay", "Christian Joshua", "A.", "BS Computer Science", "202400951"],
+    ["Tuyay", "Christian Joshua", "A.", "BS Computer Science", "202400951"],
+    ["Tuyay", "Christian Joshua", "A.", "BS Computer Science", "202400951"],
   ];
   @override
   Widget build(BuildContext context) {
@@ -364,7 +366,7 @@ class _ClassPageState extends State<ClassPage> {
                 SizedBox(height: 20),
 
                 Padding(
-                  padding: EdgeInsets.only(left: 10, right: 10),
+                  padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
                   child: Text(
                     "Students List: ",
                     textAlign: TextAlign.start,
@@ -372,17 +374,28 @@ class _ClassPageState extends State<ClassPage> {
                   ),
                 ),
 
-                SizedBox(height: 10),
-
-                //List builder students
-                ...studentList.asMap().entries.map(
-                  (entry) => StudentTile(
-                    studentSurname: entry.value[0],
-                    studentGivenName: entry.value[1],
-                    studentMiddleInitial: entry.value[2],
-                    studentCourse: entry.value[3],
-                    studentID: entry.value[4],
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        //List builder students
+                        ...studentList.asMap().entries.map(
+                          (entry) => StudentTile(
+                            studentSurname: entry.value[0],
+                            studentGivenName: entry.value[1],
+                            studentMiddleInitial: entry.value[2],
+                            studentCourse: entry.value[3],
+                            studentID: entry.value[4],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
+                ),
+
+                SizedBox(
+                  //PADDING BOTTOM NAVIGATION BAR
+                  height: MediaQuery.of(context).padding.bottom,
                 ),
               ],
             ),
