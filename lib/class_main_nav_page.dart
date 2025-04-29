@@ -1,6 +1,8 @@
 import 'package:beadles_app_prototype1/class_dashboard.dart';
 import 'package:beadles_app_prototype1/class_history_page.dart';
 import 'package:beadles_app_prototype1/main_page.dart';
+
+import 'package:beadles_app_prototype1/utils/create_new_student_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -12,6 +14,20 @@ class ClassMainNavPage extends StatefulWidget {
 }
 
 class _ClassMainNavPageState extends State<ClassMainNavPage> {
+  //create new student
+  void createNewStudent(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (context) {
+        return const CreateNewStudentBottomSheet();
+      },
+    );
+  }
+
   //current page
   int currentPage = 0;
 
@@ -30,10 +46,7 @@ class _ClassMainNavPageState extends State<ClassMainNavPage> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        onPressed:
-            () => {
-              //create new student tile
-            },
+        onPressed: () => createNewStudent(context),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
         child: Container(
           width: 60,
