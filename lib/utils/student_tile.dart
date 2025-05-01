@@ -9,6 +9,8 @@ class StudentTile extends StatefulWidget {
   final String studentCourse;
   final String studentID;
 
+  final bool switchStatus;
+
   const StudentTile({
     super.key,
     required this.studentSurname,
@@ -16,6 +18,7 @@ class StudentTile extends StatefulWidget {
     required this.studentMiddleInitial,
     required this.studentCourse,
     required this.studentID,
+    required this.switchStatus,
   });
 
   @override
@@ -63,6 +66,16 @@ class _StudentTileState extends State<StudentTile> {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         );
+    }
+  }
+
+  @override
+  void didUpdateWidget(covariant StudentTile oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.switchStatus != widget.switchStatus && widget.switchStatus) {
+      setState(() {
+        currentStatus = StudentStatus.present;
+      });
     }
   }
 
@@ -160,7 +173,11 @@ class _StudentTileState extends State<StudentTile> {
                   selectedStatus: currentStatus,
                   onStatusChanged: (status) {
                     setState(() {
-                      currentStatus = status;
+                      if (widget.switchStatus) {
+                        currentStatus = StudentStatus.present;
+                      } else {
+                        currentStatus = status;
+                      }
                     });
                   },
                 ),

@@ -4,6 +4,7 @@ import 'package:beadles_app_prototype1/utils/save_button.dart';
 import 'package:beadles_app_prototype1/utils/student_tile.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ClassPage extends StatefulWidget {
@@ -16,6 +17,8 @@ class ClassPage extends StatefulWidget {
 }
 
 class _ClassPageState extends State<ClassPage> {
+  bool _switchValue = false;
+
   @override
   Widget build(BuildContext context) {
     // Get the arguments passed from the previous page
@@ -363,11 +366,62 @@ class _ClassPageState extends State<ClassPage> {
                 SizedBox(height: 20),
 
                 Padding(
-                  padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
-                  child: Text(
-                    "Students List: ",
-                    textAlign: TextAlign.start,
-                    style: Theme.of(context).textTheme.headlineMedium,
+                  padding: EdgeInsets.only(bottom: 15, right: 10, left: 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Students List: ",
+                        textAlign: TextAlign.start,
+                        style: Theme.of(context).textTheme.headlineMedium,
+                      ),
+
+                      Padding(
+                        padding: EdgeInsets.only(right: 10),
+                        child: Row(
+                          children: [
+                            Text(
+                              "Mark all present: ",
+                              style: GoogleFonts.poppins(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w400,
+                                color:
+                                    Theme.of(context).brightness ==
+                                            Brightness.light
+                                        ? Color(0xFF312c4a)
+                                        : Color.fromARGB(255, 255, 255, 255),
+                              ),
+                            ),
+
+                            SizedBox(width: 5),
+
+                            FlutterSwitch(
+                              value: _switchValue,
+                              width: 45,
+                              height: 25,
+                              toggleSize: 20.0,
+                              borderRadius: 30.0,
+                              padding: 2.0,
+                              showOnOff: false,
+                              activeColor: Color.fromARGB(122, 63, 81, 181),
+                              disabled: false,
+                              inactiveColor: Color.fromARGB(48, 255, 255, 255),
+                              inactiveSwitchBorder: Border.all(
+                                color: Color.fromARGB(92, 255, 255, 255),
+                              ),
+                              activeSwitchBorder: Border.all(
+                                color: Color(0xFF3F51B5),
+                              ),
+                              onToggle: (value) {
+                                setState(() {
+                                  _switchValue = value;
+                                });
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                 ),
 
@@ -383,6 +437,7 @@ class _ClassPageState extends State<ClassPage> {
                             studentMiddleInitial: entry.value[2],
                             studentCourse: entry.value[3],
                             studentID: entry.value[4],
+                            switchStatus: _switchValue,
                           ),
                         ),
 
