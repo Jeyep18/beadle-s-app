@@ -3,16 +3,15 @@ import 'package:google_fonts/google_fonts.dart';
 
 enum StudentStatus { present, absent, late }
 
-class StatusPicker extends StatefulWidget {
-  const StatusPicker({super.key});
+class StatusPicker extends StatelessWidget {
+  final StudentStatus? selectedStatus;
+  final ValueChanged<StudentStatus?> onStatusChanged;
 
-  @override
-  State<StatusPicker> createState() => _StatusPickerState();
-}
-
-class _StatusPickerState extends State<StatusPicker> {
-  //status
-  StudentStatus? _character = StudentStatus.absent;
+  const StatusPicker({
+    super.key,
+    this.selectedStatus,
+    required this.onStatusChanged,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,91 +19,35 @@ class _StatusPickerState extends State<StatusPicker> {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.end,
       children: <Widget>[
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              "Present",
-              style: GoogleFonts.poppins(
-                fontSize: 14,
-                color:
-                    Theme.of(context).brightness == Brightness.light
-                        ? Color(0xFF312c4a)
-                        : Color.fromARGB(255, 255, 255, 255),
-              ),
-            ),
+        _buildRadio(context, StudentStatus.present, "Present"),
+        _buildRadio(context, StudentStatus.absent, "Absent"),
+        _buildRadio(context, StudentStatus.late, "Late"),
+      ],
+    );
+  }
 
-            Radio<StudentStatus>(
-              visualDensity: VisualDensity(horizontal: 0, vertical: -2),
-              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              value: StudentStatus.present,
-              groupValue: _character,
-              onChanged: (StudentStatus? value) {
-                setState(() {
-                  _character = value;
-                });
-              },
-            ),
-          ],
+  Widget _buildRadio(BuildContext context, StudentStatus? value, String label) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Text(
+          label,
+          style: GoogleFonts.poppins(
+            fontSize: 14,
+            color:
+                Theme.of(context).brightness == Brightness.light
+                    ? const Color(0xFF312c4a)
+                    : const Color.fromARGB(255, 255, 255, 255),
+          ),
         ),
-
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              "Absent",
-              style: GoogleFonts.poppins(
-                fontSize: 14,
-                color:
-                    Theme.of(context).brightness == Brightness.light
-                        ? Color(0xFF312c4a)
-                        : Color.fromARGB(255, 255, 255, 255),
-              ),
-            ),
-
-            Radio<StudentStatus>(
-              visualDensity: VisualDensity(horizontal: 0, vertical: -2),
-              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              value: StudentStatus.absent,
-              groupValue: _character,
-              onChanged: (StudentStatus? value) {
-                setState(() {
-                  _character = value;
-                });
-              },
-            ),
-          ],
-        ),
-
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              "Late",
-              style: GoogleFonts.poppins(
-                fontSize: 14,
-                color:
-                    Theme.of(context).brightness == Brightness.light
-                        ? Color(0xFF312c4a)
-                        : Color.fromARGB(255, 255, 255, 255),
-              ),
-            ),
-
-            Radio<StudentStatus>(
-              visualDensity: VisualDensity(horizontal: 0, vertical: -2),
-              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              value: StudentStatus.late,
-              groupValue: _character,
-              onChanged: (StudentStatus? value) {
-                setState(() {
-                  _character = value;
-                });
-              },
-            ),
-          ],
+        Radio<StudentStatus?>(
+          visualDensity: VisualDensity(horizontal: 0, vertical: -2),
+          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          value: value,
+          groupValue: selectedStatus,
+          onChanged: (val) {
+            onStatusChanged(val);
+          },
         ),
       ],
     );

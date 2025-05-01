@@ -1,7 +1,7 @@
 import 'package:beadles_app_prototype1/utils/status_picker.dart';
 import 'package:flutter/material.dart';
 
-class StudentTile extends StatelessWidget {
+class StudentTile extends StatefulWidget {
   //required var
   final String studentSurname;
   final String studentGivenName;
@@ -17,6 +17,54 @@ class StudentTile extends StatelessWidget {
     required this.studentCourse,
     required this.studentID,
   });
+
+  @override
+  State<StudentTile> createState() => _StudentTileState();
+}
+
+class _StudentTileState extends State<StudentTile> {
+  StudentStatus? currentStatus;
+
+  Gradient getTileGradient() {
+    switch (currentStatus) {
+      case StudentStatus.present:
+        return LinearGradient(
+          colors: [
+            Color.fromARGB(70, 25, 250, 36),
+            Color.fromARGB(66, 25, 116, 0),
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        );
+      case StudentStatus.absent:
+        return LinearGradient(
+          colors: [
+            Color.fromARGB(71, 250, 25, 25),
+            Color.fromARGB(66, 116, 0, 0),
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        );
+      case StudentStatus.late:
+        return LinearGradient(
+          colors: [
+            Color.fromARGB(75, 255, 255, 255),
+            Color.fromARGB(66, 95, 95, 95),
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        );
+      default:
+        return LinearGradient(
+          colors: [
+            Color.fromARGB(48, 255, 255, 255),
+            Color.fromARGB(45, 126, 126, 126),
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,14 +85,7 @@ class StudentTile extends StatelessWidget {
           width: double.infinity,
           height: 120,
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Color.fromARGB(48, 255, 255, 255),
-                Color.fromARGB(45, 126, 126, 126),
-              ],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
+            gradient: getTileGradient(),
             borderRadius: BorderRadius.circular(15),
             border: Border.all(color: Color.fromARGB(92, 255, 255, 255)),
           ),
@@ -72,14 +113,14 @@ class StudentTile extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      studentSurname,
+                      widget.studentSurname,
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
                         height: 0,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     Text(
-                      "$studentGivenName $studentMiddleInitial",
+                      "${widget.studentGivenName} ${widget.studentMiddleInitial}",
                       style: Theme.of(context).textTheme.titleSmall?.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
@@ -88,7 +129,7 @@ class StudentTile extends StatelessWidget {
                     SizedBox(height: 5),
 
                     Text(
-                      studentCourse,
+                      widget.studentCourse,
                       style: Theme.of(context).textTheme.titleSmall?.copyWith(
                         fontSize: 12,
                         color:
@@ -98,7 +139,7 @@ class StudentTile extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "ID: $studentID",
+                      "ID: ${widget.studentID}",
                       style: Theme.of(context).textTheme.titleSmall?.copyWith(
                         fontSize: 12,
                         color:
@@ -114,7 +155,16 @@ class StudentTile extends StatelessWidget {
               SizedBox(width: 10),
 
               //CHECKBOXES
-              Expanded(child: StatusPicker()),
+              Expanded(
+                child: StatusPicker(
+                  selectedStatus: currentStatus,
+                  onStatusChanged: (status) {
+                    setState(() {
+                      currentStatus = status;
+                    });
+                  },
+                ),
+              ),
             ],
           ),
         ),

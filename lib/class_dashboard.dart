@@ -386,6 +386,8 @@ class _ClassPageState extends State<ClassPage> {
                           ),
                         ),
 
+                        SizedBox(height: 5),
+
                         //Submit
                         SaveButton(
                           title: "Submit",
@@ -393,6 +395,8 @@ class _ClassPageState extends State<ClassPage> {
                             //make func here to open dialog box
                           },
                         ),
+
+                        SizedBox(height: 50),
                       ],
                     ),
                   ),
