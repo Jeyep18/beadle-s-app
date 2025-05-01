@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'dart:ui';
 
 class ClassPage extends StatefulWidget {
   final List<List<String>> studentList;
@@ -122,52 +123,68 @@ class _ClassPageState extends State<ClassPage> {
                     shadowColor: const Color.fromARGB(31, 0, 0, 0),
                     borderRadius: BorderRadius.circular(15),
                     color: Colors.transparent,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [
-                            Color.fromARGB(48, 255, 255, 255),
-                            Color.fromARGB(45, 126, 126, 126),
-                          ],
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                        ),
-                        borderRadius: BorderRadius.circular(15),
-                        border: Border.all(
-                          color: Color.fromARGB(92, 255, 255, 255),
-                        ),
-                      ),
-                      padding: const EdgeInsets.only(right: 15.0, left: 15.0),
-                      width: double.infinity,
-                      height: 120,
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
-                        child: FittedBox(
-                          fit: BoxFit.contain,
-                          alignment: Alignment.centerLeft,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Text(
-                                '$subjectCode - $classSection',
-                                style: Theme.of(
-                                  context,
-                                ).textTheme.titleMedium?.copyWith(fontSize: 30),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(15),
+                      child: BackdropFilter(
+                        filter: ImageFilter.blur(sigmaX: 20.0, sigmaY: 20.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [
+                                Color.fromARGB(48, 255, 255, 255),
+                                Color.fromARGB(45, 126, 126, 126),
+                              ],
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                            ),
+                            borderRadius: BorderRadius.circular(15),
+                            border: Border.all(
+                              color: Color.fromARGB(92, 255, 255, 255),
+                            ),
+                          ),
+                          padding: const EdgeInsets.only(
+                            right: 15.0,
+                            left: 15.0,
+                          ),
+                          width: double.infinity,
+                          height: 120,
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                              top: 10.0,
+                              bottom: 10.0,
+                            ),
+                            child: FittedBox(
+                              fit: BoxFit.contain,
+                              alignment: Alignment.centerLeft,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    '$subjectCode - $classSection',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .titleMedium
+                                        ?.copyWith(fontSize: 30),
+                                  ),
+                                  Text(
+                                    '$schedule $roomNumber',
+                                    style:
+                                        Theme.of(context).textTheme.titleSmall,
+                                  ),
+                                  Text(
+                                    '$schoolYear | $semester',
+                                    style:
+                                        Theme.of(context).textTheme.titleSmall,
+                                  ),
+                                  Text(
+                                    professorName,
+                                    style:
+                                        Theme.of(context).textTheme.titleSmall,
+                                  ),
+                                ],
                               ),
-                              Text(
-                                '$schedule $roomNumber',
-                                style: Theme.of(context).textTheme.titleSmall,
-                              ),
-                              Text(
-                                '$schoolYear | $semester',
-                                style: Theme.of(context).textTheme.titleSmall,
-                              ),
-                              Text(
-                                professorName,
-                                style: Theme.of(context).textTheme.titleSmall,
-                              ),
-                            ],
+                            ),
                           ),
                         ),
                       ),
@@ -188,125 +205,140 @@ class _ClassPageState extends State<ClassPage> {
                           shadowColor: const Color.fromARGB(36, 0, 0, 0),
                           borderRadius: BorderRadius.circular(15),
                           color: Colors.transparent,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: [
-                                  Color.fromARGB(48, 255, 255, 255),
-                                  Color.fromARGB(45, 126, 126, 126),
-                                ],
-                                begin: Alignment.topLeft,
-                                end: Alignment.bottomRight,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(15),
+                            child: BackdropFilter(
+                              filter: ImageFilter.blur(
+                                sigmaX: 20.0,
+                                sigmaY: 20.0,
                               ),
-                              borderRadius: BorderRadius.circular(15),
-                              border: Border.all(
-                                color: Color.fromARGB(92, 255, 255, 255),
-                              ),
-                            ),
-                            padding: const EdgeInsets.only(
-                              right: 15.0,
-                              left: 15.0,
-                              top: 10,
-                              bottom: 10,
-                            ),
-                            height: 85,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Mode:',
-                                  style: Theme.of(
-                                    context,
-                                  ).textTheme.headlineSmall?.copyWith(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w200,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      Color.fromARGB(48, 255, 255, 255),
+                                      Color.fromARGB(45, 126, 126, 126),
+                                    ],
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.bottomRight,
+                                  ),
+                                  borderRadius: BorderRadius.circular(15),
+                                  border: Border.all(
+                                    color: Color.fromARGB(92, 255, 255, 255),
                                   ),
                                 ),
+                                padding: const EdgeInsets.only(
+                                  right: 15.0,
+                                  left: 15.0,
+                                  top: 10,
+                                  bottom: 10,
+                                ),
+                                height: 85,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Mode:',
+                                      style: Theme.of(
+                                        context,
+                                      ).textTheme.headlineSmall?.copyWith(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w200,
+                                      ),
+                                    ),
 
-                                SizedBox(height: 5),
+                                    SizedBox(height: 5),
 
-                                //DROPDOWN BUTTON
-                                SizedBox(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.5,
-                                  child: DropdownButtonFormField<String>(
-                                    icon: Icon(
-                                      Icons.arrow_drop_down,
-                                      color: Colors.black,
-                                    ),
-                                    hint: Text(
-                                      'Select Modality',
-                                      style: GoogleFonts.poppins(
-                                        color: const Color.fromARGB(
-                                          255,
-                                          0,
-                                          0,
-                                          0,
+                                    //DROPDOWN BUTTON
+                                    SizedBox(
+                                      width:
+                                          MediaQuery.of(context).size.width *
+                                          0.5,
+                                      child: DropdownButtonFormField<String>(
+                                        icon: Icon(
+                                          Icons.arrow_drop_down,
+                                          color: Colors.black,
                                         ),
-                                        fontSize: 14,
-                                      ),
-                                    ),
-                                    decoration: InputDecoration(
-                                      isDense: true,
-                                      contentPadding:
-                                          const EdgeInsets.symmetric(
-                                            horizontal: 8,
-                                            vertical: 6,
+                                        hint: Text(
+                                          'Select Modality',
+                                          style: GoogleFonts.poppins(
+                                            color: const Color.fromARGB(
+                                              255,
+                                              0,
+                                              0,
+                                              0,
+                                            ),
+                                            fontSize: 14,
                                           ),
-                                      filled: true,
-                                      fillColor: Color.fromARGB(
-                                        255,
-                                        245,
-                                        244,
-                                        255,
-                                      ), // Background color
-                                      enabledBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(5),
-                                        borderSide: const BorderSide(
-                                          color: Color.fromARGB(
-                                            255,
-                                            223,
-                                            220,
-                                            255,
-                                          ),
-                                          width: 0.5,
                                         ),
-                                      ),
-                                      border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(5),
-                                        borderSide: const BorderSide(
-                                          color: Color.fromARGB(
-                                            255,
-                                            223,
-                                            220,
-                                            255,
-                                          ),
-                                          width: 0.5,
-                                        ),
-                                      ),
-                                    ),
-                                    dropdownColor: Color(
-                                      0xFFe8e8e8,
-                                    ), // Dropdown background color
-                                    style: GoogleFonts.poppins(
-                                      color: Colors.black,
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                    items:
-                                        ['Online', 'Face to Face']
-                                            .map(
-                                              (modality) => DropdownMenuItem(
-                                                value: modality,
-                                                child: Text(modality),
+                                        decoration: InputDecoration(
+                                          isDense: true,
+                                          contentPadding:
+                                              const EdgeInsets.symmetric(
+                                                horizontal: 8,
+                                                vertical: 6,
                                               ),
-                                            )
-                                            .toList(),
-                                    onChanged: (value) {},
-                                  ),
+                                          filled: true,
+                                          fillColor: Color.fromARGB(
+                                            255,
+                                            245,
+                                            244,
+                                            255,
+                                          ), // Background color
+                                          enabledBorder: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(
+                                              5,
+                                            ),
+                                            borderSide: const BorderSide(
+                                              color: Color.fromARGB(
+                                                255,
+                                                223,
+                                                220,
+                                                255,
+                                              ),
+                                              width: 0.5,
+                                            ),
+                                          ),
+                                          border: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(
+                                              5,
+                                            ),
+                                            borderSide: const BorderSide(
+                                              color: Color.fromARGB(
+                                                255,
+                                                223,
+                                                220,
+                                                255,
+                                              ),
+                                              width: 0.5,
+                                            ),
+                                          ),
+                                        ),
+                                        dropdownColor: Color(
+                                          0xFFe8e8e8,
+                                        ), // Dropdown background color
+                                        style: GoogleFonts.poppins(
+                                          color: Colors.black,
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                        items:
+                                            ['Online', 'Face to Face']
+                                                .map(
+                                                  (modality) =>
+                                                      DropdownMenuItem(
+                                                        value: modality,
+                                                        child: Text(modality),
+                                                      ),
+                                                )
+                                                .toList(),
+                                        onChanged: (value) {},
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ],
+                              ),
                             ),
                           ),
                         ),
@@ -320,47 +352,56 @@ class _ClassPageState extends State<ClassPage> {
                           shadowColor: const Color.fromARGB(36, 0, 0, 0),
                           borderRadius: BorderRadius.circular(15),
                           color: Colors.transparent,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: [
-                                  Color.fromARGB(48, 255, 255, 255),
-                                  Color.fromARGB(45, 126, 126, 126),
-                                ],
-                                begin: Alignment.topLeft,
-                                end: Alignment.bottomRight,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(15),
+                            child: BackdropFilter(
+                              filter: ImageFilter.blur(
+                                sigmaX: 20.0,
+                                sigmaY: 20.0,
                               ),
-                              borderRadius: BorderRadius.circular(15),
-                              border: Border.all(
-                                color: Color.fromARGB(92, 255, 255, 255),
-                              ),
-                            ),
-                            padding: const EdgeInsets.only(
-                              right: 15.0,
-                              left: 15.0,
-                              top: 10,
-                              bottom: 10,
-                            ),
-                            height: 85,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Date:',
-                                  style: Theme.of(
-                                    context,
-                                  ).textTheme.headlineSmall?.copyWith(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w200,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      Color.fromARGB(48, 255, 255, 255),
+                                      Color.fromARGB(45, 126, 126, 126),
+                                    ],
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.bottomRight,
+                                  ),
+                                  borderRadius: BorderRadius.circular(15),
+                                  border: Border.all(
+                                    color: Color.fromARGB(92, 255, 255, 255),
                                   ),
                                 ),
+                                padding: const EdgeInsets.only(
+                                  right: 15.0,
+                                  left: 15.0,
+                                  top: 10,
+                                  bottom: 10,
+                                ),
+                                height: 85,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Date:',
+                                      style: Theme.of(
+                                        context,
+                                      ).textTheme.headlineSmall?.copyWith(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w200,
+                                      ),
+                                    ),
 
-                                SizedBox(height: 5),
+                                    SizedBox(height: 5),
 
-                                //DROPDOWN BUTTON
-                                DatePicker(),
-                              ],
+                                    //DROPDOWN BUTTON
+                                    DatePicker(),
+                                  ],
+                                ),
+                              ),
                             ),
                           ),
                         ),

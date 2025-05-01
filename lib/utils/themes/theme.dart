@@ -18,7 +18,7 @@ class AppTheme {
       headlineMedium: GoogleFonts.poppins(
         fontSize: 20,
         color: Color(0xFF1c1a27),
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w500,
       ),
 
       //for modal subtitles
@@ -104,6 +104,7 @@ class AppTheme {
         fontSize: 34,
         color: Color.fromARGB(255, 255, 255, 255),
         fontWeight: FontWeight.w400,
+        height: 1.1,
       ),
 
       //for subject code titles

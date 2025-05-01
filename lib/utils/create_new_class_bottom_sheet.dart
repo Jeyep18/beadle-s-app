@@ -124,22 +124,6 @@ class _CreateNewClassBottomsheetState extends State<CreateNewClassBottomsheet> {
                         ),
                         const SizedBox(height: 12),
 
-                        // Header Image
-                        // Container(
-                        //   height: 70,
-                        //   width: double.infinity,
-                        //   decoration: BoxDecoration(
-                        //     color: Theme.of(context).scaffoldBackgroundColor,
-                        //     borderRadius: BorderRadius.circular(10),
-                        //     border: Border.all(
-                        //       color: const Color.fromARGB(255, 117, 117, 117),
-                        //       width: 1,
-                        //     ),
-                        //   ),
-                        //   child: Icon(Icons.add, size: 40, color: Colors.grey),
-                        // ),
-                        // const SizedBox(height: 10),
-
                         // Subject Code
                         TextField(
                           textInputAction: TextInputAction.next,

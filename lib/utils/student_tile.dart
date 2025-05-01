@@ -1,6 +1,7 @@
 import 'package:beadles_app_prototype1/utils/status_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'dart:ui';
 
 class StudentTile extends StatefulWidget {
   //required var
@@ -108,107 +109,122 @@ class _StudentTileState extends State<StudentTile> {
           shadowColor: const Color.fromARGB(31, 0, 0, 0),
           borderRadius: BorderRadius.circular(15),
           color: Colors.transparent,
-          child: Container(
-            padding: const EdgeInsets.only(
-              top: 10.0,
-              bottom: 10.0,
-              right: 10.0,
-              left: 10.0,
-            ),
-            width: double.infinity,
-            height: 120,
-            decoration: BoxDecoration(
-              gradient: getTileGradient(),
-              borderRadius: BorderRadius.circular(15),
-              border: Border.all(color: Color.fromARGB(92, 255, 255, 255)),
-            ),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                //Student Picture
-                Container(
-                  height: 100,
-                  width: 100,
-                  decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Align(
-                    alignment: Alignment.center,
-                    child: Text(
-                      "picture ni ano",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 10),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(15),
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 20.0, sigmaY: 20.0),
+              child: Container(
+                padding: const EdgeInsets.only(
+                  top: 10.0,
+                  bottom: 10.0,
+                  right: 10.0,
+                  left: 10.0,
+                ),
+                width: double.infinity,
+                height: 120,
+                decoration: BoxDecoration(
+                  gradient: getTileGradient(),
+                  borderRadius: BorderRadius.circular(15),
+                  border: Border.all(color: Color.fromARGB(92, 255, 255, 255)),
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    //Student Picture
+                    Container(
+                      height: 100,
+                      width: 100,
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          "picture ni chris",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 10),
+                        ),
+                      ),
                     ),
-                  ),
+
+                    SizedBox(width: 10),
+
+                    //Student Details
+                    FittedBox(
+                      fit: BoxFit.fitWidth,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            widget.studentSurname,
+                            style: Theme.of(
+                              context,
+                            ).textTheme.titleMedium?.copyWith(
+                              height: 0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            "${widget.studentGivenName} ${widget.studentMiddleInitial}",
+                            style: Theme.of(context).textTheme.titleSmall
+                                ?.copyWith(fontWeight: FontWeight.bold),
+                          ),
+
+                          SizedBox(height: 5),
+
+                          Text(
+                            widget.studentCourse,
+                            style: Theme.of(
+                              context,
+                            ).textTheme.titleSmall?.copyWith(
+                              fontSize: 12,
+                              color:
+                                  Theme.of(context).brightness ==
+                                          Brightness.light
+                                      ? Color.fromARGB(255, 49, 49, 49)
+                                      : Color.fromARGB(255, 202, 202, 202),
+                            ),
+                          ),
+                          Text(
+                            "ID: ${widget.studentID}",
+                            style: Theme.of(
+                              context,
+                            ).textTheme.titleSmall?.copyWith(
+                              fontSize: 12,
+                              color:
+                                  Theme.of(context).brightness ==
+                                          Brightness.light
+                                      ? Color.fromARGB(255, 49, 49, 49)
+                                      : Color.fromARGB(255, 202, 202, 202),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    SizedBox(width: 10),
+
+                    //CHECKBOXES
+                    Expanded(
+                      child: StatusPicker(
+                        selectedStatus: currentStatus,
+                        onStatusChanged: (status) {
+                          setState(() {
+                            if (widget.switchStatus) {
+                              currentStatus = StudentStatus.present;
+                            } else {
+                              currentStatus = status;
+                            }
+                          });
+                        },
+                      ),
+                    ),
+                  ],
                 ),
-
-                SizedBox(width: 10),
-
-                //Student Details
-                FittedBox(
-                  fit: BoxFit.fitWidth,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        widget.studentSurname,
-                        style: Theme.of(context).textTheme.titleMedium
-                            ?.copyWith(height: 0, fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        "${widget.studentGivenName} ${widget.studentMiddleInitial}",
-                        style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-
-                      SizedBox(height: 5),
-
-                      Text(
-                        widget.studentCourse,
-                        style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                          fontSize: 12,
-                          color:
-                              Theme.of(context).brightness == Brightness.light
-                                  ? Color.fromARGB(255, 49, 49, 49)
-                                  : Color.fromARGB(255, 202, 202, 202),
-                        ),
-                      ),
-                      Text(
-                        "ID: ${widget.studentID}",
-                        style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                          fontSize: 12,
-                          color:
-                              Theme.of(context).brightness == Brightness.light
-                                  ? Color.fromARGB(255, 49, 49, 49)
-                                  : Color.fromARGB(255, 202, 202, 202),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
-                SizedBox(width: 10),
-
-                //CHECKBOXES
-                Expanded(
-                  child: StatusPicker(
-                    selectedStatus: currentStatus,
-                    onStatusChanged: (status) {
-                      setState(() {
-                        if (widget.switchStatus) {
-                          currentStatus = StudentStatus.present;
-                        } else {
-                          currentStatus = status;
-                        }
-                      });
-                    },
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
         ),

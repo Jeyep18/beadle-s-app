@@ -149,7 +149,7 @@ class _ClassMainNavPageState extends State<ClassMainNavPage> {
                         children: [
                           IconButton(
                             iconSize: 45,
-                            icon: const Icon(Icons.group),
+                            icon: const Icon(Icons.group_rounded),
                             padding: const EdgeInsets.symmetric(
                               horizontal: 0,
                               vertical: 0,

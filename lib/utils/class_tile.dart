@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'dart:ui';
 
 class ClassTile extends StatelessWidget {
   //required variables
@@ -72,49 +73,57 @@ class ClassTile extends StatelessWidget {
               shadowColor: const Color.fromARGB(31, 0, 0, 0),
               borderRadius: BorderRadius.circular(15),
               color: Colors.transparent,
-              child: Container(
-                padding: const EdgeInsets.only(right: 15.0, left: 15.0),
-                width: double.infinity,
-                height: 130,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      Color.fromARGB(48, 255, 255, 255),
-                      Color.fromARGB(45, 126, 126, 126),
-                    ],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                  ),
-                  borderRadius: BorderRadius.circular(15),
-                  border: Border.all(color: Color.fromARGB(92, 255, 255, 255)),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 45.0, bottom: 10.0),
-                  child: FittedBox(
-                    fit: BoxFit.contain,
-                    alignment: Alignment.centerLeft,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        //Subject Code
-                        Text(
-                          '$subjectCode - $classSection',
-                          style: Theme.of(context).textTheme.titleMedium,
-                        ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 20.0, sigmaY: 20.0),
+                  child: Container(
+                    padding: const EdgeInsets.only(right: 15.0, left: 15.0),
+                    width: double.infinity,
+                    height: 130,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          Color.fromARGB(48, 255, 255, 255),
+                          Color.fromARGB(45, 126, 126, 126),
+                        ],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                      borderRadius: BorderRadius.circular(15),
+                      border: Border.all(
+                        color: Color.fromARGB(92, 255, 255, 255),
+                      ),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 45.0, bottom: 10.0),
+                      child: FittedBox(
+                        fit: BoxFit.contain,
+                        alignment: Alignment.centerLeft,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            //Subject Code
+                            Text(
+                              '$subjectCode - $classSection',
+                              style: Theme.of(context).textTheme.titleMedium,
+                            ),
 
-                        //Schedule Text
-                        Text(
-                          '$schedule $roomNumber',
-                          style: Theme.of(context).textTheme.titleSmall,
-                        ),
+                            //Schedule Text
+                            Text(
+                              '$schedule $roomNumber',
+                              style: Theme.of(context).textTheme.titleSmall,
+                            ),
 
-                        //Professor Name Text
-                        Text(
-                          professorName,
-                          style: Theme.of(context).textTheme.titleSmall,
+                            //Professor Name Text
+                            Text(
+                              professorName,
+                              style: Theme.of(context).textTheme.titleSmall,
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
                 ),
