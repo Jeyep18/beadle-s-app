@@ -6,22 +6,15 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ClassPage extends StatefulWidget {
-  const ClassPage({super.key});
+  final List<List<String>> studentList;
+
+  const ClassPage({super.key, required this.studentList});
 
   @override
   State<ClassPage> createState() => _ClassPageState();
 }
 
 class _ClassPageState extends State<ClassPage> {
-  //list for student tile
-  List studentList = [
-    ["Espiritu", "John Francis", "M.", "BS Computer Science", "202400614"],
-    ["Belleza", "Lennard Kyle", "T.", "BS Computer Science", "202478811"],
-    ["Tuyay", "Christian Joshua", "A.", "BS Computer Science", "202400951"],
-    ["Tuyay", "Christian Joshua", "A.", "BS Computer Science", "202400951"],
-    ["Tuyay", "Christian Joshua", "A.", "BS Computer Science", "202400951"],
-  ];
-
   @override
   Widget build(BuildContext context) {
     // Get the arguments passed from the previous page
@@ -382,7 +375,7 @@ class _ClassPageState extends State<ClassPage> {
                     child: Column(
                       children: [
                         //List builder students
-                        ...studentList.asMap().entries.map(
+                        ...widget.studentList.asMap().entries.map(
                           (entry) => StudentTile(
                             studentSurname: entry.value[0],
                             studentGivenName: entry.value[1],

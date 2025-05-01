@@ -28,7 +28,7 @@ class MainApp extends StatelessWidget {
         home: const SplashScreen(),
         locale: Locale('en', 'US'),
         routes: {
-          '/class-dashboard': (context) => ClassPage(),
+          '/class-dashboard': (context) => ClassPage(studentList: []),
           '/class-main-nav-page': (context) => ClassMainNavPage(),
           '/settings-page': (context) => SettingsPage(),
           '/profile-page': (context) => ProfilePage(),

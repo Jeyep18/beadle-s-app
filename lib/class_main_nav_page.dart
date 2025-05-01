@@ -1,7 +1,6 @@
 import 'package:beadles_app_prototype1/class_dashboard.dart';
 import 'package:beadles_app_prototype1/class_history_page.dart';
 import 'package:beadles_app_prototype1/main_page.dart';
-
 import 'package:beadles_app_prototype1/utils/create_new_student_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -14,6 +13,8 @@ class ClassMainNavPage extends StatefulWidget {
 }
 
 class _ClassMainNavPageState extends State<ClassMainNavPage> {
+  final List<List<String>> studentList = [];
+
   //controllers
   final _firstNameController = TextEditingController();
   final _middleInitialController = TextEditingController();
@@ -36,10 +37,24 @@ class _ClassMainNavPageState extends State<ClassMainNavPage> {
           courseController: _courseController,
           lastNameController: _lastNameController,
           idController: _idController,
-          // onCreate:
-          //     () => {
-          //       //function
-          //     },
+          onCreate: () {
+            setState(() {
+              studentList.add([
+                _lastNameController.text.trim(),
+                _firstNameController.text.trim(),
+                _middleInitialController.text.trim(),
+                _courseController.text.trim(),
+                _idController.text.trim(),
+              ]);
+            });
+
+            // Clear text fields after adding
+            _firstNameController.clear();
+            _middleInitialController.clear();
+            _courseController.clear();
+            _lastNameController.clear();
+            _idController.clear();
+          },
         );
       },
     );
@@ -49,7 +64,13 @@ class _ClassMainNavPageState extends State<ClassMainNavPage> {
   int currentPage = 0;
 
   //widget pages
-  final List _pages = [ClassPage(), ClassHistoryPage()];
+  late final List _pages;
+
+  @override
+  void initState() {
+    super.initState();
+    _pages = [ClassPage(studentList: studentList), ClassHistoryPage()];
+  }
 
   @override
   Widget build(BuildContext context) {

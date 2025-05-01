@@ -1,28 +1,26 @@
 import 'package:beadles_app_prototype1/utils/save_button.dart';
 import 'package:flutter/material.dart';
 
-void showBottomSheet(BuildContext context) {
-  showModalBottomSheet(
-    context: context,
-    backgroundColor: Colors.transparent,
-    elevation: 6,
-    isScrollControlled: true,
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-    ),
-    builder:
-        (context) => CreateNewStudentBottomSheet(
-          firstNameController: TextEditingController(),
-          middleInitialController: TextEditingController(),
-          lastNameController: TextEditingController(),
-          courseController: TextEditingController(),
-          idController: TextEditingController(),
-          //onCreate: () {
-          // Add your logic here for creating a new student
-          //},
-        ),
-  );
-}
+// void showBottomSheet(BuildContext context) {
+//   showModalBottomSheet(
+//     context: context,
+//     backgroundColor: Colors.transparent,
+//     elevation: 6,
+//     isScrollControlled: true,
+//     shape: const RoundedRectangleBorder(
+//       borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+//     ),
+//     builder:
+//         (context) => CreateNewStudentBottomSheet(
+//           firstNameController: TextEditingController(),
+//           middleInitialController: TextEditingController(),
+//           lastNameController: TextEditingController(),
+//           courseController: TextEditingController(),
+//           idController: TextEditingController(),
+//           onCreate: () {},
+//         ),
+//   );
+// }
 
 class CreateNewStudentBottomSheet extends StatefulWidget {
   //controllers
@@ -32,7 +30,7 @@ class CreateNewStudentBottomSheet extends StatefulWidget {
   final TextEditingController courseController;
   final TextEditingController idController;
 
-  //final VoidCallback onCreate;
+  final VoidCallback onCreate;
 
   const CreateNewStudentBottomSheet({
     super.key,
@@ -41,7 +39,7 @@ class CreateNewStudentBottomSheet extends StatefulWidget {
     required this.lastNameController,
     required this.courseController,
     required this.idController,
-    //required this.onCreate,
+    required this.onCreate,
   });
 
   @override
@@ -294,11 +292,10 @@ class _CreateNewStudentBottomSheetState
 
                       SaveButton(
                         title: "Create Student",
-                        onPressed:
-                            () => {
-                              //faujsbfjai
-                              ////widget.onCreate,
-                            },
+                        onPressed: () {
+                          widget.onCreate();
+                          Navigator.pop(context);
+                        },
                       ),
 
                       const SizedBox(height: 12),
