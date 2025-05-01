@@ -12,8 +12,8 @@ class BackgroundPage extends StatelessWidget {
     return Stack(
       children: [
         Positioned(
-          top: MediaQuery.of(context).size.height * -0.06,
-          left: MediaQuery.of(context).size.width * 0.78,
+          top: MediaQuery.of(context).size.height * -0.2,
+          left: MediaQuery.of(context).size.width * 0.88,
           child: Container(
             height: screenHeight * 1, // Adjust size
             width: screenWidth * 1, // Adjust size
@@ -41,19 +41,6 @@ class BackgroundPage extends StatelessWidget {
           ),
         ),
 
-        // Positioned(
-        //   top: MediaQuery.of(context).size.height * 0.63,
-        //   left: MediaQuery.of(context).size.width * -0.01,
-
-        //   child: Container(
-        //     height: screenHeight * 1, // Adjust size
-        //     width: screenWidth * 1, // Adjust size
-        //     decoration: BoxDecoration(
-        //       shape: BoxShape.circle,
-        //       color: Theme.of(context).colorScheme.primary,
-        //     ),
-        //   ),
-        // ),
         BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 200.0, sigmaY: 200.0),
           child: Container(color: Colors.transparent),
