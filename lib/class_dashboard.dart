@@ -111,7 +111,12 @@ class _ClassPageState extends State<ClassPage> {
                 ),
                 //CLASS TITLE
                 Padding(
-                  padding: const EdgeInsets.only(right: 10, left: 10, top: 10),
+                  padding: const EdgeInsets.only(
+                    bottom: 5,
+                    left: 10,
+                    top: 10,
+                    right: 10,
+                  ),
                   child: Material(
                     elevation: 6,
                     shadowColor: const Color.fromARGB(31, 0, 0, 0),
@@ -170,15 +175,14 @@ class _ClassPageState extends State<ClassPage> {
                   ),
                 ),
 
-                SizedBox(height: 1),
-
                 //MODE AND DATE PICKER
                 Padding(
                   padding: EdgeInsets.only(right: 10, left: 10),
                   child: Row(
+                    mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Expanded(
+                      Flexible(
                         child: Material(
                           elevation: 6,
                           shadowColor: const Color.fromARGB(36, 0, 0, 0),
@@ -308,9 +312,9 @@ class _ClassPageState extends State<ClassPage> {
                         ),
                       ),
 
-                      SizedBox(width: 10), // Gap
+                      SizedBox(width: 14), // Gap
 
-                      Expanded(
+                      Flexible(
                         child: Material(
                           elevation: 6,
                           shadowColor: const Color.fromARGB(36, 0, 0, 0),
@@ -412,7 +416,11 @@ class _ClassPageState extends State<ClassPage> {
                               showOnOff: false,
                               activeColor: Color.fromARGB(122, 63, 81, 181),
                               disabled: false,
-                              inactiveColor: Color.fromARGB(48, 255, 255, 255),
+                              inactiveColor:
+                                  Theme.of(context).brightness ==
+                                          Brightness.light
+                                      ? Color.fromARGB(54, 248, 248, 248)
+                                      : Color.fromARGB(48, 255, 255, 255),
                               inactiveSwitchBorder: Border.all(
                                 color: Color.fromARGB(92, 255, 255, 255),
                               ),

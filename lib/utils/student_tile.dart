@@ -56,7 +56,7 @@ class _StudentTileState extends State<StudentTile> {
       case StudentStatus.late:
         return LinearGradient(
           colors: [
-            Color.fromARGB(75, 255, 255, 255),
+            Color.fromARGB(88, 238, 238, 238),
             Color.fromARGB(66, 95, 95, 95),
           ],
           begin: Alignment.topLeft,
@@ -133,6 +133,14 @@ class _StudentTileState extends State<StudentTile> {
                   decoration: BoxDecoration(
                     color: Colors.black,
                     borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      "picture ni ano",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 10),
+                    ),
                   ),
                 ),
 
