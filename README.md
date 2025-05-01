@@ -11,8 +11,6 @@ Beadle’s++ is an enhanced mobile application built in [Flutter](https://flutte
 
 ## Features
 
----
-
 ### Class Management
 
 - Add new classes for beadles with multiple classes.
@@ -37,8 +35,6 @@ Beadle’s++ is an enhanced mobile application built in [Flutter](https://flutte
 - Tap on any date to view full attendance details. (TODO)
 
 ## Getting Started
-
----
 
 Follow these instructions to build and run your the project:
 
@@ -78,12 +74,8 @@ Make sure to have a simulator or a connected Android / iOS device and run the co
 
 ## App Preview
 
----
-
 _Insert screenshots here._
 
 ## License
-
----
 
 This project is licensed under the [MIT License](LICENSE) by Beadle's++ Dev Team.
