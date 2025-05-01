@@ -17,6 +17,13 @@ class ClassPage extends StatefulWidget {
 }
 
 class _ClassPageState extends State<ClassPage> {
+  //delete tile function
+  void deleteTile(int index) {
+    setState(() {
+      widget.studentList.removeAt(index);
+    });
+  }
+
   bool _switchValue = false;
 
   @override
@@ -425,34 +432,39 @@ class _ClassPageState extends State<ClassPage> {
                   ),
                 ),
 
-                Expanded(
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        //List builder students
-                        ...widget.studentList.asMap().entries.map(
-                          (entry) => StudentTile(
-                            studentSurname: entry.value[0],
-                            studentGivenName: entry.value[1],
-                            studentMiddleInitial: entry.value[2],
-                            studentCourse: entry.value[3],
-                            studentID: entry.value[4],
-                            switchStatus: _switchValue,
+                Padding(
+                  padding: EdgeInsets.only(right: 15, left: 15),
+                  child: Expanded(
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          //List builder students
+                          ...widget.studentList.asMap().entries.map(
+                            (entry) => StudentTile(
+                              studentSurname: entry.value[0],
+                              studentGivenName: entry.value[1],
+                              studentMiddleInitial: entry.value[2],
+                              studentCourse: entry.value[3],
+                              studentID: entry.value[4],
+                              switchStatus: _switchValue,
+                              deleteTileFunction:
+                                  (context) => deleteTile(entry.key),
+                            ),
                           ),
-                        ),
 
-                        SizedBox(height: 5),
+                          SizedBox(height: 5),
 
-                        //Submit
-                        SaveButton(
-                          title: "Submit",
-                          onPressed: () {
-                            //make func here to open dialog box
-                          },
-                        ),
+                          //Submit
+                          SaveButton(
+                            title: "Submit",
+                            onPressed: () {
+                              //make func here to open dialog box
+                            },
+                          ),
 
-                        SizedBox(height: 50),
-                      ],
+                          SizedBox(height: 50),
+                        ],
+                      ),
                     ),
                   ),
                 ),

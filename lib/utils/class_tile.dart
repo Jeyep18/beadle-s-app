@@ -53,6 +53,7 @@ class ClassTile extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.only(right: 10, left: 10, bottom: 14),
           child: Slidable(
+            closeOnScroll: true,
             endActionPane: ActionPane(
               motion: StretchMotion(),
               extentRatio: 0.25,
