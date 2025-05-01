@@ -76,7 +76,7 @@ class _CreateNewStudentBottomSheetState
           ),
           padding: EdgeInsets.only(
             top: 12,
-            bottom: MediaQuery.of(context).viewInsets.bottom + 20,
+            bottom: MediaQuery.of(context).viewInsets.bottom,
           ),
           child: Column(
             children: [
@@ -142,6 +142,7 @@ class _CreateNewStudentBottomSheetState
                           Expanded(
                             flex: 3,
                             child: TextField(
+                              textInputAction: TextInputAction.next,
                               controller: widget.firstNameController,
                               decoration: InputDecoration(
                                 prefixIcon: Icon(
@@ -179,6 +180,7 @@ class _CreateNewStudentBottomSheetState
                           Expanded(
                             flex: 1,
                             child: TextField(
+                              textInputAction: TextInputAction.next,
                               controller: widget.middleInitialController,
                               decoration: InputDecoration(
                                 hintText: 'M.I.',
@@ -213,6 +215,7 @@ class _CreateNewStudentBottomSheetState
                       const SizedBox(height: 10),
 
                       TextField(
+                        textInputAction: TextInputAction.next,
                         controller: widget.lastNameController,
                         decoration: InputDecoration(
                           prefixIcon: Icon(Icons.person_rounded, size: 25),
@@ -238,6 +241,7 @@ class _CreateNewStudentBottomSheetState
                       const SizedBox(height: 10),
 
                       TextField(
+                        textInputAction: TextInputAction.next,
                         controller: widget.courseController,
                         decoration: InputDecoration(
                           prefixIcon: Icon(Icons.book_rounded, size: 25),
@@ -263,6 +267,7 @@ class _CreateNewStudentBottomSheetState
                       const SizedBox(height: 10),
 
                       TextField(
+                        textInputAction: TextInputAction.done,
                         controller: widget.idController,
                         decoration: InputDecoration(
                           prefixIcon: Icon(

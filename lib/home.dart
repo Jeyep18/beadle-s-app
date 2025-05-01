@@ -88,6 +88,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       child: Scaffold(
+        resizeToAvoidBottomInset: true,
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           systemOverlayStyle:
