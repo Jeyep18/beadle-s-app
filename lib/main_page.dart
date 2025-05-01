@@ -110,7 +110,7 @@ class _MainPageState extends State<MainPage> {
                         children: [
                           IconButton(
                             iconSize: 45,
-                            icon: const Icon(Icons.home),
+                            icon: const Icon(Icons.home_rounded),
                             padding: const EdgeInsets.symmetric(
                               horizontal: 0,
                               vertical: 0,

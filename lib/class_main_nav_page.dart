@@ -14,6 +14,13 @@ class ClassMainNavPage extends StatefulWidget {
 }
 
 class _ClassMainNavPageState extends State<ClassMainNavPage> {
+  //controllers
+  final _firstNameController = TextEditingController();
+  final _middleInitialController = TextEditingController();
+  final _courseController = TextEditingController();
+  final _lastNameController = TextEditingController();
+  final _idController = TextEditingController();
+
   //create new student
   void createNewStudent(BuildContext context) {
     showModalBottomSheet(
@@ -23,7 +30,17 @@ class _ClassMainNavPageState extends State<ClassMainNavPage> {
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
       builder: (context) {
-        return const CreateNewStudentBottomSheet();
+        return CreateNewStudentBottomSheet(
+          firstNameController: _firstNameController,
+          middleInitialController: _middleInitialController,
+          courseController: _courseController,
+          lastNameController: _lastNameController,
+          idController: _idController,
+          // onCreate:
+          //     () => {
+          //       //function
+          //     },
+        );
       },
     );
   }

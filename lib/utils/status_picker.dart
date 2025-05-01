@@ -67,7 +67,6 @@ class _StatusPickerState extends State<StatusPicker> {
             Radio<StudentStatus>(
               visualDensity: VisualDensity(horizontal: 0, vertical: -2),
               materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-
               value: StudentStatus.absent,
               groupValue: _character,
               onChanged: (StudentStatus? value) {
@@ -97,7 +96,6 @@ class _StatusPickerState extends State<StatusPicker> {
             Radio<StudentStatus>(
               visualDensity: VisualDensity(horizontal: 0, vertical: -2),
               materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-
               value: StudentStatus.late,
               groupValue: _character,
               onChanged: (StudentStatus? value) {

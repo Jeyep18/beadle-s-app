@@ -1,6 +1,25 @@
 import 'package:flutter/material.dart';
 
-enum Day { M, T, WED, TH, FRI, SAT }
+enum Day { m, t, wed, th, fri, sat }
+
+extension DayLabel on Day {
+  String get label {
+    switch (this) {
+      case Day.m:
+        return 'M';
+      case Day.t:
+        return 'T';
+      case Day.wed:
+        return 'WED';
+      case Day.th:
+        return 'TH';
+      case Day.fri:
+        return 'FRI';
+      case Day.sat:
+        return 'SAT';
+    }
+  }
+}
 
 class DaysSelector extends StatefulWidget {
   const DaysSelector({super.key});
@@ -11,12 +30,12 @@ class DaysSelector extends StatefulWidget {
 
 class _DaySelect extends State<DaysSelector> {
   final Map<Day, bool> _selectedDays = {
-    Day.M: false,
-    Day.T: false,
-    Day.WED: false,
-    Day.TH: false,
-    Day.FRI: false,
-    Day.SAT: false,
+    Day.m: false,
+    Day.t: false,
+    Day.wed: false,
+    Day.th: false,
+    Day.fri: false,
+    Day.sat: false,
   };
 
   @override
@@ -38,7 +57,7 @@ class _DaySelect extends State<DaysSelector> {
                     });
                   },
                 ),
-                Text(entry.key.name), // Displays enum name like 'M', 'T', etc.
+                Text(entry.key.label), // Displays enum name like 'M', 'T', etc.
               ],
             );
           }).toList(),

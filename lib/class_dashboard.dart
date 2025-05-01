@@ -13,6 +13,7 @@ class ClassPage extends StatefulWidget {
 }
 
 class _ClassPageState extends State<ClassPage> {
+  //list for student tile
   List studentList = [
     ["Espiritu", "John Francis", "M.", "BS Computer Science", "202400614"],
     ["Belleza", "Lennard Kyle", "T.", "BS Computer Science", "202478811"],
@@ -20,6 +21,7 @@ class _ClassPageState extends State<ClassPage> {
     ["Tuyay", "Christian Joshua", "A.", "BS Computer Science", "202400951"],
     ["Tuyay", "Christian Joshua", "A.", "BS Computer Science", "202400951"],
   ];
+
   @override
   Widget build(BuildContext context) {
     // Get the arguments passed from the previous page
@@ -51,6 +53,7 @@ class _ClassPageState extends State<ClassPage> {
         ),
       ),
       child: Scaffold(
+        resizeToAvoidBottomInset: true,
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           systemOverlayStyle:
