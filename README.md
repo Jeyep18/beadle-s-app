@@ -1,7 +1,5 @@
 # Beadle’s++ – AdNU's Attendance Management App
 
----
-
 Beadle’s++ is an enhanced mobile application built in [Flutter](https://flutter.dev) designed for student beadles of Ateneo de Naga University to efficiently manage and record classroom attendance in a much more reliable, convenient, and accessible way. Inspired by the evolution from C to C++, this upgraded version builds on the school’s original attendance system.
 
 ### Project Developers:
