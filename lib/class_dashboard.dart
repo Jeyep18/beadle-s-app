@@ -1,5 +1,6 @@
 import 'package:beadles_app_prototype1/utils/background.dart';
 import 'package:beadles_app_prototype1/utils/date_picker.dart';
+import 'package:beadles_app_prototype1/utils/save_button.dart';
 import 'package:beadles_app_prototype1/utils/student_tile.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
@@ -383,6 +384,14 @@ class _ClassPageState extends State<ClassPage> {
                             studentCourse: entry.value[3],
                             studentID: entry.value[4],
                           ),
+                        ),
+
+                        //Submit
+                        SaveButton(
+                          title: "Submit",
+                          onPressed: () {
+                            //make func here to open dialog box
+                          },
                         ),
                       ],
                     ),

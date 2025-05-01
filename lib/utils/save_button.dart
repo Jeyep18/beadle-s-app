@@ -8,17 +8,37 @@ class SaveButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        minimumSize: Size(MediaQuery.of(context).size.width * 0.92, 55),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            Theme.of(context).brightness == Brightness.light
+                ? Theme.of(context).colorScheme.primary
+                : Theme.of(context).colorScheme.primary,
+            Theme.of(context).brightness == Brightness.light
+                ? Color.fromARGB(255, 101, 118, 218)
+                : Color.fromARGB(255, 43, 54, 121),
+          ],
+        ),
       ),
-      onPressed: () {
-        //method for save
-        onPressed();
-      },
-      child: Text(title, style: Theme.of(context).textTheme.labelLarge),
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.transparent,
+          shadowColor: Colors.transparent,
+          minimumSize: Size(MediaQuery.of(context).size.width * 0.92, 55),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+        ),
+        onPressed: () {
+          //method for save
+          onPressed();
+        },
+        child: Text(title, style: Theme.of(context).textTheme.labelLarge),
+      ),
     );
   }
 }
