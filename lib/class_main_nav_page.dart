@@ -1,6 +1,7 @@
 import 'package:beadles_app_prototype1/class_dashboard.dart';
 import 'package:beadles_app_prototype1/class_history_page.dart';
 import 'package:beadles_app_prototype1/main_page.dart';
+import 'package:beadles_app_prototype1/utils/background.dart';
 import 'package:beadles_app_prototype1/utils/create_new_student_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 // import 'package:google_fonts/google_fonts.dart';
@@ -65,9 +66,10 @@ class _ClassMainNavPageState extends State<ClassMainNavPage> {
 
   //current page
   int currentPage = 0;
+  final PageController _pageController = PageController();
 
   //widget pages
-  late final List _pages;
+  late final List<Widget> _pages;
 
   @override
   void initState() {
@@ -116,7 +118,36 @@ class _ClassMainNavPageState extends State<ClassMainNavPage> {
         ),
       ),
 
-      body: _pages[currentPage],
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Theme.of(context).brightness == Brightness.light
+                  ? Color.fromARGB(255, 228, 228, 255)
+                  : Color.fromARGB(255, 0, 7, 27),
+              Theme.of(context).scaffoldBackgroundColor,
+              Theme.of(context).scaffoldBackgroundColor,
+              Theme.of(context).brightness == Brightness.light
+                  ? Color.fromARGB(255, 195, 195, 255)
+                  : Color.fromARGB(255, 0, 7, 27),
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
+        child: Stack(
+          children: [
+            const Positioned.fill(child: BackgroundPage()), // Background page
+            PageView(
+              controller: _pageController,
+              onPageChanged: (index) {
+                setState(() => currentPage = index);
+              },
+              children: _pages,
+            ),
+          ],
+        ),
+      ),
 
       bottomNavigationBar: SafeArea(
         child: Padding(
@@ -148,11 +179,13 @@ class _ClassMainNavPageState extends State<ClassMainNavPage> {
                     children: <Widget>[
                       GestureDetector(
                         onTap: () {
-                          setState(() {
-                            if (currentPage != 0) {
-                              currentPage = 0;
-                            }
-                          });
+                          if (currentPage != 0) {
+                            _pageController.animateToPage(
+                              0,
+                              duration: Duration(milliseconds: 300),
+                              curve: Curves.easeInOut,
+                            );
+                          }
                         },
                         child: GlowIcon(
                           size: 50,
@@ -178,7 +211,11 @@ class _ClassMainNavPageState extends State<ClassMainNavPage> {
                         onTap: () {
                           setState(() {
                             if (currentPage != 1) {
-                              currentPage = 1;
+                              _pageController.animateToPage(
+                                1,
+                                duration: Duration(milliseconds: 300),
+                                curve: Curves.easeInOut,
+                              );
                             }
                           });
                         },

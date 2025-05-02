@@ -1,4 +1,5 @@
 import 'package:beadles_app_prototype1/home.dart';
+import 'package:beadles_app_prototype1/utils/background.dart';
 import 'package:beadles_app_prototype1/utils/create_new_class_bottom_sheet.dart';
 import 'package:beadles_app_prototype1/whole_class_history_page.dart';
 import 'package:flutter/material.dart';
@@ -32,16 +33,18 @@ class _MainPageState extends State<MainPage> {
 
   //current page
   int currentPage = 0;
+  final PageController _pageController = PageController();
 
   //widget pages
-  final List _pages = [HomePage(), WholeClassHistoryPage()];
+  final List<Widget> _pages = [HomePage(), WholeClassHistoryPage()];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
       extendBody: true,
-
+      resizeToAvoidBottomInset: true,
+      backgroundColor: Colors.transparent,
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterDocked,
 
@@ -77,7 +80,36 @@ class _MainPageState extends State<MainPage> {
         ),
       ),
 
-      body: _pages[currentPage],
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Theme.of(context).brightness == Brightness.light
+                  ? Color.fromARGB(255, 228, 228, 255)
+                  : Color.fromARGB(255, 0, 7, 27),
+              Theme.of(context).scaffoldBackgroundColor,
+              Theme.of(context).scaffoldBackgroundColor,
+              Theme.of(context).brightness == Brightness.light
+                  ? Color.fromARGB(255, 195, 195, 255)
+                  : Color.fromARGB(255, 0, 7, 27),
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
+        child: Stack(
+          children: [
+            const Positioned.fill(child: BackgroundPage()), // Background page
+            PageView(
+              controller: _pageController,
+              onPageChanged: (index) {
+                setState(() => currentPage = index);
+              },
+              children: _pages,
+            ),
+          ],
+        ),
+      ),
 
       bottomNavigationBar: SafeArea(
         child: Padding(
@@ -110,11 +142,13 @@ class _MainPageState extends State<MainPage> {
                     children: <Widget>[
                       GestureDetector(
                         onTap: () {
-                          setState(() {
-                            if (currentPage != 0) {
-                              currentPage = 0;
-                            }
-                          });
+                          if (currentPage != 0) {
+                            _pageController.animateToPage(
+                              0,
+                              duration: Duration(milliseconds: 300),
+                              curve: Curves.easeInOut,
+                            );
+                          }
                         },
                         child: GlowIcon(
                           Icons.home_rounded,
@@ -140,7 +174,11 @@ class _MainPageState extends State<MainPage> {
                         onTap: () {
                           setState(() {
                             if (currentPage != 1) {
-                              currentPage = 1;
+                              _pageController.animateToPage(
+                                1,
+                                duration: Duration(milliseconds: 300),
+                                curve: Curves.easeInOut,
+                              );
                             }
                           });
                         },
