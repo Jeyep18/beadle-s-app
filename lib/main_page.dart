@@ -2,7 +2,7 @@ import 'package:beadles_app_prototype1/home.dart';
 import 'package:beadles_app_prototype1/utils/create_new_class_bottom_sheet.dart';
 import 'package:beadles_app_prototype1/whole_class_history_page.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_glow/flutter_glow.dart';
 
 //THIS IS THE MAIN PAGE OF THE APP
@@ -105,95 +105,69 @@ class _MainPageState extends State<MainPage> {
                   notchMargin: 8,
                   height: 90,
                   child: Row(
+                    //BOTTOM NAV ICONS ==============================
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
-                      Column(
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                if (currentPage != 0) {
-                                  currentPage = 0;
-                                }
-                              });
-                            },
-                            child: GlowIcon(
-                              Icons.home_rounded,
-                              size: 45,
-                              blurRadius: 10,
-                              glowColor:
-                                  currentPage == 0
-                                      ? Theme.of(context).colorScheme.primary
-                                      : Colors.transparent,
-                              color:
-                                  currentPage == 0
-                                      ? Color.fromARGB(255, 103, 125, 255)
-                                      : Theme.of(context).colorScheme.tertiary,
-                            ),
-                          ),
-                          Text(
-                            'Home',
-                            style: GoogleFonts.poppins(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w500,
-                              color:
-                                  currentPage == 0
-                                      ? Color.fromARGB(255, 103, 125, 255)
-                                      : Theme.of(context).colorScheme.tertiary,
-                            ),
-                          ),
-                        ],
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            if (currentPage != 0) {
+                              currentPage = 0;
+                            }
+                          });
+                        },
+                        child: GlowIcon(
+                          Icons.home_rounded,
+                          size: 50,
+                          blurRadius: 10,
+                          glowColor:
+                              currentPage == 0
+                                  ? Theme.of(context).colorScheme.primary
+                                  : Colors.transparent,
+                          color:
+                              currentPage == 0
+                                  ? Color.fromARGB(255, 103, 125, 255)
+                                  : Theme.of(context).brightness ==
+                                      Brightness.dark
+                                  ? Color.fromARGB(255, 53, 64, 99)
+                                  : Color.fromARGB(255, 198, 212, 255),
+                        ),
                       ),
 
                       const SizedBox(width: 5), // Gap for FAB
 
-                      Column(
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                if (currentPage != 1) {
-                                  currentPage = 1;
-                                }
-                              });
-                            },
-                            child: Padding(
-                              padding: EdgeInsets.only(
-                                bottom: 2,
-                                top: 3,
-                                left: 5,
-                                right: 5,
-                              ),
-                              child: GlowIcon(
-                                Icons.calendar_month_rounded,
-                                size: 40,
-                                blurRadius: 10,
-                                glowColor:
-                                    currentPage == 1
-                                        ? Theme.of(context).colorScheme.primary
-                                        : Colors.transparent,
-                                color:
-                                    currentPage == 1
-                                        ? Color.fromARGB(255, 103, 125, 255)
-                                        : Theme.of(
-                                          context,
-                                        ).colorScheme.tertiary,
-                              ),
-                            ),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            if (currentPage != 1) {
+                              currentPage = 1;
+                            }
+                          });
+                        },
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                            bottom: 2,
+                            top: 3,
+                            left: 5,
+                            right: 5,
                           ),
-
-                          Text(
-                            'History',
-                            style: GoogleFonts.poppins(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w500,
-                              color:
-                                  currentPage == 0
-                                      ? Theme.of(context).colorScheme.tertiary
-                                      : Color.fromARGB(255, 103, 125, 255),
-                            ),
+                          child: GlowIcon(
+                            Icons.calendar_month_rounded,
+                            size: 45,
+                            blurRadius: 10,
+                            glowColor:
+                                currentPage == 1
+                                    ? Theme.of(context).colorScheme.primary
+                                    : Colors.transparent,
+                            color:
+                                currentPage == 1
+                                    ? Color.fromARGB(255, 103, 125, 255)
+                                    : Theme.of(context).brightness ==
+                                        Brightness.dark
+                                    ? Color.fromARGB(255, 53, 64, 99)
+                                    : Color.fromARGB(255, 198, 212, 255),
                           ),
-                        ],
+                        ),
                       ),
                     ],
                   ),

@@ -3,7 +3,7 @@ import 'package:beadles_app_prototype1/class_history_page.dart';
 import 'package:beadles_app_prototype1/main_page.dart';
 import 'package:beadles_app_prototype1/utils/create_new_student_bottom_sheet.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_glow/flutter_glow.dart';
 
 class ClassMainNavPage extends StatefulWidget {
@@ -15,7 +15,7 @@ class ClassMainNavPage extends StatefulWidget {
 
 class _ClassMainNavPageState extends State<ClassMainNavPage> {
   final List<List<String>> studentList = [
-    ["Surname", "First Name", "M.I.", "Course", "000000000"],
+    ["Sahur", "Tung Tung", "Tung", "BS Computer Science", "100101010"],
   ];
 
   //controllers
@@ -146,92 +146,66 @@ class _ClassMainNavPageState extends State<ClassMainNavPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
-                      Column(
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                if (currentPage != 0) {
-                                  currentPage = 0;
-                                }
-                              });
-                            },
-                            child: GlowIcon(
-                              size: 45,
-                              Icons.group_rounded,
-                              blurRadius: 10,
-                              glowColor:
-                                  currentPage == 0
-                                      ? Theme.of(context).colorScheme.primary
-                                      : Colors.transparent,
-                              color:
-                                  currentPage == 0
-                                      ? Color.fromARGB(255, 103, 125, 255)
-                                      : Theme.of(context).colorScheme.tertiary,
-                            ),
-                          ),
-                          Text(
-                            'Students',
-                            style: GoogleFonts.poppins(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w500,
-                              color:
-                                  currentPage == 0
-                                      ? Theme.of(context).colorScheme.primary
-                                      : Theme.of(context).colorScheme.tertiary,
-                            ),
-                          ),
-                        ],
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            if (currentPage != 0) {
+                              currentPage = 0;
+                            }
+                          });
+                        },
+                        child: GlowIcon(
+                          size: 50,
+                          Icons.group_rounded,
+                          blurRadius: 10,
+                          glowColor:
+                              currentPage == 0
+                                  ? Theme.of(context).colorScheme.primary
+                                  : Colors.transparent,
+                          color:
+                              currentPage == 0
+                                  ? Color.fromARGB(255, 103, 125, 255)
+                                  : Theme.of(context).brightness ==
+                                      Brightness.dark
+                                  ? Color.fromARGB(255, 53, 64, 99)
+                                  : Color.fromARGB(255, 198, 212, 255),
+                        ),
                       ),
 
                       const SizedBox(width: 5), // Gap for FAB
 
-                      Column(
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                if (currentPage != 1) {
-                                  currentPage = 1;
-                                }
-                              });
-                            },
-                            child: Padding(
-                              padding: EdgeInsets.only(
-                                bottom: 2,
-                                top: 3,
-                                left: 5,
-                                right: 5,
-                              ),
-                              child: GlowIcon(
-                                Icons.calendar_month_rounded,
-                                size: 40,
-                                blurRadius: 10,
-                                glowColor:
-                                    currentPage == 1
-                                        ? Theme.of(context).colorScheme.primary
-                                        : Colors.transparent,
-                                color:
-                                    currentPage == 1
-                                        ? Color.fromARGB(255, 103, 125, 255)
-                                        : Theme.of(
-                                          context,
-                                        ).colorScheme.tertiary,
-                              ),
-                            ),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            if (currentPage != 1) {
+                              currentPage = 1;
+                            }
+                          });
+                        },
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                            bottom: 2,
+                            top: 3,
+                            left: 5,
+                            right: 5,
                           ),
-                          Text(
-                            'History',
-                            style: GoogleFonts.poppins(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w500,
-                              color:
-                                  currentPage == 0
-                                      ? Theme.of(context).colorScheme.tertiary
-                                      : Theme.of(context).colorScheme.primary,
-                            ),
+                          child: GlowIcon(
+                            Icons.calendar_month_rounded,
+                            size: 45,
+                            blurRadius: 10,
+                            glowColor:
+                                currentPage == 1
+                                    ? Theme.of(context).colorScheme.primary
+                                    : Colors.transparent,
+                            color:
+                                currentPage == 1
+                                    ? Color.fromARGB(255, 103, 125, 255)
+                                    : Theme.of(context).brightness ==
+                                        Brightness.dark
+                                    ? Color.fromARGB(255, 53, 64, 99)
+                                    : Color.fromARGB(255, 198, 212, 255),
                           ),
-                        ],
+                        ),
                       ),
                     ],
                   ),
