@@ -104,7 +104,7 @@ class _ClassPageState extends State<ClassPage> {
             const Positioned.fill(child: BackgroundPage()), // Background widget
             //==================================MAIN CONTENT==================================
             Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(
                   // PADDING FOR APPBAR
@@ -194,7 +194,7 @@ class _ClassPageState extends State<ClassPage> {
 
                 //MODE AND DATE PICKER
                 Padding(
-                  padding: EdgeInsets.only(right: 10, left: 10),
+                  padding: EdgeInsets.only(top: 10, right: 10, left: 10),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -407,18 +407,18 @@ class _ClassPageState extends State<ClassPage> {
                         ),
                       ),
 
-                      SizedBox(
-                        //PADDING FOR BOTTOM NAV
-                        height: MediaQuery.of(context).padding.bottom,
-                      ),
+                      // SizedBox(
+                      //   //PADDING FOR BOTTOM NAV
+                      //   height: MediaQuery.of(context).padding.bottom,
+                      // ),
                     ],
                   ),
                 ),
 
-                SizedBox(height: 20),
+                SizedBox(height: 25),
 
                 Padding(
-                  padding: EdgeInsets.only(bottom: 15, right: 10, left: 10),
+                  padding: EdgeInsets.only(bottom: 15, right: 10, left: 14),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -481,39 +481,41 @@ class _ClassPageState extends State<ClassPage> {
                   ),
                 ),
 
-                Padding(
-                  padding: EdgeInsets.only(right: 15, left: 15),
-                  child: Expanded(
-                    child: SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          //List builder students
-                          ...widget.studentList.asMap().entries.map(
-                            (entry) => StudentTile(
-                              studentSurname: entry.value[0],
-                              studentGivenName: entry.value[1],
-                              studentMiddleInitial: entry.value[2],
-                              studentCourse: entry.value[3],
-                              studentID: entry.value[4],
-                              switchStatus: _switchValue,
-                              deleteTileFunction:
-                                  (context) => deleteTile(entry.key),
-                            ),
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        //List builder students
+                        ...widget.studentList.asMap().entries.map(
+                          (entry) => StudentTile(
+                            studentSurname: entry.value[0],
+                            studentGivenName: entry.value[1],
+                            studentMiddleInitial: entry.value[2],
+                            studentCourse: entry.value[3],
+                            studentID: entry.value[4],
+                            switchStatus: _switchValue,
+                            deleteTileFunction:
+                                (context) => deleteTile(entry.key),
                           ),
+                        ),
 
-                          SizedBox(height: 5),
+                        SizedBox(height: 5),
 
-                          //Submit
-                          SaveButton(
+                        //Submit
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          child: SaveButton(
                             title: "Submit",
                             onPressed: () {
                               //make func here to open dialog box
                             },
                           ),
+                        ),
 
-                          SizedBox(height: 50),
-                        ],
-                      ),
+                        SizedBox(height: 50),
+                      ],
                     ),
                   ),
                 ),

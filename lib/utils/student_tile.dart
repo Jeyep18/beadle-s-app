@@ -88,7 +88,7 @@ class _StudentTileState extends State<StudentTile> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 15),
+      padding: EdgeInsets.only(bottom: 15, right: 12, left: 12),
       child: Slidable(
         closeOnScroll: true,
         endActionPane: ActionPane(
