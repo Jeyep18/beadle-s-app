@@ -3,6 +3,7 @@ import 'package:beadles_app_prototype1/utils/create_new_class_bottom_sheet.dart'
 import 'package:beadles_app_prototype1/whole_class_history_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_glow/flutter_glow.dart';
 
 //THIS IS THE MAIN PAGE OF THE APP
 //IT CONTAINS THE BOTTOM NAVIGATION BAR AND THE FLOATING ACTION BUTTON
@@ -108,20 +109,27 @@ class _MainPageState extends State<MainPage> {
                     children: <Widget>[
                       Column(
                         children: [
-                          IconButton(
-                            iconSize: 45,
-                            icon: const Icon(Icons.home_rounded),
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 0,
-                              vertical: 0,
-                            ),
-                            onPressed: () {
-                              setState(() => currentPage = 0);
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                if (currentPage != 0) {
+                                  currentPage = 0;
+                                }
+                              });
                             },
-                            color:
-                                currentPage == 0
-                                    ? Theme.of(context).colorScheme.primary
-                                    : Theme.of(context).colorScheme.tertiary,
+                            child: GlowIcon(
+                              Icons.home_rounded,
+                              size: 45,
+                              blurRadius: 10,
+                              glowColor:
+                                  currentPage == 0
+                                      ? Theme.of(context).colorScheme.primary
+                                      : Colors.transparent,
+                              color:
+                                  currentPage == 0
+                                      ? Color.fromARGB(255, 103, 125, 255)
+                                      : Theme.of(context).colorScheme.tertiary,
+                            ),
                           ),
                           Text(
                             'Home',
@@ -130,7 +138,7 @@ class _MainPageState extends State<MainPage> {
                               fontWeight: FontWeight.w500,
                               color:
                                   currentPage == 0
-                                      ? Theme.of(context).colorScheme.primary
+                                      ? Color.fromARGB(255, 103, 125, 255)
                                       : Theme.of(context).colorScheme.tertiary,
                             ),
                           ),
@@ -141,20 +149,37 @@ class _MainPageState extends State<MainPage> {
 
                       Column(
                         children: [
-                          IconButton(
-                            iconSize: 40,
-                            icon: const Icon(Icons.calendar_month_outlined),
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 0,
-                              vertical: 0,
-                            ),
-                            onPressed: () {
-                              setState(() => currentPage = 1);
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                if (currentPage != 1) {
+                                  currentPage = 1;
+                                }
+                              });
                             },
-                            color:
-                                currentPage == 1
-                                    ? Theme.of(context).colorScheme.primary
-                                    : Theme.of(context).colorScheme.tertiary,
+                            child: Padding(
+                              padding: EdgeInsets.only(
+                                bottom: 2,
+                                top: 3,
+                                left: 5,
+                                right: 5,
+                              ),
+                              child: GlowIcon(
+                                Icons.calendar_month_rounded,
+                                size: 40,
+                                blurRadius: 10,
+                                glowColor:
+                                    currentPage == 1
+                                        ? Theme.of(context).colorScheme.primary
+                                        : Colors.transparent,
+                                color:
+                                    currentPage == 1
+                                        ? Color.fromARGB(255, 103, 125, 255)
+                                        : Theme.of(
+                                          context,
+                                        ).colorScheme.tertiary,
+                              ),
+                            ),
                           ),
 
                           Text(
@@ -165,7 +190,7 @@ class _MainPageState extends State<MainPage> {
                               color:
                                   currentPage == 0
                                       ? Theme.of(context).colorScheme.tertiary
-                                      : Theme.of(context).colorScheme.primary,
+                                      : Color.fromARGB(255, 103, 125, 255),
                             ),
                           ),
                         ],

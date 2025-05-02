@@ -4,6 +4,7 @@ import 'package:beadles_app_prototype1/main_page.dart';
 import 'package:beadles_app_prototype1/utils/create_new_student_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_glow/flutter_glow.dart';
 
 class ClassMainNavPage extends StatefulWidget {
   const ClassMainNavPage({super.key});
@@ -147,20 +148,27 @@ class _ClassMainNavPageState extends State<ClassMainNavPage> {
                     children: <Widget>[
                       Column(
                         children: [
-                          IconButton(
-                            iconSize: 45,
-                            icon: const Icon(Icons.group_rounded),
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 0,
-                              vertical: 0,
-                            ),
-                            onPressed: () {
-                              setState(() => currentPage = 0);
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                if (currentPage != 0) {
+                                  currentPage = 0;
+                                }
+                              });
                             },
-                            color:
-                                currentPage == 0
-                                    ? Theme.of(context).colorScheme.primary
-                                    : Theme.of(context).colorScheme.tertiary,
+                            child: GlowIcon(
+                              size: 45,
+                              Icons.group_rounded,
+                              blurRadius: 10,
+                              glowColor:
+                                  currentPage == 0
+                                      ? Theme.of(context).colorScheme.primary
+                                      : Colors.transparent,
+                              color:
+                                  currentPage == 0
+                                      ? Color.fromARGB(255, 103, 125, 255)
+                                      : Theme.of(context).colorScheme.tertiary,
+                            ),
                           ),
                           Text(
                             'Students',
@@ -180,22 +188,38 @@ class _ClassMainNavPageState extends State<ClassMainNavPage> {
 
                       Column(
                         children: [
-                          IconButton(
-                            iconSize: 40,
-                            icon: const Icon(Icons.calendar_month),
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 0,
-                              vertical: 0,
-                            ),
-                            onPressed: () {
-                              setState(() => currentPage = 1);
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                if (currentPage != 1) {
+                                  currentPage = 1;
+                                }
+                              });
                             },
-                            color:
-                                currentPage == 1
-                                    ? Theme.of(context).colorScheme.primary
-                                    : Theme.of(context).colorScheme.tertiary,
+                            child: Padding(
+                              padding: EdgeInsets.only(
+                                bottom: 2,
+                                top: 3,
+                                left: 5,
+                                right: 5,
+                              ),
+                              child: GlowIcon(
+                                Icons.calendar_month_rounded,
+                                size: 40,
+                                blurRadius: 10,
+                                glowColor:
+                                    currentPage == 1
+                                        ? Theme.of(context).colorScheme.primary
+                                        : Colors.transparent,
+                                color:
+                                    currentPage == 1
+                                        ? Color.fromARGB(255, 103, 125, 255)
+                                        : Theme.of(
+                                          context,
+                                        ).colorScheme.tertiary,
+                              ),
+                            ),
                           ),
-
                           Text(
                             'History',
                             style: GoogleFonts.poppins(
