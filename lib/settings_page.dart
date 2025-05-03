@@ -63,7 +63,6 @@ class _SettingsPageState extends State<SettingsPage> {
                       kToolbarHeight + MediaQuery.of(context).padding.top + 20,
                 ),
 
-                // Profile (centered at the top)
                 Center(
                   child: Column(
                     children: [
@@ -93,7 +92,6 @@ class _SettingsPageState extends State<SettingsPage> {
 
                 const SizedBox(height: 20),
 
-                // Settings title and account row (left-aligned)
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Column(
@@ -101,22 +99,49 @@ class _SettingsPageState extends State<SettingsPage> {
                     children: [
                       Text(
                         'Settings',
-                        style: Theme.of(context).textTheme.titleMedium
-                            ?.copyWith(fontWeight: FontWeight.w600),
+                        style: Theme.of(
+                          context,
+                        ).textTheme.titleMedium?.copyWith(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                       const SizedBox(height: 15),
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.person_outline,
-                            color: Theme.of(context).colorScheme.tertiary,
+                      Material(
+                        color: Colors.transparent,
+                        child: InkWell(
+                          onTap: () {
+                            //nigger
+                          },
+                          borderRadius: BorderRadius.circular(8),
+                          splashColor: Theme.of(
+                            context,
+                          ).colorScheme.primary.withOpacity(0.2),
+                          highlightColor: Theme.of(
+                            context,
+                          ).colorScheme.primary.withOpacity(0.1),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.person_outline,
+                                  color: Theme.of(context).colorScheme.tertiary,
+                                ),
+                                const SizedBox(width: 10),
+                                Text(
+                                  'Account',
+                                  style: Theme.of(
+                                    context,
+                                  ).textTheme.bodyLarge?.copyWith(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                          const SizedBox(width: 10),
-                          Text(
-                            'Account',
-                            style: Theme.of(context).textTheme.bodyLarge,
-                          ),
-                        ],
+                        ),
                       ),
                     ],
                   ),
