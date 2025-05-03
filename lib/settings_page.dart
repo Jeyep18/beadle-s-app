@@ -34,9 +34,8 @@ class _SettingsPageState extends State<SettingsPage> {
         appBar: AppBar(
           systemOverlayStyle:
               Theme.of(context).brightness == Brightness.dark
-                  ? SystemUiOverlayStyle
-                      .light // white icons for dark mode
-                  : SystemUiOverlayStyle.dark, // black icons for light mode
+                  ? SystemUiOverlayStyle.light
+                  : SystemUiOverlayStyle.dark,
           iconTheme: IconThemeData(
             color: Theme.of(context).colorScheme.tertiary,
           ),
@@ -55,21 +54,97 @@ class _SettingsPageState extends State<SettingsPage> {
         body: Stack(
           children: [
             const Positioned.fill(child: BackgroundPage()),
-            //==================================MAIN CONTENT==================================
+
+            //========================= MAIN CONTENT =========================
             Column(
               children: [
                 SizedBox(
-                  //PADDING APP BAR
-                  height: kToolbarHeight + MediaQuery.of(context).padding.top,
+                  height:
+                      kToolbarHeight + MediaQuery.of(context).padding.top + 20,
                 ),
 
-                Expanded(
-                  child: Container(color: Colors.transparent),
-                ), //REPLACE THIS WITH CONTENTS
+                Center(
+                  child: Column(
+                    children: [
+                      Icon(
+                        Icons.account_circle,
+                        size: 120,
+                        color: Theme.of(
+                          context,
+                        ).colorScheme.tertiary.withOpacity(0.8),
+                      ),
+                      const SizedBox(height: 10),
+                      Text(
+                        'Lennard Kyle Belleza',
+                        style: Theme.of(context).textTheme.headlineSmall
+                            ?.copyWith(fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        '@lkbelleza',
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          color: Theme.of(context).colorScheme.secondary,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
 
-                SizedBox(
-                  //PADDING BOTTOM NAVIGATION BAR
-                  height: MediaQuery.of(context).padding.bottom,
+                const SizedBox(height: 20),
+
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Settings',
+                        style: Theme.of(
+                          context,
+                        ).textTheme.titleMedium?.copyWith(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      const SizedBox(height: 15),
+                      Material(
+                        color: Colors.transparent,
+                        child: InkWell(
+                          onTap: () {
+                            //nigger
+                          },
+                          borderRadius: BorderRadius.circular(8),
+                          splashColor: Theme.of(
+                            context,
+                          ).colorScheme.primary.withOpacity(0.2),
+                          highlightColor: Theme.of(
+                            context,
+                          ).colorScheme.primary.withOpacity(0.1),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.person_outline,
+                                  color: Theme.of(context).colorScheme.tertiary,
+                                ),
+                                const SizedBox(width: 10),
+                                Text(
+                                  'Account',
+                                  style: Theme.of(
+                                    context,
+                                  ).textTheme.bodyLarge?.copyWith(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
