@@ -1,4 +1,3 @@
-import 'package:beadles_app_prototype1/utils/background.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 
@@ -15,76 +14,57 @@ class _ClassHistoryPageState extends State<ClassHistoryPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            Theme.of(context).brightness == Brightness.light
-                ? Color.fromARGB(255, 228, 228, 255)
-                : Color.fromARGB(255, 0, 7, 27),
-            Theme.of(context).scaffoldBackgroundColor,
-            Theme.of(context).scaffoldBackgroundColor,
-            Theme.of(context).brightness == Brightness.light
-                ? Color.fromARGB(255, 195, 195, 255)
-                : Color.fromARGB(255, 0, 7, 27),
-          ],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      resizeToAvoidBottomInset: true,
+      appBar: AppBar(
+        systemOverlayStyle:
+            Theme.of(context).brightness == Brightness.dark
+                ? SystemUiOverlayStyle
+                    .light // white icons for dark mode
+                : SystemUiOverlayStyle.dark, // black icons for light mode
+        iconTheme: IconThemeData(color: Theme.of(context).colorScheme.tertiary),
+        centerTitle: true,
+        titleSpacing: 20,
+        title: Text(
+          'Class History',
+          style: Theme.of(context).textTheme.headlineLarge,
         ),
-      ),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        appBar: AppBar(
-          systemOverlayStyle:
-              Theme.of(context).brightness == Brightness.dark
-                  ? SystemUiOverlayStyle
-                      .light // white icons for dark mode
-                  : SystemUiOverlayStyle.dark, // black icons for light mode
-          iconTheme: IconThemeData(
+        backgroundColor: const Color.fromARGB(0, 0, 0, 0),
+        actions: [
+          IconButton(
+            onPressed: () {
+              //menu page here
+            },
+            icon: Icon(Icons.more_vert),
             color: Theme.of(context).colorScheme.tertiary,
+            iconSize: 25,
           ),
-          centerTitle: true,
-          titleSpacing: 20,
-          title: Text(
-            'Class History',
-            style: Theme.of(context).textTheme.headlineLarge,
+        ],
+      ),
+
+      extendBodyBehindAppBar: true,
+      extendBody: true,
+
+      body: Stack(
+        children: [
+          //const Positioned.fill(child: BackgroundPage()),
+
+          //==================================MAIN CONTENT==================================
+          Column(
+            children: [
+              SizedBox(
+                height: kToolbarHeight + MediaQuery.of(context).padding.top,
+              ),
+
+              Expanded(
+                child: Container(color: Colors.transparent),
+              ), //REPLACE THIS WITH CONTENTS
+
+              SizedBox(height: MediaQuery.of(context).padding.bottom),
+            ],
           ),
-          backgroundColor: const Color.fromARGB(0, 0, 0, 0),
-          actions: [
-            IconButton(
-              onPressed: () {
-                //menu page here
-              },
-              icon: Icon(Icons.more_vert),
-              color: Theme.of(context).colorScheme.tertiary,
-              iconSize: 25,
-            ),
-          ],
-        ),
-
-        extendBodyBehindAppBar: true,
-        extendBody: true,
-
-        body: Stack(
-          children: [
-            const Positioned.fill(child: BackgroundPage()),
-
-            //==================================MAIN CONTENT==================================
-            Column(
-              children: [
-                SizedBox(
-                  height: kToolbarHeight + MediaQuery.of(context).padding.top,
-                ),
-
-                Expanded(
-                  child: Container(color: Colors.transparent),
-                ), //REPLACE THIS WITH CONTENTS
-
-                SizedBox(height: MediaQuery.of(context).padding.bottom),
-              ],
-            ),
-          ],
-        ),
+        ],
       ),
     );
   }

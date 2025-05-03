@@ -1,9 +1,9 @@
-import 'package:beadles_app_prototype1/utils/background.dart';
 import 'package:beadles_app_prototype1/utils/date_picker.dart';
 import 'package:beadles_app_prototype1/utils/save_button.dart';
 import 'package:beadles_app_prototype1/utils/student_tile.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'dart:ui';
@@ -40,44 +40,45 @@ class _ClassPageState extends State<ClassPage> {
     final schoolYear = args['schoolYear'] ?? 'N/A';
     final semester = args['semester'] ?? 'N/A';
 
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            Theme.of(context).brightness == Brightness.light
-                ? Color.fromARGB(255, 228, 228, 255)
-                : Color.fromARGB(255, 0, 7, 27),
-            Theme.of(context).scaffoldBackgroundColor,
-            Theme.of(context).scaffoldBackgroundColor,
-            Theme.of(context).brightness == Brightness.light
-                ? Color.fromARGB(255, 195, 195, 255)
-                : Color.fromARGB(255, 0, 7, 27),
+    return Scaffold(
+      resizeToAvoidBottomInset: true,
+      backgroundColor: Colors.transparent,
+      appBar: AppBar(
+        systemOverlayStyle:
+            Theme.of(context).brightness == Brightness.dark
+                ? SystemUiOverlayStyle
+                    .light // white icons for dark mode
+                : SystemUiOverlayStyle.dark, // black icons for light mode
+        iconTheme: IconThemeData(color: Theme.of(context).colorScheme.tertiary),
+        centerTitle: true,
+        titleSpacing: 0,
+
+        title: Animate(
+          effects: [
+            FadeEffect(duration: 0.3.seconds),
+            SlideEffect(
+              duration: 0.4.seconds,
+              begin: Offset(0, -0.6),
+              curve: Curves.easeOutCubic,
+            ),
           ],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-      ),
-      child: Scaffold(
-        resizeToAvoidBottomInset: true,
-        backgroundColor: Colors.transparent,
-        appBar: AppBar(
-          systemOverlayStyle:
-              Theme.of(context).brightness == Brightness.dark
-                  ? SystemUiOverlayStyle
-                      .light // white icons for dark mode
-                  : SystemUiOverlayStyle.dark, // black icons for light mode
-          iconTheme: IconThemeData(
-            color: Theme.of(context).colorScheme.tertiary,
-          ),
-          centerTitle: true,
-          titleSpacing: 0,
-          title: Text(
+          child: Text(
             'Take Attendance',
             style: Theme.of(context).textTheme.headlineLarge,
           ),
-          backgroundColor: Colors.transparent,
-          actions: [
-            IconButton(
+        ),
+        backgroundColor: Colors.transparent,
+        actions: [
+          Animate(
+            effects: [
+              FadeEffect(duration: 0.3.seconds),
+              SlideEffect(
+                duration: 0.4.seconds,
+                begin: Offset(0, -0.6),
+                curve: Curves.easeOutCubic,
+              ),
+            ],
+            child: IconButton(
               icon: const Icon(Icons.info_outline),
               onPressed: () {
                 //opens information page
@@ -85,7 +86,17 @@ class _ClassPageState extends State<ClassPage> {
               color: Theme.of(context).colorScheme.tertiary,
               iconSize: 25,
             ),
-            IconButton(
+          ),
+          Animate(
+            effects: [
+              FadeEffect(duration: 0.3.seconds),
+              SlideEffect(
+                duration: 0.4.seconds,
+                begin: Offset(0, -0.6),
+                curve: Curves.easeOutCubic,
+              ),
+            ],
+            child: IconButton(
               onPressed: () {
                 //menu page here
               },
@@ -93,25 +104,34 @@ class _ClassPageState extends State<ClassPage> {
               color: Theme.of(context).colorScheme.tertiary,
               iconSize: 25,
             ),
-          ],
-        ),
+          ),
+        ],
+      ),
 
-        extendBodyBehindAppBar: true,
-        extendBody: true,
+      extendBodyBehindAppBar: true,
+      extendBody: true,
 
-        body: Stack(
-          children: [
-            const Positioned.fill(child: BackgroundPage()), // Background widget
-            //==================================MAIN CONTENT==================================
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(
-                  // PADDING FOR APPBAR
-                  height: kToolbarHeight + MediaQuery.of(context).padding.top,
-                ),
-                //CLASS TITLE
-                Padding(
+      body: Stack(
+        children: [
+          //==================================MAIN CONTENT==================================
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(
+                // PADDING FOR APPBAR
+                height: kToolbarHeight + MediaQuery.of(context).padding.top,
+              ),
+              //CLASS TITLE
+              Animate(
+                effects: [
+                  FadeEffect(duration: 0.3.seconds),
+                  SlideEffect(
+                    duration: 0.8.seconds,
+                    begin: Offset(0, -0.6),
+                    curve: Curves.easeOutCubic,
+                  ),
+                ],
+                child: Padding(
                   padding: const EdgeInsets.only(
                     bottom: 5,
                     left: 10,
@@ -191,15 +211,25 @@ class _ClassPageState extends State<ClassPage> {
                     ),
                   ),
                 ),
+              ),
 
-                //MODE AND DATE PICKER
-                Padding(
-                  padding: EdgeInsets.only(top: 10, right: 10, left: 10),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Flexible(
+              //MODE AND DATE PICKER
+              Padding(
+                padding: EdgeInsets.only(top: 10, right: 10, left: 10),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Animate(
+                      effects: [
+                        FadeEffect(duration: 0.3.seconds),
+                        SlideEffect(
+                          duration: 0.6.seconds,
+                          begin: Offset(-0.6, 0),
+                          curve: Curves.easeOutCubic,
+                        ),
+                      ],
+                      child: Flexible(
                         child: Material(
                           elevation: 6,
                           shadowColor: const Color.fromARGB(36, 0, 0, 0),
@@ -343,10 +373,20 @@ class _ClassPageState extends State<ClassPage> {
                           ),
                         ),
                       ),
+                    ),
 
-                      SizedBox(width: 14), // Gap
+                    SizedBox(width: 14), // Gap
 
-                      Flexible(
+                    Animate(
+                      effects: [
+                        FadeEffect(duration: 0.3.seconds),
+                        SlideEffect(
+                          duration: 0.6.seconds,
+                          begin: Offset(0.6, 0),
+                          curve: Curves.easeOutCubic,
+                        ),
+                      ],
+                      child: Flexible(
                         child: Material(
                           elevation: 6,
                           shadowColor: const Color.fromARGB(36, 0, 0, 0),
@@ -406,33 +446,56 @@ class _ClassPageState extends State<ClassPage> {
                           ),
                         ),
                       ),
+                    ),
 
-                      // SizedBox(
-                      //   //PADDING FOR BOTTOM NAV
-                      //   height: MediaQuery.of(context).padding.bottom,
-                      // ),
-                    ],
-                  ),
+                    // SizedBox(
+                    //   //PADDING FOR BOTTOM NAV
+                    //   height: MediaQuery.of(context).padding.bottom,
+                    // ),
+                  ],
                 ),
+              ),
 
-                SizedBox(height: 25),
+              SizedBox(height: 25),
 
-                Padding(
-                  padding: EdgeInsets.only(bottom: 15, right: 10, left: 14),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
+              Padding(
+                padding: EdgeInsets.only(bottom: 15, right: 10, left: 14),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Animate(
+                      effects: [
+                        FadeEffect(duration: 0.3.seconds, delay: 0.2.seconds),
+                        SlideEffect(
+                          duration: 1.seconds,
+                          begin: Offset(0, -0.6),
+                          curve: Curves.easeOutCubic,
+                        ),
+                      ],
+                      child: Text(
                         "Students List: ",
                         textAlign: TextAlign.start,
                         style: Theme.of(context).textTheme.headlineMedium,
                       ),
+                    ),
 
-                      Padding(
-                        padding: EdgeInsets.only(right: 10),
-                        child: Row(
-                          children: [
-                            Text(
+                    Padding(
+                      padding: EdgeInsets.only(right: 10),
+                      child: Row(
+                        children: [
+                          Animate(
+                            effects: [
+                              FadeEffect(
+                                duration: 0.3.seconds,
+                                delay: 0.2.seconds,
+                              ),
+                              SlideEffect(
+                                duration: 1.seconds,
+                                begin: Offset(0, -0.6),
+                                curve: Curves.easeOutCubic,
+                              ),
+                            ],
+                            child: Text(
                               "Mark all present: ",
                               style: GoogleFonts.poppins(
                                 fontSize: 12,
@@ -444,10 +507,23 @@ class _ClassPageState extends State<ClassPage> {
                                         : Color.fromARGB(255, 255, 255, 255),
                               ),
                             ),
+                          ),
 
-                            SizedBox(width: 5),
+                          SizedBox(width: 5),
 
-                            FlutterSwitch(
+                          Animate(
+                            effects: [
+                              FadeEffect(
+                                duration: 0.3.seconds,
+                                delay: 0.2.seconds,
+                              ),
+                              SlideEffect(
+                                duration: 1.seconds,
+                                begin: Offset(0, -0.6),
+                                curve: Curves.easeOutCubic,
+                              ),
+                            ],
+                            child: FlutterSwitch(
                               value: _switchValue,
                               width: 45,
                               height: 25,
@@ -474,22 +550,35 @@ class _ClassPageState extends State<ClassPage> {
                                 });
                               },
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
+              ),
 
-                Expanded(
-                  child: SingleChildScrollView(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        //List builder students
-                        ...widget.studentList.asMap().entries.map(
-                          (entry) => StudentTile(
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      //List builder students
+                      ...widget.studentList.asMap().entries.map(
+                        (entry) => Animate(
+                          effects: [
+                            FadeEffect(
+                              duration: 0.4.seconds,
+                              delay: 0.4.seconds,
+                            ),
+                            SlideEffect(
+                              duration: 1.seconds,
+                              begin: Offset(0, -0.2),
+                              curve: Curves.easeOutCubic,
+                            ),
+                          ],
+                          child: StudentTile(
                             studentSurname: entry.value[0],
                             studentGivenName: entry.value[1],
                             studentMiddleInitial: entry.value[2],
@@ -500,11 +589,22 @@ class _ClassPageState extends State<ClassPage> {
                                 (context) => deleteTile(entry.key),
                           ),
                         ),
+                      ),
 
-                        SizedBox(height: 5),
+                      SizedBox(height: 5),
 
-                        //Submit
-                        Padding(
+                      //Submit
+                      Animate(
+                        effects: [
+                          FadeEffect(duration: 0.3.seconds, delay: 0.4.seconds),
+                          SlideEffect(
+                            duration: 1.seconds,
+                            begin: Offset(0, -0.6),
+                            curve: Curves.easeOutCubic,
+                          ),
+                        ],
+
+                        child: Padding(
                           padding: EdgeInsets.symmetric(horizontal: 10),
                           child: SaveButton(
                             title: "Submit",
@@ -513,21 +613,21 @@ class _ClassPageState extends State<ClassPage> {
                             },
                           ),
                         ),
+                      ),
 
-                        SizedBox(height: 50),
-                      ],
-                    ),
+                      SizedBox(height: 50),
+                    ],
                   ),
                 ),
+              ),
 
-                SizedBox(
-                  //PADDING BOTTOM NAVIGATION BAR
-                  height: MediaQuery.of(context).padding.bottom,
-                ),
-              ],
-            ),
-          ],
-        ),
+              SizedBox(
+                //PADDING BOTTOM NAVIGATION BAR
+                height: MediaQuery.of(context).padding.bottom,
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

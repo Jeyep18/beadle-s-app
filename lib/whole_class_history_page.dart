@@ -1,7 +1,7 @@
-import 'package:beadles_app_prototype1/utils/background.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:beadles_app_prototype1/utils/background.dart';
 
 class WholeClassHistoryPage extends StatefulWidget {
   const WholeClassHistoryPage({super.key});
@@ -16,122 +16,105 @@ class _WholeClassHistoryPageState extends State<WholeClassHistoryPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            Theme.of(context).brightness == Brightness.light
-                ? Color.fromARGB(255, 228, 228, 255)
-                : Color.fromARGB(255, 0, 7, 27),
-            Theme.of(context).scaffoldBackgroundColor,
-            Theme.of(context).scaffoldBackgroundColor,
-            Theme.of(context).brightness == Brightness.light
-                ? Color.fromARGB(255, 195, 195, 255)
-                : Color.fromARGB(255, 0, 7, 27),
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      appBar: AppBar(
+        systemOverlayStyle:
+            Theme.of(context).brightness == Brightness.dark
+                ? SystemUiOverlayStyle.light
+                : SystemUiOverlayStyle.dark,
+        iconTheme: IconThemeData(color: Theme.of(context).colorScheme.tertiary),
+        centerTitle: false,
+        titleSpacing: 20,
+        title: Animate(
+          effects: [
+            FadeEffect(duration: 0.6.seconds),
+            SlideEffect(duration: 0.4.seconds, begin: const Offset(-0.1, 0)),
           ],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-      ),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        appBar: AppBar(
-          systemOverlayStyle:
-              Theme.of(context).brightness == Brightness.dark
-                  ? SystemUiOverlayStyle.light
-                  : SystemUiOverlayStyle.dark,
-          iconTheme: IconThemeData(
-            color: Theme.of(context).colorScheme.tertiary,
+          child: Text(
+            'History',
+            style: Theme.of(context).textTheme.headlineLarge,
           ),
-          centerTitle: false,
-          titleSpacing: 20,
-          title: Animate(
+        ),
+        backgroundColor: const Color.fromARGB(0, 0, 0, 0),
+        actions: [
+          Animate(
             effects: [
               FadeEffect(duration: 0.6.seconds),
-              SlideEffect(duration: 0.4.seconds, begin: Offset(-0.1, 0)),
+              SlideEffect(duration: 0.4.seconds, begin: const Offset(0.2, 0)),
             ],
-            child: Text(
-              'History',
-              style: Theme.of(context).textTheme.headlineLarge,
+            child: IconButton(
+              icon: const Icon(Icons.info_outline),
+              onPressed: () {
+                // opens information page
+              },
+              color: Theme.of(context).colorScheme.tertiary,
+              iconSize: 25,
             ),
           ),
-          backgroundColor: const Color.fromARGB(0, 0, 0, 0),
-          actions: [
-            Animate(
-              effects: [
-                FadeEffect(duration: 0.6.seconds),
-                SlideEffect(duration: 0.4.seconds, begin: Offset(0.2, 0)),
-              ],
-              child: IconButton(
-                icon: const Icon(Icons.info_outline),
-                onPressed: () {},
-                color: Theme.of(context).colorScheme.tertiary,
-                iconSize: 25,
-              ),
+          Animate(
+            effects: [
+              FadeEffect(duration: 0.6.seconds),
+              SlideEffect(duration: 0.4.seconds, begin: const Offset(0.2, 0)),
+            ],
+            child: IconButton(
+              onPressed: () {
+                // menu page here
+              },
+              icon: const Icon(Icons.more_vert),
+              color: Theme.of(context).colorScheme.tertiary,
+              iconSize: 25,
             ),
-            Animate(
-              effects: [
-                FadeEffect(duration: 0.6.seconds),
-                SlideEffect(duration: 0.4.seconds, begin: Offset(0.2, 0)),
-              ],
-              child: IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.more_vert),
-                color: Theme.of(context).colorScheme.tertiary,
-                iconSize: 25,
+          ),
+        ],
+      ),
+      extendBodyBehindAppBar: true,
+      extendBody: true,
+      body: Stack(
+        children: [
+          const Positioned.fill(child: BackgroundPage()),
+
+          //==================================MAIN CONTENT==================================
+          Column(
+            children: [
+              SizedBox(
+                height: kToolbarHeight + MediaQuery.of(context).padding.top,
               ),
-            ),
-          ],
-        ),
-        extendBodyBehindAppBar: true,
-        extendBody: true,
-        body: Stack(
-          children: [
-            const Positioned.fill(child: BackgroundPage()),
 
-            //==================================MAIN CONTENT==================================
-            Column(
-              children: [
-                SizedBox(
-                  height: kToolbarHeight + MediaQuery.of(context).padding.top,
-                ),
-
-                Expanded(
-                  child: ListView(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 20,
-                      vertical: 10,
-                    ),
-                    children: [
-                      const SizedBox(height: 10),
-                      ClassHistoryCard(
-                        subjectCode: 'HCI200 - ZC12Am',
-                        schedule: 'MW 1:30PM - 3:00PM FTS',
-                        professor: 'Mr. Angelo Miecko Agawa',
-                        total: 20,
-                      ),
-                      const SizedBox(height: 12),
-                      ClassHistoryCard(
-                        subjectCode: 'CSMC121 - ZC12Am',
-                        schedule: 'MW 3:00 - 4:30PM P12',
-                        professor: 'Mr. Salomon L. Olayta',
-                        total: 20,
-                      ),
-                    ],
+              Expanded(
+                child: ListView(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 10,
                   ),
+                  children: const [
+                    SizedBox(height: 10),
+                    ClassHistoryCard(
+                      subjectCode: 'HCI200 - ZC12Am',
+                      schedule: 'MW 1:30PM - 3:00PM FTS',
+                      professor: 'Mr. Angelo Miecko Agawa',
+                      total: 20,
+                    ),
+                    SizedBox(height: 12),
+                    ClassHistoryCard(
+                      subjectCode: 'CSMC121 - ZC12Am',
+                      schedule: 'MW 3:00 - 4:30PM P12',
+                      professor: 'Mr. Salomon L. Olayta',
+                      total: 20,
+                    ),
+                  ],
                 ),
+              ),
 
-                SizedBox(height: MediaQuery.of(context).padding.bottom),
-              ],
-            ),
-          ],
-        ),
+              SizedBox(height: MediaQuery.of(context).padding.bottom),
+            ],
+          ),
+        ],
       ),
     );
   }
 }
 
-// ==================== CLASS HISTORY CARD ====================
 class ClassHistoryCard extends StatelessWidget {
   final String subjectCode;
   final String schedule;
@@ -139,12 +122,12 @@ class ClassHistoryCard extends StatelessWidget {
   final int total;
 
   const ClassHistoryCard({
-    Key? key,
+    super.key,
     required this.subjectCode,
     required this.schedule,
     required this.professor,
     required this.total,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -180,7 +163,7 @@ class ClassHistoryCard extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 8),
-                    Icon(Icons.more_vert, size: 18),
+                    const Icon(Icons.more_vert, size: 18),
                   ],
                 ),
               ],
