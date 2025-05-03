@@ -55,43 +55,37 @@ class _SettingsPageState extends State<SettingsPage> {
           children: [
             const Positioned.fill(child: BackgroundPage()),
 
-            //==================================MAIN CONTENT==================================
-            Column(
-              children: [
-                SizedBox(
-                  height: kToolbarHeight + MediaQuery.of(context).padding.top,
+            //========================= MAIN CONTENT =========================
+            Align(
+              alignment: Alignment.topCenter,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 80), // space below AppBar
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      Icons.account_circle,
+                      size: 120,
+                      color: Theme.of(
+                        context,
+                      ).colorScheme.tertiary.withOpacity(0.8),
+                    ),
+                    const SizedBox(height: 10),
+                    Text(
+                      'Lennard Kyle Belleza',
+                      style: Theme.of(context).textTheme.headlineSmall
+                          ?.copyWith(fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      '@lkbelleza',
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        color: Theme.of(context).colorScheme.secondary,
+                      ),
+                    ),
+                  ],
                 ),
-
-                Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.account_circle,
-                        size: 120,
-                        color: Theme.of(
-                          context,
-                        ).colorScheme.tertiary.withOpacity(0.8),
-                      ),
-                      const SizedBox(height: 10),
-                      Text(
-                        'Lennard Kyle Belleza',
-                        style: Theme.of(context).textTheme.headlineSmall
-                            ?.copyWith(fontWeight: FontWeight.bold),
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        '@lkbelleza',
-                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                          color: Theme.of(context).colorScheme.secondary,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
-                SizedBox(height: MediaQuery.of(context).padding.bottom),
-              ],
+              ),
             ),
           ],
         ),
