@@ -1,5 +1,9 @@
 //import 'package:beadles_app_prototype1/main_page.dart';
 import 'package:beadles_app_prototype1/class_main_nav_page.dart';
+import 'package:beadles_app_prototype1/email_sent_page.dart';
+import 'package:beadles_app_prototype1/forgot_password_page.dart';
+import 'package:beadles_app_prototype1/log_in_page.dart';
+import 'package:beadles_app_prototype1/main_page.dart';
 import 'package:beadles_app_prototype1/profile_page.dart';
 import 'package:beadles_app_prototype1/settings_page.dart';
 import 'package:beadles_app_prototype1/utils/pseudo_loading.dart';
@@ -29,9 +33,13 @@ class MainApp extends StatelessWidget {
         locale: Locale('en', 'US'),
         routes: {
           '/class-dashboard': (context) => ClassPage(studentList: []),
+          '/forgot-password-page': (context) => ForgotPasswordPage(),
+          '/email-sent-page': (context) => EmailSentPage(),
+          '/main-page': (context) => MainPage(),
           '/class-main-nav-page': (context) => ClassMainNavPage(),
           '/settings-page': (context) => SettingsPage(),
           '/profile-page': (context) => ProfilePage(),
+          '/login-page': (context) => LogInPage(),
         },
         themeMode: ThemeMode.system,
         theme: AppTheme.lightTheme,

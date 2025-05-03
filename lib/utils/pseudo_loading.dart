@@ -1,4 +1,5 @@
-import 'package:beadles_app_prototype1/main_page.dart';
+import 'package:beadles_app_prototype1/log_in_page.dart';
+
 import 'package:flutter/material.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
@@ -18,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
       Navigator.of(context).pushReplacement(
         PageRouteBuilder(
           transitionDuration: Duration(milliseconds: 900), // how long fade
-          pageBuilder: (context, animation, secondaryAnimation) => MainPage(),
+          pageBuilder: (context, animation, secondaryAnimation) => LogInPage(),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             return FadeTransition(opacity: animation, child: child);
           },
