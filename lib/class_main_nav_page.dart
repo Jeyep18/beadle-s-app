@@ -91,30 +91,35 @@ class _ClassMainNavPageState extends State<ClassMainNavPage> {
         elevation: 0,
         onPressed: () => createNewStudent(context),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
-        child: Container(
-          width: 60,
-          height: 60,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50),
-            border: Border.all(
-              color: Color.fromARGB(158, 63, 81, 181),
-              width: 1,
-            ),
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                Theme.of(context).brightness == Brightness.light
-                    ? Color.fromARGB(244, 80, 103, 231)
-                    : Color.fromARGB(151, 63, 81, 181),
+        child: GlowContainer(
+          blurRadius: 40,
+          glowColor: Theme.of(context).colorScheme.primary.withAlpha(150),
+          borderRadius: BorderRadius.circular(50),
+          child: Container(
+            width: 60,
+            height: 60,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(50),
+              border: Border.all(
+                color: Color.fromARGB(158, 63, 81, 181),
+                width: 1,
+              ),
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  Theme.of(context).brightness == Brightness.light
+                      ? Color.fromARGB(244, 80, 103, 231)
+                      : Color.fromARGB(151, 63, 81, 181),
 
-                Theme.of(context).brightness == Brightness.light
-                    ? Color.fromARGB(181, 57, 72, 160)
-                    : Color.fromARGB(108, 40, 51, 117),
-              ],
+                  Theme.of(context).brightness == Brightness.light
+                      ? Color.fromARGB(181, 57, 72, 160)
+                      : Color.fromARGB(108, 40, 51, 117),
+                ],
+              ),
             ),
+            child: Icon(Icons.add, size: 35, color: const Color(0xFFF7F7F7)),
           ),
-          child: Icon(Icons.add, size: 35, color: const Color(0xFFF7F7F7)),
         ),
       ),
 
