@@ -256,6 +256,7 @@ class LogInPage extends StatelessWidget {
                       //navigate to home page,
                       Navigator.pushNamed(context, '/main-page');
                     },
+                    hasLogo: true,
                   ),
                 ),
                 SizedBox(height: 100),

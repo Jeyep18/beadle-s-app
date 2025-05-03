@@ -51,10 +51,7 @@ class SaveButton extends StatelessWidget {
                   children: [
                     Text(title, style: Theme.of(context).textTheme.labelLarge),
                     const SizedBox(width: 10),
-                    Image.asset(
-                      'assets/logo/Ateneo_de_Naga_University_logo.png',
-                      height: 25,
-                    ),
+                    Image.asset('assets/images/Ateneo_logo.png', height: 25),
                   ],
                 )
                 : Text(title, style: Theme.of(context).textTheme.labelLarge),
