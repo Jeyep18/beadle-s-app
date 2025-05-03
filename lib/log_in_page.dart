@@ -250,13 +250,17 @@ class LogInPage extends StatelessWidget {
                 //LOG IN BUTTON WITH GBOX
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
-                  child: SaveButton(
-                    title: "Sign in with GBOX Account",
-                    onPressed: () {
-                      //navigate to home page,
-                      Navigator.pushNamed(context, '/main-page');
-                    },
-                    hasLogo: true,
+                  child: SizedBox(
+                    height: 70,
+                    child: SaveButton(
+                      title: "Sign in with GBOX Account",
+                      onPressed: () {
+                        //navigate to home page,
+                        Navigator.pushNamed(context, '/main-page');
+                      },
+                      icon: 'assets/images/Ateneo_logo.png',
+                      textAlignLeft: true,
+                    ),
                   ),
                 ),
                 SizedBox(height: 100),

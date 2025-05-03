@@ -3,13 +3,15 @@ import 'package:flutter/material.dart';
 class SaveButton extends StatelessWidget {
   final String title;
   final VoidCallback onPressed;
-  final bool hasLogo;
+  final String? icon;
+  final bool textAlignLeft;
 
   const SaveButton({
     super.key,
     required this.title,
     required this.onPressed,
-    this.hasLogo = false,
+    this.icon,
+    this.textAlignLeft = false,
   });
 
   @override
@@ -25,8 +27,8 @@ class SaveButton extends StatelessWidget {
                 ? Theme.of(context).colorScheme.primary
                 : Theme.of(context).colorScheme.primary,
             Theme.of(context).brightness == Brightness.light
-                ? Color.fromARGB(255, 101, 118, 218)
-                : Color.fromARGB(255, 43, 54, 121),
+                ? const Color.fromARGB(255, 101, 118, 218)
+                : const Color.fromARGB(255, 43, 54, 121),
           ],
         ),
       ),
@@ -39,22 +41,46 @@ class SaveButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
         ),
-        onPressed: () {
-          //method for save
-          onPressed();
-        },
-        child:
-            hasLogo
-                ? Row(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(title, style: Theme.of(context).textTheme.labelLarge),
-                    const SizedBox(width: 10),
-                    Image.asset('assets/images/Ateneo_logo.png', height: 25),
-                  ],
-                )
-                : Text(title, style: Theme.of(context).textTheme.labelLarge),
+        onPressed: onPressed,
+        child: Stack(
+          children: [
+            if (icon != null)
+              Positioned.fill(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(
+                    10,
+                  ), // matches button corners
+                  child: Align(
+                    alignment: Alignment.centerRight,
+                    child: Opacity(
+                      opacity: 0.60,
+                      child: Image.asset(
+                        icon!,
+                        fit: BoxFit.cover,
+                        width: 90, // keeps image large
+                        height: 90,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
+            Align(
+              alignment:
+                  textAlignLeft ? Alignment.centerLeft : Alignment.center,
+              child: Padding(
+                padding: EdgeInsets.only(left: textAlignLeft ? 0 : 0),
+                child: Text(
+                  title,
+                  style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
