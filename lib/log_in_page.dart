@@ -125,7 +125,7 @@ class LogInPage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: SizedBox(
-                    height: 60,
+                    height: 50,
                     child: TextField(
                       textInputAction: TextInputAction.done,
                       obscureText: true,
@@ -199,17 +199,20 @@ class LogInPage extends StatelessWidget {
 
                 SizedBox(height: 10), //fix the gaps pag kulang niggas
                 //LOG IN BUTTON
-                SaveButton(
-                  title: "Sign in",
-                  onPressed: () {
-                    //navigate to home page,
-                    //Navigator.pushNamed(context, '/main-page');
-                    Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(builder: (context) => MainPage()),
-                      (route) => false,
-                    );
-                  },
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  child: SaveButton(
+                    title: "Sign in",
+                    onPressed: () {
+                      //navigate to home page,
+                      //Navigator.pushNamed(context, '/main-page');
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(builder: (context) => MainPage()),
+                        (route) => false,
+                      );
+                    },
+                  ),
                 ),
 
                 SizedBox(height: 10),
@@ -245,14 +248,16 @@ class LogInPage extends StatelessWidget {
 
                 SizedBox(height: 10), //fix the gaps pag kulang niggas
                 //LOG IN BUTTON WITH GBOX
-                SaveButton(
-                  title: "Sign in with GBOX Account",
-                  onPressed: () {
-                    //navigate to home page,
-                    Navigator.pushNamed(context, '/main-page');
-                  },
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  child: SaveButton(
+                    title: "Sign in with GBOX Account",
+                    onPressed: () {
+                      //navigate to home page,
+                      Navigator.pushNamed(context, '/main-page');
+                    },
+                  ),
                 ),
-
                 SizedBox(height: 100),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
