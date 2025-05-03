@@ -56,36 +56,72 @@ class _SettingsPageState extends State<SettingsPage> {
             const Positioned.fill(child: BackgroundPage()),
 
             //========================= MAIN CONTENT =========================
-            Align(
-              alignment: Alignment.topCenter,
-              child: Padding(
-                padding: const EdgeInsets.only(top: 80), // space below AppBar
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(
-                      Icons.account_circle,
-                      size: 120,
-                      color: Theme.of(
-                        context,
-                      ).colorScheme.tertiary.withOpacity(0.8),
-                    ),
-                    const SizedBox(height: 10),
-                    Text(
-                      'Lennard Kyle Belleza',
-                      style: Theme.of(context).textTheme.headlineSmall
-                          ?.copyWith(fontWeight: FontWeight.bold),
-                    ),
-                    const SizedBox(height: 4),
-                    Text(
-                      '@lkbelleza',
-                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        color: Theme.of(context).colorScheme.secondary,
-                      ),
-                    ),
-                  ],
+            Column(
+              children: [
+                SizedBox(
+                  height:
+                      kToolbarHeight + MediaQuery.of(context).padding.top + 20,
                 ),
-              ),
+
+                // Profile (centered at the top)
+                Center(
+                  child: Column(
+                    children: [
+                      Icon(
+                        Icons.account_circle,
+                        size: 120,
+                        color: Theme.of(
+                          context,
+                        ).colorScheme.tertiary.withOpacity(0.8),
+                      ),
+                      const SizedBox(height: 10),
+                      Text(
+                        'Lennard Kyle Belleza',
+                        style: Theme.of(context).textTheme.headlineSmall
+                            ?.copyWith(fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        '@lkbelleza',
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          color: Theme.of(context).colorScheme.secondary,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                const SizedBox(height: 20),
+
+                // Settings title and account row (left-aligned)
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Settings',
+                        style: Theme.of(context).textTheme.titleMedium
+                            ?.copyWith(fontWeight: FontWeight.w600),
+                      ),
+                      const SizedBox(height: 15),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.person_outline,
+                            color: Theme.of(context).colorScheme.tertiary,
+                          ),
+                          const SizedBox(width: 10),
+                          Text(
+                            'Account',
+                            style: Theme.of(context).textTheme.bodyLarge,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ],
         ),
