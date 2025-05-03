@@ -1,3 +1,4 @@
+import 'package:beadles_app_prototype1/main_page.dart';
 import 'package:beadles_app_prototype1/utils/background.dart';
 import 'package:beadles_app_prototype1/utils/save_button.dart';
 import 'package:flutter/material.dart';
@@ -188,7 +189,12 @@ class LogInPage extends StatelessWidget {
                   title: "Sign me the fuck in",
                   onPressed: () {
                     //navigate to home page,
-                    Navigator.pushNamed(context, '/main-page');
+                    //Navigator.pushNamed(context, '/main-page');
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(builder: (context) => MainPage()),
+                      (route) => false,
+                    );
                   },
                 ),
 

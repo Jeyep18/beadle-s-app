@@ -327,7 +327,7 @@ class _SettingsPageState extends State<SettingsPage> {
                           ).colorScheme.primary.withAlpha(0),
                           highlightColor: Theme.of(
                             context,
-                          ).colorScheme.primary.withAlpha(225),
+                          ).colorScheme.primary.withAlpha(0),
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Row(
