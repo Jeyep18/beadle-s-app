@@ -98,7 +98,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Settings',
+                        'Account',
                         style: Theme.of(
                           context,
                         ).textTheme.titleMedium?.copyWith(
@@ -106,7 +106,9 @@ class _SettingsPageState extends State<SettingsPage> {
                           fontWeight: FontWeight.w600,
                         ),
                       ),
+
                       const SizedBox(height: 15),
+
                       Material(
                         color: Colors.transparent,
                         child: InkWell(
@@ -116,10 +118,10 @@ class _SettingsPageState extends State<SettingsPage> {
                           borderRadius: BorderRadius.circular(8),
                           splashColor: Theme.of(
                             context,
-                          ).colorScheme.primary.withAlpha(225),
+                          ).colorScheme.primary.withAlpha(60),
                           highlightColor: Theme.of(
                             context,
-                          ).colorScheme.primary.withAlpha(225),
+                          ).colorScheme.primary.withAlpha(35),
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Row(
@@ -155,7 +157,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Settings',
+                        'Preference',
                         style: Theme.of(
                           context,
                         ).textTheme.titleMedium?.copyWith(
@@ -173,10 +175,10 @@ class _SettingsPageState extends State<SettingsPage> {
                           borderRadius: BorderRadius.circular(8),
                           splashColor: Theme.of(
                             context,
-                          ).colorScheme.primary.withAlpha(225),
+                          ).colorScheme.primary.withAlpha(60),
                           highlightColor: Theme.of(
                             context,
-                          ).colorScheme.primary.withAlpha(225),
+                          ).colorScheme.primary.withAlpha(35),
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Row(
@@ -201,6 +203,8 @@ class _SettingsPageState extends State<SettingsPage> {
                         ),
                       ),
 
+                      const SizedBox(height: 10),
+
                       Material(
                         color: Colors.transparent,
                         child: InkWell(
@@ -210,10 +214,10 @@ class _SettingsPageState extends State<SettingsPage> {
                           borderRadius: BorderRadius.circular(8),
                           splashColor: Theme.of(
                             context,
-                          ).colorScheme.primary.withAlpha(225),
+                          ).colorScheme.primary.withAlpha(60),
                           highlightColor: Theme.of(
                             context,
-                          ).colorScheme.primary.withAlpha(225),
+                          ).colorScheme.primary.withAlpha(35),
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Row(
@@ -249,7 +253,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Settings',
+                        'Preference',
                         style: Theme.of(
                           context,
                         ).textTheme.titleMedium?.copyWith(
@@ -265,12 +269,12 @@ class _SettingsPageState extends State<SettingsPage> {
                             //nigger
                           },
                           borderRadius: BorderRadius.circular(8),
-                          splashColor:
-                              Theme.of(context).colorScheme.primary
-                                ..withAlpha(225),
+                          splashColor: Theme.of(
+                            context,
+                          ).colorScheme.primary.withAlpha(60),
                           highlightColor: Theme.of(
                             context,
-                          ).colorScheme.primary.withAlpha(225),
+                          ).colorScheme.primary.withAlpha(35),
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Row(
@@ -306,7 +310,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Settings',
+                        'Preference',
                         style: Theme.of(
                           context,
                         ).textTheme.titleMedium?.copyWith(
@@ -324,10 +328,10 @@ class _SettingsPageState extends State<SettingsPage> {
                           borderRadius: BorderRadius.circular(8),
                           splashColor: Theme.of(
                             context,
-                          ).colorScheme.primary.withAlpha(0),
+                          ).colorScheme.primary.withAlpha(60),
                           highlightColor: Theme.of(
                             context,
-                          ).colorScheme.primary.withAlpha(0),
+                          ).colorScheme.primary.withAlpha(35),
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Row(
