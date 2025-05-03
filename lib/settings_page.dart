@@ -34,9 +34,8 @@ class _SettingsPageState extends State<SettingsPage> {
         appBar: AppBar(
           systemOverlayStyle:
               Theme.of(context).brightness == Brightness.dark
-                  ? SystemUiOverlayStyle
-                      .light // white icons for dark mode
-                  : SystemUiOverlayStyle.dark, // black icons for light mode
+                  ? SystemUiOverlayStyle.light
+                  : SystemUiOverlayStyle.dark,
           iconTheme: IconThemeData(
             color: Theme.of(context).colorScheme.tertiary,
           ),
@@ -55,22 +54,43 @@ class _SettingsPageState extends State<SettingsPage> {
         body: Stack(
           children: [
             const Positioned.fill(child: BackgroundPage()),
+
             //==================================MAIN CONTENT==================================
             Column(
               children: [
                 SizedBox(
-                  //PADDING APP BAR
                   height: kToolbarHeight + MediaQuery.of(context).padding.top,
                 ),
 
                 Expanded(
-                  child: Container(color: Colors.transparent),
-                ), //REPLACE THIS WITH CONTENTS
-
-                SizedBox(
-                  //PADDING BOTTOM NAVIGATION BAR
-                  height: MediaQuery.of(context).padding.bottom,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.account_circle,
+                        size: 120,
+                        color: Theme.of(
+                          context,
+                        ).colorScheme.tertiary.withOpacity(0.8),
+                      ),
+                      const SizedBox(height: 10),
+                      Text(
+                        'Lennard Kyle Belleza',
+                        style: Theme.of(context).textTheme.headlineSmall
+                            ?.copyWith(fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        '@lkbelleza',
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          color: Theme.of(context).colorScheme.secondary,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
+
+                SizedBox(height: MediaQuery.of(context).padding.bottom),
               ],
             ),
           ],
