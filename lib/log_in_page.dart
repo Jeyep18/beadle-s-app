@@ -161,12 +161,7 @@ class LogInPage extends StatelessWidget {
                     Row(
                       children: [
                         SizedBox(width: 20),
-                        Checkbox(
-                          value: false,
-                          onChanged: (bool? newValue) {
-                            // Handle checkbox state change here
-                          },
-                        ),
+                        Checkbox(value: false, onChanged: (bool? newValue) {}),
                         Text(
                           "Remember me",
                           style: Theme.of(
@@ -180,8 +175,7 @@ class LogInPage extends StatelessWidget {
                       ],
                     ),
 
-                    // Adjustable space
-                    SizedBox(width: 80), // Change 20 to any width you want
+                    SizedBox(width: 80),
 
                     TextButton(
                       onPressed: () {
@@ -191,7 +185,7 @@ class LogInPage extends StatelessWidget {
                         "Forgot password?",
                         style: Theme.of(context).textTheme.titleSmall?.copyWith(
                           fontSize: 15,
-                          color: Color.fromARGB(255, 98, 87, 180),
+                          color: Color.fromARGB(255, 167, 137, 190),
                           fontWeight: FontWeight.w300,
                         ),
                       ),
@@ -288,9 +282,9 @@ class LogInPage extends StatelessWidget {
                           fontSize: 15,
                           color: Color.fromARGB(
                             255,
-                            98,
-                            87,
-                            180,
+                            167,
+                            137,
+                            190,
                           ), //change this color it pmo
                           fontWeight: FontWeight.w300,
                         ),
