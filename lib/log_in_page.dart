@@ -74,7 +74,7 @@ class LogInPage extends StatelessWidget {
                   ).textTheme.titleLarge?.copyWith(fontSize: 30),
                 ),
 
-                SizedBox(height: 10),
+                SizedBox(height: 5),
 
                 Text(
                   "Sign in to your account",
@@ -85,57 +85,71 @@ class LogInPage extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(height: 20),
+                SizedBox(height: 25),
 
                 //LENNARD FIX TSHIT ============================================================================================================
-                TextField(
-                  textInputAction: TextInputAction.next,
-                  //controller: widget.lastNameController,
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.person_rounded, size: 25),
-                    hintText: 'Last Name',
-                    hintStyle: Theme.of(context).textTheme.labelSmall,
-                    filled: true,
-                    fillColor:
-                        Theme.of(context).brightness == Brightness.light
-                            ? Color.fromARGB(255, 239, 246, 250)
-                            : Color.fromARGB(255, 18, 22, 32),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide(
-                        color: const Color.fromARGB(255, 117, 117, 117),
-                        width: 1,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  child: SizedBox(
+                    height: 60,
+                    child: TextField(
+                      textInputAction: TextInputAction.next,
+                      //controller: widget.lastNameController,
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.symmetric(horizontal: 20),
+                        prefixIcon: Icon(Icons.email, size: 25),
+                        hintText: 'username@gbox.adnu.edu.ph',
+                        hintStyle: Theme.of(context).textTheme.labelSmall,
+                        filled: true,
+                        fillColor:
+                            Theme.of(context).brightness == Brightness.light
+                                ? Color.fromARGB(255, 239, 246, 250)
+                                : Color.fromARGB(255, 18, 22, 32),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(
+                            color: const Color.fromARGB(255, 117, 117, 117),
+                            width: 1,
+                          ),
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
                       ),
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
                     ),
                   ),
                 ),
 
-                SizedBox(height: 20),
+                SizedBox(height: 7),
 
-                TextField(
-                  textInputAction: TextInputAction.done,
-                  //controller: widget.lastNameController,
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.person_rounded, size: 25),
-                    hintText: 'Last Name',
-                    hintStyle: Theme.of(context).textTheme.labelSmall,
-                    filled: true,
-                    fillColor:
-                        Theme.of(context).brightness == Brightness.light
-                            ? Color.fromARGB(255, 239, 246, 250)
-                            : Color.fromARGB(255, 18, 22, 32),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide(
-                        color: const Color.fromARGB(255, 117, 117, 117),
-                        width: 1,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  child: SizedBox(
+                    height: 60,
+                    child: TextField(
+                      textInputAction: TextInputAction.done,
+                      obscureText: true,
+                      //controller: widget.lastNameController,
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.lock, size: 25),
+                        hintText: 'Password',
+                        hintStyle: Theme.of(context).textTheme.labelSmall,
+                        filled: true,
+                        fillColor:
+                            Theme.of(context).brightness == Brightness.light
+                                ? Color.fromARGB(255, 239, 246, 250)
+                                : Color.fromARGB(255, 18, 22, 32),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(
+                            color: const Color.fromARGB(255, 117, 117, 117),
+                            width: 1,
+                          ),
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
                       ),
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
                     ),
                   ),
                 ),
@@ -167,7 +181,7 @@ class LogInPage extends StatelessWidget {
                         Navigator.pushNamed(context, '/forgot-password-page');
                       },
                       child: Text(
-                        "Nalingawan ko password",
+                        "Forgot password?",
                         style: Theme.of(context).textTheme.titleSmall?.copyWith(
                           fontSize: 15,
                           color: Color.fromARGB(
@@ -175,7 +189,7 @@ class LogInPage extends StatelessWidget {
                             98,
                             87,
                             180,
-                          ), //change this color it pmo
+                          ), //change this color it pmo // What you mean ipyo ToT
                           fontWeight: FontWeight.w300,
                         ),
                       ),
@@ -186,7 +200,7 @@ class LogInPage extends StatelessWidget {
                 SizedBox(height: 10), //fix the gaps pag kulang niggas
                 //LOG IN BUTTON
                 SaveButton(
-                  title: "Sign me the fuck in",
+                  title: "Sign in",
                   onPressed: () {
                     //navigate to home page,
                     //Navigator.pushNamed(context, '/main-page');
@@ -232,7 +246,7 @@ class LogInPage extends StatelessWidget {
                 SizedBox(height: 10), //fix the gaps pag kulang niggas
                 //LOG IN BUTTON WITH GBOX
                 SaveButton(
-                  title: "Sign me the fuck in with GBOX",
+                  title: "Sign in with GBOX Account",
                   onPressed: () {
                     //navigate to home page,
                     Navigator.pushNamed(context, '/main-page');
@@ -257,7 +271,7 @@ class LogInPage extends StatelessWidget {
                         //Navigate to forget pass page
                       },
                       child: Text(
-                        "maghibi",
+                        "Sign up",
                         style: Theme.of(context).textTheme.titleSmall?.copyWith(
                           fontSize: 15,
                           color: Color.fromARGB(
