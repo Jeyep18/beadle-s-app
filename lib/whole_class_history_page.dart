@@ -1,7 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:beadles_app_prototype1/utils/background.dart';
 
 class WholeClassHistoryPage extends StatefulWidget {
   const WholeClassHistoryPage({super.key});
@@ -72,7 +71,7 @@ class _WholeClassHistoryPageState extends State<WholeClassHistoryPage> {
       extendBody: true,
       body: Stack(
         children: [
-          const Positioned.fill(child: BackgroundPage()),
+          //const Positioned.fill(child: BackgroundPage()),
 
           //==================================MAIN CONTENT==================================
           Column(
