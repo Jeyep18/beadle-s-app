@@ -156,40 +156,42 @@ class LogInPage extends StatelessWidget {
 
                 //REMEMBER ME CHECKBOX AND FORGET PASSWORD
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Checkbox(
-                      value: false,
-                      onChanged: (bool? newValue) {
-                        // Handle checkbox state change here
-                      },
+                    Row(
+                      children: [
+                        SizedBox(width: 20),
+                        Checkbox(
+                          value: false,
+                          onChanged: (bool? newValue) {
+                            // Handle checkbox state change here
+                          },
+                        ),
+                        Text(
+                          "Remember me",
+                          style: Theme.of(
+                            context,
+                          ).textTheme.titleSmall?.copyWith(
+                            fontSize: 15,
+                            color: Color.fromARGB(255, 144, 140, 175),
+                            fontWeight: FontWeight.w300,
+                          ),
+                        ),
+                      ],
                     ),
 
-                    Expanded(
-                      child: Text(
-                        "Remember me",
-                        style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                          fontSize: 15,
-                          color: Color.fromARGB(255, 144, 140, 175),
-                          fontWeight: FontWeight.w300,
-                        ),
-                      ),
-                    ),
+                    // Adjustable space
+                    SizedBox(width: 80), // Change 20 to any width you want
 
                     TextButton(
                       onPressed: () {
-                        //Navigate to forget pass page
                         Navigator.pushNamed(context, '/forgot-password-page');
                       },
                       child: Text(
                         "Forgot password?",
                         style: Theme.of(context).textTheme.titleSmall?.copyWith(
                           fontSize: 15,
-                          color: Color.fromARGB(
-                            255,
-                            98,
-                            87,
-                            180,
-                          ), //change this color it pmo // What you mean ipyo ToT
+                          color: Color.fromARGB(255, 98, 87, 180),
                           fontWeight: FontWeight.w300,
                         ),
                       ),
@@ -223,7 +225,7 @@ class LogInPage extends StatelessWidget {
                       child: Divider(
                         color: Colors.white,
                         thickness: 1,
-                        indent: 10,
+                        indent: 35,
                         endIndent: 10,
                       ),
                     ),
@@ -240,7 +242,7 @@ class LogInPage extends StatelessWidget {
                         color: Colors.white,
                         thickness: 1,
                         indent: 10,
-                        endIndent: 10,
+                        endIndent: 35,
                       ),
                     ),
                   ],
