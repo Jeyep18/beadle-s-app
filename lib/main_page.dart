@@ -240,9 +240,8 @@ class NotchedBorderPainter extends CustomPainter {
           ..strokeWidth = 1.0
           ..style = PaintingStyle.stroke;
 
-    const double notchRadius = 30.0; // Should match FAB radius
+    const double notchRadius = 30.0;
     const double notchMargin = 6.0;
-    //const double notchDepth = 15.0; // How deep the notch dips
 
     final double notchCenter = size.width / 2;
     final double notchStart = notchCenter - notchRadius - notchMargin;
@@ -250,60 +249,44 @@ class NotchedBorderPainter extends CustomPainter {
 
     final Path path = Path();
 
-    // Start drawing from top-left with rounded corners
     path.moveTo(borderRadius, 0);
 
-    // Top line to notch start (with a small curve before the notch)
-    path.lineTo(notchStart - 15, 0); // Extend slightly before the curve
-    path.quadraticBezierTo(
-      notchStart,
-      0,
-      notchStart,
-      10,
-    ); // Smooth curve into notch
+    path.lineTo(notchStart - 15, 0);
+    path.quadraticBezierTo(notchStart, 0, notchStart, 10);
 
-    // Draw the U-shaped notch (semicircle)
     path.arcToPoint(
       Offset(notchEnd, 10),
       radius: Radius.circular(notchRadius + notchMargin + 1.5),
       clockwise: false,
     );
 
-    // Smooth curve out of the notch back to the top line
     path.quadraticBezierTo(notchEnd, 0, notchEnd + 15, 0);
     path.lineTo(size.width - borderRadius, 0);
 
-    // Top-right corner
     path.arcToPoint(
       Offset(size.width, borderRadius),
       radius: Radius.circular(borderRadius),
       clockwise: true,
     );
 
-    // Right side
     path.lineTo(size.width, size.height - borderRadius);
 
-    // Bottom-right corner
     path.arcToPoint(
       Offset(size.width - borderRadius, size.height),
       radius: Radius.circular(borderRadius),
       clockwise: true,
     );
 
-    // Bottom side
     path.lineTo(borderRadius, size.height);
 
-    // Bottom-left corner
     path.arcToPoint(
       Offset(0, size.height - borderRadius),
       radius: Radius.circular(borderRadius),
       clockwise: true,
     );
 
-    // Left side
     path.lineTo(0, borderRadius);
 
-    // Top-left corner
     path.arcToPoint(
       Offset(borderRadius, 0),
       radius: Radius.circular(borderRadius),
