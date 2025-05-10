@@ -46,6 +46,7 @@ class _SettingsPageState extends State<SettingsPage> {
             style: Theme.of(context).textTheme.headlineLarge,
           ),
           backgroundColor: Colors.transparent,
+          actionsPadding: EdgeInsets.only(right: 10),
           actions: [
             TextButton(
               onPressed: () {

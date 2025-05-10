@@ -43,20 +43,6 @@ class _WholeClassHistoryPageState extends State<WholeClassHistoryPage> {
               SlideEffect(duration: 0.4.seconds, begin: const Offset(0.2, 0)),
             ],
             child: IconButton(
-              icon: const Icon(Icons.info_outline),
-              onPressed: () {
-                // opens information page
-              },
-              color: Theme.of(context).colorScheme.tertiary,
-              iconSize: 25,
-            ),
-          ),
-          Animate(
-            effects: [
-              FadeEffect(duration: 0.6.seconds),
-              SlideEffect(duration: 0.4.seconds, begin: const Offset(0.2, 0)),
-            ],
-            child: IconButton(
               onPressed: () {
                 // menu page here
               },
@@ -71,35 +57,101 @@ class _WholeClassHistoryPageState extends State<WholeClassHistoryPage> {
       extendBody: true,
       body: Stack(
         children: [
-          //const Positioned.fill(child: BackgroundPage()),
-
           //==================================MAIN CONTENT==================================
           Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
                 height: kToolbarHeight + MediaQuery.of(context).padding.top,
               ),
 
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                physics: const BouncingScrollPhysics(),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20.0,
+                    vertical: 0.0,
+                  ),
+                  child: Row(
+                    children: [
+                      MyFilterChip(label: 'Date'),
+                      const SizedBox(width: 10),
+                      MyFilterChip(label: 'Subject'),
+                      const SizedBox(width: 10),
+                      MyFilterChip(label: 'Schedule'),
+                      const SizedBox(width: 10),
+                      MyFilterChip(label: 'Modality'),
+                      const SizedBox(width: 10),
+                    ],
+                  ),
+                ),
+              ),
+
               Expanded(
                 child: ListView(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                    vertical: 10,
+                    horizontal: 10.0,
+                    vertical: 10.0,
                   ),
-                  children: const [
-                    SizedBox(height: 10),
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10.0,
+                        vertical: 10.0,
+                      ),
+                      child: Text(
+                        'Today',
+                        style: Theme.of(context).textTheme.headlineMedium,
+                      ),
+                    ),
+                    ClassHistoryCard(
+                      subjectCode: 'CSMC - ZC11Am',
+                      day: 'May 12, 2025',
+                      total: 30,
+                      students: 30,
+                      modality: 'Face to Face',
+                    ),
                     ClassHistoryCard(
                       subjectCode: 'HCI200 - ZC12Am',
-                      schedule: 'MW 1:30PM - 3:00PM FTS',
-                      professor: 'Mr. Angelo Miecko Agawa',
-                      total: 20,
+                      day: 'May 12, 2025',
+                      total: 25,
+                      students: 35,
+                      modality: 'Online',
                     ),
-                    SizedBox(height: 12),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10.0,
+                        vertical: 10.0,
+                      ),
+                      child: Text(
+                        'Yesterday',
+                        style: Theme.of(context).textTheme.headlineMedium,
+                      ),
+                    ),
+
                     ClassHistoryCard(
-                      subjectCode: 'CSMC121 - ZC12Am',
-                      schedule: 'MW 3:00 - 4:30PM P12',
-                      professor: 'Mr. Salomon L. Olayta',
-                      total: 20,
+                      subjectCode: 'HCI200 - ZC11Am',
+                      day: 'May 9, 2025',
+                      total: 29,
+                      students: 30,
+                      modality: 'Face to Face',
+                    ),
+
+                    ClassHistoryCard(
+                      subjectCode: 'CSMC102 - ZC11Am',
+                      day: 'May 9, 2025',
+                      total: 23,
+                      students: 40,
+                      modality: 'Face to Face',
+                    ),
+                    ClassHistoryCard(
+                      subjectCode: 'CSDC200 - ZC12Am',
+                      day: 'May 9, 2025',
+                      total: 22,
+                      students: 30,
+                      modality: 'Online',
                     ),
                   ],
                 ),
@@ -116,68 +168,161 @@ class _WholeClassHistoryPageState extends State<WholeClassHistoryPage> {
 
 class ClassHistoryCard extends StatelessWidget {
   final String subjectCode;
-  final String schedule;
-  final String professor;
+  final String day;
   final int total;
+  final int students;
+  final String modality;
 
   const ClassHistoryCard({
     super.key,
     required this.subjectCode,
-    required this.schedule,
-    required this.professor,
+    required this.day,
     required this.total,
+    required this.students,
+    required this.modality,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      elevation: 3,
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                Expanded(
-                  child: Text(
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 5.0, left: 10.0),
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+          side: BorderSide(
+            color:
+                Theme.of(context).brightness == Brightness.light
+                    ? Color.fromARGB(255, 173, 210, 255)
+                    : Color.fromARGB(255, 61, 74, 109),
+            width: 0.5,
+          ),
+        ),
+        elevation: 3,
+        color:
+            Theme.of(context).brightness == Brightness.light
+                ? Color.fromARGB(255, 234, 243, 255)
+                : Color.fromARGB(255, 14, 19, 29),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
                     subjectCode,
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.w600,
+                      fontSize: 20,
                     ),
                   ),
-                ),
-                Row(
-                  children: [
-                    Text(
-                      'Total:',
-                      style: Theme.of(context).textTheme.bodySmall,
+
+                  Text(
+                    '$day | $modality',
+                    style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                      color:
+                          Theme.of(context).brightness == Brightness.light
+                              ? Color.fromARGB(255, 92, 91, 91)
+                              : Color.fromARGB(255, 156, 156, 156),
+                      fontWeight: FontWeight.w300,
+                      fontSize: 14,
                     ),
-                    const SizedBox(width: 4),
-                    Text(
-                      '$total',
-                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
+                  ),
+                ],
+              ),
+
+              const Spacer(),
+
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(
+                    'Attendance:',
+                    style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                      color:
+                          Theme.of(context).brightness == Brightness.light
+                              ? Color.fromARGB(255, 92, 91, 91)
+                              : Color.fromARGB(255, 156, 156, 156),
+                      fontWeight: FontWeight.w300,
+                      fontSize: 12,
                     ),
-                    const SizedBox(width: 8),
-                    const Icon(Icons.more_vert, size: 18),
-                  ],
-                ),
-              ],
-            ),
-            const SizedBox(height: 8),
-            Text(schedule, style: Theme.of(context).textTheme.bodySmall),
-            Text(professor, style: Theme.of(context).textTheme.bodySmall),
-            const SizedBox(height: 8),
-            const Align(
-              alignment: Alignment.bottomRight,
-              child: Icon(Icons.arrow_drop_down),
-            ),
-          ],
+                  ),
+                  Text(
+                    '$total/$students',
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 20,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
+    );
+  }
+}
+
+class MyFilterChip extends StatefulWidget {
+  final String label;
+  const MyFilterChip({super.key, required this.label});
+
+  @override
+  State<MyFilterChip> createState() => _MyFilterChipState();
+}
+
+class _MyFilterChipState extends State<MyFilterChip> {
+  bool _selected = false;
+  @override
+  Widget build(BuildContext context) {
+    final isLight = Theme.of(context).brightness == Brightness.light;
+    return FilterChip(
+      label: Text(widget.label),
+
+      visualDensity: VisualDensity.compact,
+      selected: _selected,
+      showCheckmark: false,
+      onSelected: (value) {
+        setState(() {
+          _selected = value;
+        });
+      },
+      shape: StadiumBorder(),
+      side: BorderSide(
+        color:
+            _selected
+                ? (isLight
+                    ? Color.fromARGB(255, 0, 99, 207)
+                    : Color.fromARGB(255, 130, 180, 255))
+                : (isLight
+                    ? Color.fromARGB(255, 78, 78, 78)
+                    : Color.fromARGB(255, 199, 199, 199)),
+        width: 0.5,
+      ),
+      labelStyle: Theme.of(context).textTheme.labelSmall?.copyWith(
+        fontWeight: FontWeight.w400,
+        color:
+            _selected
+                ? (isLight
+                    ? Color.fromARGB(255, 0, 99, 207)
+                    : Color.fromARGB(255, 130, 180, 255))
+                : (isLight
+                    ? Color.fromARGB(255, 78, 78, 78)
+                    : Color.fromARGB(255, 199, 199, 199)),
+      ),
+      selectedColor:
+          isLight
+              ? Color.fromARGB(255, 234, 243, 255)
+              : Color.fromARGB(255, 26, 30, 41),
+
+      backgroundColor:
+          isLight
+              ? Color.fromARGB(255, 234, 243, 255)
+              : Color.fromARGB(255, 26, 30, 41),
+      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
     );
   }
 }
