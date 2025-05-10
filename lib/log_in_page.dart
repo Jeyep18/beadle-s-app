@@ -175,7 +175,7 @@ class LogInPage extends StatelessWidget {
                       ],
                     ),
 
-                    SizedBox(width: 80),
+                    SizedBox(width: 60),
 
                     TextButton(
                       onPressed: () {
@@ -190,6 +190,8 @@ class LogInPage extends StatelessWidget {
                         ),
                       ),
                     ),
+
+                    SizedBox(width: 20),
                   ],
                 ),
 
@@ -252,7 +254,11 @@ class LogInPage extends StatelessWidget {
                       title: "Sign in with GBOX Account",
                       onPressed: () {
                         //navigate to home page,
-                        Navigator.pushNamed(context, '/main-page');
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(builder: (context) => MainPage()),
+                          (route) => false,
+                        );
                       },
                       icon: 'assets/images/Ateneo_logo.png',
                       textAlignLeft: true,
