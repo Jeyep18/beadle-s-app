@@ -107,26 +107,11 @@ class _HomePageState extends State<HomePage> {
               SlideEffect(duration: 0.4.seconds, begin: Offset(0.2, 0)),
             ],
             child: IconButton(
-              icon: const Icon(Icons.person),
-              onPressed: () {
-                //for opening profile page
-                Navigator.pushNamed(context, '/profile-page');
-              },
-              color: Theme.of(context).colorScheme.tertiary,
-              iconSize: 30,
-            ),
-          ),
-          Animate(
-            effects: [
-              FadeEffect(duration: 0.6.seconds),
-              SlideEffect(duration: 0.4.seconds, begin: Offset(0.2, 0)),
-            ],
-            child: IconButton(
               onPressed: () {
                 //settings page here
                 Navigator.pushNamed(context, '/settings-page');
               },
-              icon: Icon(Icons.settings),
+              icon: Icon(Icons.account_circle),
               color: Theme.of(context).colorScheme.tertiary,
               iconSize: 30,
             ),

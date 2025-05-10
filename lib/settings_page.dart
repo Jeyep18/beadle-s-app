@@ -42,10 +42,30 @@ class _SettingsPageState extends State<SettingsPage> {
           centerTitle: true,
           titleSpacing: 0,
           title: Text(
-            'Settings',
+            'Profile',
             style: Theme.of(context).textTheme.headlineLarge,
           ),
           backgroundColor: Colors.transparent,
+          actions: [
+            TextButton(
+              onPressed: () {
+                // logout function
+                Navigator.pushNamedAndRemoveUntil(
+                  context,
+                  '/login-page',
+                  (route) => false,
+                );
+              },
+              child: Text(
+                'Logout',
+                style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w400,
+                  color: Theme.of(context).colorScheme.tertiary,
+                ),
+              ),
+            ),
+          ],
         ),
 
         extendBodyBehindAppBar: true,
@@ -57,6 +77,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
             //========================= MAIN CONTENT =========================
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
                   height:
@@ -65,6 +86,8 @@ class _SettingsPageState extends State<SettingsPage> {
 
                 Center(
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Icon(
                         Icons.account_circle,
@@ -75,15 +98,15 @@ class _SettingsPageState extends State<SettingsPage> {
                       ),
                       const SizedBox(height: 10),
                       Text(
-                        'Lennard Kyle Belleza',
-                        style: Theme.of(context).textTheme.headlineSmall
+                        'Lennard Kyle T. Belleza',
+                        style: Theme.of(context).textTheme.headlineMedium
                             ?.copyWith(fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 4),
                       Text(
                         '@lkbelleza',
                         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                          color: Theme.of(context).colorScheme.secondary,
+                          color: Color.fromARGB(255, 66, 116, 255),
                         ),
                       ),
                     ],
@@ -93,269 +116,331 @@ class _SettingsPageState extends State<SettingsPage> {
                 const SizedBox(height: 20),
 
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Account',
-                        style: Theme.of(
-                          context,
-                        ).textTheme.titleMedium?.copyWith(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-
-                      const SizedBox(height: 15),
-
-                      Material(
-                        color: Colors.transparent,
-                        child: InkWell(
-                          onTap: () {
-                            //nigger
-                          },
-                          borderRadius: BorderRadius.circular(8),
-                          splashColor: Theme.of(
-                            context,
-                          ).colorScheme.primary.withAlpha(60),
-                          highlightColor: Theme.of(
-                            context,
-                          ).colorScheme.primary.withAlpha(35),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.person_outline,
-                                  color: Theme.of(context).colorScheme.tertiary,
-                                ),
-                                const SizedBox(width: 10),
-                                Text(
-                                  'Account',
-                                  style: Theme.of(
-                                    context,
-                                  ).textTheme.bodyLarge?.copyWith(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 18.0,
+                    vertical: 0.0,
+                  ),
+                  child: Text(
+                    'Account',
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w400,
+                      color:
+                          Theme.of(context).brightness == Brightness.light
+                              ? Color.fromARGB(255, 122, 122, 122)
+                              : Color.fromARGB(255, 202, 202, 202),
+                    ),
                   ),
                 ),
 
-                const SizedBox(height: 20),
+                const SizedBox(height: 10),
 
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Preference',
-                        style: Theme.of(
-                          context,
-                        ).textTheme.titleMedium?.copyWith(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w600,
-                        ),
+                Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    onTap: () {
+                      //nigger
+                    },
+                    borderRadius: BorderRadius.circular(8),
+                    splashColor: Theme.of(
+                      context,
+                    ).colorScheme.primary.withAlpha(60),
+                    highlightColor: Theme.of(
+                      context,
+                    ).colorScheme.primary.withAlpha(35),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 24.0,
+                        vertical: 16.0,
                       ),
-                      const SizedBox(height: 15),
-                      Material(
-                        color: Colors.transparent,
-                        child: InkWell(
-                          onTap: () {
-                            //nigger
-                          },
-                          borderRadius: BorderRadius.circular(8),
-                          splashColor: Theme.of(
-                            context,
-                          ).colorScheme.primary.withAlpha(60),
-                          highlightColor: Theme.of(
-                            context,
-                          ).colorScheme.primary.withAlpha(35),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.notifications_none_outlined,
-                                  color: Theme.of(context).colorScheme.tertiary,
-                                ),
-                                const SizedBox(width: 10),
-                                Text(
-                                  'Notification',
-                                  style: Theme.of(
-                                    context,
-                                  ).textTheme.bodyLarge?.copyWith(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ],
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.person_outline_rounded,
+                            color: Theme.of(context).colorScheme.tertiary,
+                          ),
+                          const SizedBox(width: 15),
+                          Text(
+                            'Manage Accounts',
+                            style: Theme.of(
+                              context,
+                            ).textTheme.bodyLarge?.copyWith(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w700,
                             ),
                           ),
-                        ),
+                        ],
                       ),
-
-                      const SizedBox(height: 10),
-
-                      Material(
-                        color: Colors.transparent,
-                        child: InkWell(
-                          onTap: () {
-                            //nigger
-                          },
-                          borderRadius: BorderRadius.circular(8),
-                          splashColor: Theme.of(
-                            context,
-                          ).colorScheme.primary.withAlpha(60),
-                          highlightColor: Theme.of(
-                            context,
-                          ).colorScheme.primary.withAlpha(35),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.wb_sunny_outlined,
-                                  color: Theme.of(context).colorScheme.tertiary,
-                                ),
-                                const SizedBox(width: 10),
-                                Text(
-                                  'Light Mode',
-                                  style: Theme.of(
-                                    context,
-                                  ).textTheme.bodyLarge?.copyWith(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
                 ),
 
-                const SizedBox(height: 20),
+                const SizedBox(height: 10),
 
+                //========================= PREFERENCES =========================
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Preference',
-                        style: Theme.of(
-                          context,
-                        ).textTheme.titleMedium?.copyWith(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      const SizedBox(height: 15),
-                      Material(
-                        color: Colors.transparent,
-                        child: InkWell(
-                          onTap: () {
-                            //nigger
-                          },
-                          borderRadius: BorderRadius.circular(8),
-                          splashColor: Theme.of(
-                            context,
-                          ).colorScheme.primary.withAlpha(60),
-                          highlightColor: Theme.of(
-                            context,
-                          ).colorScheme.primary.withAlpha(35),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.headphones_outlined,
-                                  color: Theme.of(context).colorScheme.tertiary,
-                                ),
-                                const SizedBox(width: 10),
-                                Text(
-                                  'Help and Support',
-                                  style: Theme.of(
-                                    context,
-                                  ).textTheme.bodyLarge?.copyWith(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 18.0,
+                    vertical: 0.0,
+                  ),
+                  child: Text(
+                    'Preferences',
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w400,
+                      color:
+                          Theme.of(context).brightness == Brightness.light
+                              ? Color.fromARGB(255, 122, 122, 122)
+                              : Color.fromARGB(255, 202, 202, 202),
+                    ),
                   ),
                 ),
 
-                const SizedBox(height: 20),
+                const SizedBox(height: 10),
 
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Preference',
-                        style: Theme.of(
-                          context,
-                        ).textTheme.titleMedium?.copyWith(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w600,
-                        ),
+                Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    onTap: () {
+                      //nigger
+                    },
+                    borderRadius: BorderRadius.circular(8),
+                    splashColor: Theme.of(
+                      context,
+                    ).colorScheme.primary.withAlpha(60),
+                    highlightColor: Theme.of(
+                      context,
+                    ).colorScheme.primary.withAlpha(35),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 24.0,
+                        vertical: 16.0,
                       ),
-                      const SizedBox(height: 15),
-                      Material(
-                        color: Colors.transparent,
-                        child: InkWell(
-                          onTap: () {
-                            //nigger
-                          },
-                          borderRadius: BorderRadius.circular(8),
-                          splashColor: Theme.of(
-                            context,
-                          ).colorScheme.primary.withAlpha(60),
-                          highlightColor: Theme.of(
-                            context,
-                          ).colorScheme.primary.withAlpha(35),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.people_alt_outlined,
-                                  color: Theme.of(context).colorScheme.tertiary,
-                                ),
-                                const SizedBox(width: 10),
-                                Text(
-                                  'About us',
-                                  style: Theme.of(
-                                    context,
-                                  ).textTheme.bodyLarge?.copyWith(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ],
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.notifications_none_outlined,
+                            color: Theme.of(context).colorScheme.tertiary,
+                          ),
+                          const SizedBox(width: 15),
+                          Text(
+                            'Notifications',
+                            style: Theme.of(
+                              context,
+                            ).textTheme.bodyLarge?.copyWith(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w700,
                             ),
                           ),
-                        ),
+                        ],
                       ),
-                    ],
+                    ),
+                  ),
+                ),
+
+                Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    onTap: () {
+                      //nigger
+                    },
+                    borderRadius: BorderRadius.circular(8),
+                    splashColor: Theme.of(
+                      context,
+                    ).colorScheme.primary.withAlpha(60),
+                    highlightColor: Theme.of(
+                      context,
+                    ).colorScheme.primary.withAlpha(35),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 24.0,
+                        vertical: 16.00,
+                      ),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.palette_outlined,
+                            color: Theme.of(context).colorScheme.tertiary,
+                          ),
+                          const SizedBox(width: 15),
+                          Text(
+                            'Theme',
+                            style: Theme.of(
+                              context,
+                            ).textTheme.bodyLarge?.copyWith(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 10),
+
+                //========================= USER GUIDE =========================
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 18.0,
+                    vertical: 0.0,
+                  ),
+                  child: Text(
+                    'User Guide',
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w400,
+                      color:
+                          Theme.of(context).brightness == Brightness.light
+                              ? Color.fromARGB(255, 122, 122, 122)
+                              : Color.fromARGB(255, 202, 202, 202),
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 10),
+
+                Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    onTap: () {
+                      //nigger
+                    },
+                    borderRadius: BorderRadius.circular(8),
+                    splashColor: Theme.of(
+                      context,
+                    ).colorScheme.primary.withAlpha(60),
+                    highlightColor: Theme.of(
+                      context,
+                    ).colorScheme.primary.withAlpha(35),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 24.0,
+                        vertical: 16.0,
+                      ),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.headphones_outlined,
+                            color: Theme.of(context).colorScheme.tertiary,
+                          ),
+                          const SizedBox(width: 15),
+                          Text(
+                            'Help and Support',
+                            style: Theme.of(
+                              context,
+                            ).textTheme.bodyLarge?.copyWith(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+
+                Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    onTap: () {
+                      //nigger
+                    },
+                    borderRadius: BorderRadius.circular(8),
+                    splashColor: Theme.of(
+                      context,
+                    ).colorScheme.primary.withAlpha(60),
+                    highlightColor: Theme.of(
+                      context,
+                    ).colorScheme.primary.withAlpha(35),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 24.0,
+                        vertical: 16.0,
+                      ),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.book_outlined,
+                            color: Theme.of(context).colorScheme.tertiary,
+                          ),
+                          const SizedBox(width: 15),
+                          Text(
+                            'Beadle\'s Guide',
+                            style: Theme.of(
+                              context,
+                            ).textTheme.bodyLarge?.copyWith(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 10),
+
+                //========================= ABOUT =========================
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 18.0,
+                    vertical: 0.0,
+                  ),
+                  child: Text(
+                    'About',
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                      color:
+                          Theme.of(context).brightness == Brightness.light
+                              ? Color.fromARGB(255, 122, 122, 122)
+                              : Color.fromARGB(255, 202, 202, 202),
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 10),
+
+                Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    onTap: () {
+                      //nigger
+                    },
+                    borderRadius: BorderRadius.circular(8),
+                    splashColor: Theme.of(
+                      context,
+                    ).colorScheme.primary.withAlpha(60),
+                    highlightColor: Theme.of(
+                      context,
+                    ).colorScheme.primary.withAlpha(35),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 24.0,
+                        vertical: 16.0,
+                      ),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.people_alt_outlined,
+                            color: Theme.of(context).colorScheme.tertiary,
+                          ),
+                          const SizedBox(width: 15),
+                          Text(
+                            'About us',
+                            style: Theme.of(
+                              context,
+                            ).textTheme.bodyLarge?.copyWith(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
               ],
