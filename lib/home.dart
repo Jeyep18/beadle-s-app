@@ -113,11 +113,11 @@ class _HomePageState extends State<HomePage> {
               },
               icon: Icon(Icons.account_circle),
               color: Theme.of(context).colorScheme.tertiary,
-              iconSize: 30,
+              iconSize: 35,
             ),
           ),
         ],
-        actionsPadding: const EdgeInsets.only(right: 5),
+        actionsPadding: const EdgeInsets.only(right: 10),
       ),
 
       extendBodyBehindAppBar: true,
