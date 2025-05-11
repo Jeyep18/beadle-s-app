@@ -1,4 +1,4 @@
-import 'package:beadles_app/features/home/views/main_page.dart';
+import 'package:beadles_app/screens/home/views/main_page.dart';
 import 'package:beadles_app/core/widgets/background.dart';
 import 'package:beadles_app/core/widgets/save_button.dart';
 import 'package:flutter/material.dart';

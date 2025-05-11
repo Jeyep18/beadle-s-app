@@ -1,8 +1,8 @@
-import 'package:beadles_app/features/classes/views/class_dashboard.dart';
-import 'package:beadles_app/features/classes/views/class_history_page.dart';
-import 'package:beadles_app/features/home/views/main_page.dart';
+import 'package:beadles_app/screens/classes/views/class_dashboard.dart';
+import 'package:beadles_app/screens/classes/views/class_history_page.dart';
+import 'package:beadles_app/screens/home/views/main_page.dart';
 import 'package:beadles_app/core/widgets/background.dart';
-import 'package:beadles_app/features/classes/widgets/create_new_student_bottom_sheet.dart';
+import 'package:beadles_app/screens/classes/widgets/create_new_student_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 // import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_glow/flutter_glow.dart';

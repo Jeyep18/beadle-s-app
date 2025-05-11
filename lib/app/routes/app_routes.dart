@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:beadles_app/features/classes/views/class_dashboard.dart';
-import 'package:beadles_app/features/classes/views/class_main_nav_page.dart';
-import 'package:beadles_app/features/auth/views/forgot_password_page.dart';
-import 'package:beadles_app/features/auth/views/email_sent_page.dart';
-import 'package:beadles_app/features/auth/views/log_in_page.dart';
-import 'package:beadles_app/features/auth/views/sign_up.dart';
-import 'package:beadles_app/features/home/views/main_page.dart';
-import 'package:beadles_app/features/profile/views/profile_page.dart';
-import 'package:beadles_app/features/profile/views/settings_page.dart';
+import 'package:beadles_app/screens/classes/views/class_dashboard.dart';
+import 'package:beadles_app/screens/classes/views/class_main_nav_page.dart';
+import 'package:beadles_app/screens/auth/views/forgot_password_page.dart';
+import 'package:beadles_app/screens/auth/views/email_sent_page.dart';
+import 'package:beadles_app/screens/auth/views/log_in_page.dart';
+import 'package:beadles_app/screens/auth/views/sign_up.dart';
+import 'package:beadles_app/screens/home/views/main_page.dart';
+import 'package:beadles_app/screens/profile/views/profile_page.dart';
+import 'package:beadles_app/screens/profile/views/settings_page.dart';
 
 class AppRoutes {
   static const String classDashboard = '/class-dashboard';
