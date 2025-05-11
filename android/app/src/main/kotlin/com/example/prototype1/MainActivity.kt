@@ -1,4 +1,4 @@
-package com.example.prototype1
+package com.beadlesdev.beadlesapp
 
 import io.flutter.embedding.android.FlutterActivity
 

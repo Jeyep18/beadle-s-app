@@ -1,4 +1,4 @@
-import 'package:beadles_app/features/auth/views/log_in_page.dart';
+import 'package:beadles_app/screens/auth/views/log_in_page.dart';
 import 'package:flutter/material.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
@@ -15,6 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(Duration(seconds: 2), () {
+      // ignore: use_build_context_synchronously
       Navigator.of(context).pushReplacement(
         PageRouteBuilder(
           transitionDuration: Duration(milliseconds: 900), // how long fade
