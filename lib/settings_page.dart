@@ -50,7 +50,7 @@ class _SettingsPageState extends State<SettingsPage> {
           actions: [
             TextButton(
               onPressed: () {
-                // logout function
+                HapticFeedback.mediumImpact();
                 Navigator.pushNamedAndRemoveUntil(
                   context,
                   '/login-page',

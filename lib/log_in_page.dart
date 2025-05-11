@@ -2,6 +2,7 @@ import 'package:beadles_app_prototype1/main_page.dart';
 import 'package:beadles_app_prototype1/utils/background.dart';
 import 'package:beadles_app_prototype1/utils/save_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class LogInPage extends StatefulWidget {
   const LogInPage({super.key});
@@ -179,6 +180,7 @@ class _LogInPageState extends State<LogInPage> {
                           suffixIcon: GestureDetector(
                             onTap: () {
                               setState(() {
+                                HapticFeedback.lightImpact();
                                 _obscureText = !_obscureText;
                               });
                             },
@@ -250,6 +252,7 @@ class _LogInPageState extends State<LogInPage> {
                             value: _checked,
                             onChanged: (bool? newValue) {
                               setState(() {
+                                HapticFeedback.lightImpact();
                                 _checked = newValue ?? false;
                               });
                             },
@@ -275,6 +278,7 @@ class _LogInPageState extends State<LogInPage> {
 
                       TextButton(
                         onPressed: () {
+                          HapticFeedback.mediumImpact();
                           Navigator.pushNamed(context, '/forgot-password-page');
                         },
                         child: Text(
@@ -304,7 +308,7 @@ class _LogInPageState extends State<LogInPage> {
                       title: "Sign in",
                       onPressed: () {
                         //navigate to home page,
-                        //Navigator.pushNamed(context, '/main-page');
+                        HapticFeedback.lightImpact();
                         Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(builder: (context) => MainPage()),
@@ -355,6 +359,7 @@ class _LogInPageState extends State<LogInPage> {
                         title: "Sign in with GBOX Account",
                         onPressed: () {
                           //navigate to home page,
+                          HapticFeedback.lightImpact();
                           Navigator.pushAndRemoveUntil(
                             context,
                             MaterialPageRoute(builder: (context) => MainPage()),
@@ -385,6 +390,7 @@ class _LogInPageState extends State<LogInPage> {
                       TextButton(
                         onPressed: () {
                           //Navigate to Sign up page
+                          HapticFeedback.mediumImpact();
                           Navigator.pushNamed(context, '/signup-page');
                         },
                         child: Text(

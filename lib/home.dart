@@ -62,6 +62,7 @@ class _HomePageState extends State<HomePage> {
 
   //delete tile function
   void deleteTile(int index) {
+    HapticFeedback.mediumImpact();
     setState(() {
       classList.removeAt(index);
     });

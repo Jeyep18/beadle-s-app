@@ -20,6 +20,7 @@ class ClassPage extends StatefulWidget {
 class _ClassPageState extends State<ClassPage> {
   //delete tile function
   void deleteTile(int index) {
+    HapticFeedback.mediumImpact();
     setState(() {
       widget.studentList.removeAt(index);
     });
@@ -546,6 +547,7 @@ class _ClassPageState extends State<ClassPage> {
                                 color: Color(0xFF3F51B5),
                               ),
                               onToggle: (value) {
+                                HapticFeedback.vibrate();
                                 setState(() {
                                   _switchValue = value;
                                 });

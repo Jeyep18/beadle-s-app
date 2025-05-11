@@ -2,6 +2,7 @@ import 'package:beadles_app_prototype1/utils/radio_buttons_day_selector.dart';
 import 'package:beadles_app_prototype1/utils/save_button.dart';
 import 'package:beadles_app_prototype1/utils/time_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void showBottomSheet(BuildContext context) {
   showModalBottomSheet(
@@ -756,6 +757,7 @@ class _CreateNewClassBottomsheetState extends State<CreateNewClassBottomsheet> {
                           title: "Create Class",
                           onPressed: () {
                             // Save button action
+                            HapticFeedback.mediumImpact();
                             Navigator.pop(context);
                           },
                         ),

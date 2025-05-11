@@ -1,26 +1,6 @@
 import 'package:beadles_app_prototype1/utils/save_button.dart';
 import 'package:flutter/material.dart';
-
-// void showBottomSheet(BuildContext context) {
-//   showModalBottomSheet(
-//     context: context,
-//     backgroundColor: Colors.transparent,
-//     elevation: 6,
-//     isScrollControlled: true,
-//     shape: const RoundedRectangleBorder(
-//       borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-//     ),
-//     builder:
-//         (context) => CreateNewStudentBottomSheet(
-//           firstNameController: TextEditingController(),
-//           middleInitialController: TextEditingController(),
-//           lastNameController: TextEditingController(),
-//           courseController: TextEditingController(),
-//           idController: TextEditingController(),
-//           onCreate: () {},
-//         ),
-//   );
-// }
+import 'package:flutter/services.dart';
 
 class CreateNewStudentBottomSheet extends StatefulWidget {
   //controllers
@@ -298,6 +278,7 @@ class _CreateNewStudentBottomSheetState
                       SaveButton(
                         title: "Create Student",
                         onPressed: () {
+                          HapticFeedback.mediumImpact();
                           widget.onCreate();
                           Navigator.pop(context);
                         },

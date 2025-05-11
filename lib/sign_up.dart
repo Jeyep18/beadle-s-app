@@ -224,6 +224,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           suffixIcon: GestureDetector(
                             onTap: () {
                               setState(() {
+                                HapticFeedback.lightImpact();
                                 _obscureText = !_obscureText;
                               });
                             },
@@ -303,6 +304,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           suffixIcon: GestureDetector(
                             onTap: () {
                               setState(() {
+                                HapticFeedback.lightImpact();
                                 _obscureText2 = !_obscureText2;
                               });
                             },
@@ -370,6 +372,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     child: SaveButton(
                       title: "Create Account",
                       onPressed: () {
+                        HapticFeedback.mediumImpact();
                         Navigator.pushNamed(context, '/login-page');
                       },
                     ),
@@ -395,6 +398,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         style: TextButton.styleFrom(padding: EdgeInsets.zero),
                         onPressed: () {
                           //go to login page
+                          HapticFeedback.mediumImpact();
                           Navigator.pushNamed(context, '/login-page');
                         },
                         child: Text(
