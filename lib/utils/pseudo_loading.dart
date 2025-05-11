@@ -1,5 +1,4 @@
-import 'package:beadles_app_prototype1/log_in_page.dart';
-
+import 'package:beadles_app/log_in_page.dart';
 import 'package:flutter/material.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 

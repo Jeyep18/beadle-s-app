@@ -1,6 +1,6 @@
-import 'package:beadles_app_prototype1/utils/date_picker.dart';
-import 'package:beadles_app_prototype1/utils/save_button.dart';
-import 'package:beadles_app_prototype1/utils/student_tile.dart';
+import 'package:beadles_app/utils/date_picker.dart';
+import 'package:beadles_app/utils/save_button.dart';
+import 'package:beadles_app/utils/student_tile.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';

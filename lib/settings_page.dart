@@ -1,4 +1,4 @@
-import 'package:beadles_app_prototype1/utils/background.dart';
+import 'package:beadles_app/utils/background.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

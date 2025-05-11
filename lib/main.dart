@@ -1,16 +1,16 @@
 //import 'package:beadles_app_prototype1/main_page.dart';
-import 'package:beadles_app_prototype1/class_main_nav_page.dart';
-import 'package:beadles_app_prototype1/email_sent_page.dart';
-import 'package:beadles_app_prototype1/forgot_password_page.dart';
-import 'package:beadles_app_prototype1/log_in_page.dart';
-import 'package:beadles_app_prototype1/main_page.dart';
-import 'package:beadles_app_prototype1/profile_page.dart';
-import 'package:beadles_app_prototype1/settings_page.dart';
-import 'package:beadles_app_prototype1/sign_up.dart';
-import 'package:beadles_app_prototype1/utils/pseudo_loading.dart';
-import 'package:beadles_app_prototype1/utils/themes/theme.dart';
+import 'package:beadles_app/class_main_nav_page.dart';
+import 'package:beadles_app/email_sent_page.dart';
+import 'package:beadles_app/forgot_password_page.dart';
+import 'package:beadles_app/log_in_page.dart';
+import 'package:beadles_app/main_page.dart';
+import 'package:beadles_app/profile_page.dart';
+import 'package:beadles_app/settings_page.dart';
+import 'package:beadles_app/sign_up.dart';
+import 'package:beadles_app/utils/pseudo_loading.dart';
+import 'package:beadles_app/utils/themes/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:beadles_app_prototype1/class_dashboard.dart';
+import 'package:beadles_app/class_dashboard.dart';
 import 'package:flutter/services.dart';
 
 void main() {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:beadles_app_prototype1/utils/class_tile.dart';
+import 'package:beadles_app/utils/class_tile.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter/services.dart';
 

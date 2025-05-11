@@ -1,4 +1,4 @@
-import 'package:beadles_app_prototype1/utils/status_picker.dart';
+import 'package:beadles_app/utils/status_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'dart:ui';
