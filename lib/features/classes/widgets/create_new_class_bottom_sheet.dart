@@ -1,6 +1,6 @@
-import 'package:beadles_app/utils/radio_buttons_day_selector.dart';
-import 'package:beadles_app/utils/save_button.dart';
-import 'package:beadles_app/utils/time_picker.dart';
+import 'package:beadles_app/core/widgets/radio_buttons_day_selector.dart';
+import 'package:beadles_app/core/widgets/save_button.dart';
+import 'package:beadles_app/core/widgets/time_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

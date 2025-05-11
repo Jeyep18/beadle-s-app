@@ -1,9 +1,10 @@
-import 'package:beadles_app/utils/background.dart';
+import 'package:beadles_app/core/widgets/background.dart';
+import 'package:beadles_app/core/widgets/save_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
+class EmailSentPage extends StatelessWidget {
+  const EmailSentPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,10 +38,6 @@ class ProfilePage extends StatelessWidget {
           ),
           centerTitle: true,
           titleSpacing: 0,
-          title: Text(
-            'Profile Page',
-            style: Theme.of(context).textTheme.headlineLarge,
-          ),
           backgroundColor: Colors.transparent,
         ),
 
@@ -51,22 +48,43 @@ class ProfilePage extends StatelessWidget {
           children: [
             const Positioned.fill(child: BackgroundPage()),
             //==================================MAIN CONTENT==================================
-            Column(
-              children: [
-                SizedBox(
-                  //PADDING APP BAR
-                  height: kToolbarHeight + MediaQuery.of(context).padding.top,
-                ),
+            Center(
+              child: Column(
+                children: [
+                  SizedBox(
+                    //PADDING APP BAR
+                    height: kToolbarHeight + MediaQuery.of(context).padding.top,
+                  ),
 
-                Expanded(
-                  child: Container(color: Colors.transparent),
-                ), //REPLACE THIS SHIT WITH CONTENTS
+                  SizedBox(height: 50),
 
-                SizedBox(
-                  //PADDING BOTTOM NAVIGATION BAR
-                  height: MediaQuery.of(context).padding.bottom,
-                ),
-              ],
+                  //dapat may icon igdi
+                  SizedBox(height: 80),
+
+                  Text(
+                    "Email has been sent!",
+                    style: Theme.of(
+                      context,
+                    ).textTheme.titleLarge?.copyWith(fontSize: 30),
+                  ),
+
+                  //mga text field shit
+
+                  //back to sign in
+                  SaveButton(
+                    title: "Back to Sign in",
+                    onPressed: () {
+                      //go to login
+                      Navigator.pushNamed(context, '/login-page');
+                    },
+                  ),
+
+                  SizedBox(
+                    //PADDING BOTTOM NAVIGATION BAR
+                    height: MediaQuery.of(context).padding.bottom,
+                  ),
+                ],
+              ),
             ),
           ],
         ),

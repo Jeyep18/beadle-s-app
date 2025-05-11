@@ -1,10 +1,10 @@
-import 'package:beadles_app/utils/background.dart';
-import 'package:beadles_app/utils/save_button.dart';
+import 'package:beadles_app/core/widgets/background.dart';
+import 'package:beadles_app/core/widgets/save_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class EmailSentPage extends StatelessWidget {
-  const EmailSentPage({super.key});
+class ForgotPasswordPage extends StatelessWidget {
+  const ForgotPasswordPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +62,7 @@ class EmailSentPage extends StatelessWidget {
                   SizedBox(height: 80),
 
                   Text(
-                    "Email has been sent!",
+                    "Forgot Password",
                     style: Theme.of(
                       context,
                     ).textTheme.titleLarge?.copyWith(fontSize: 30),
@@ -70,12 +70,12 @@ class EmailSentPage extends StatelessWidget {
 
                   //mga text field shit
 
-                  //back to sign in
+                  //send to email sent
                   SaveButton(
-                    title: "Back to Sign in",
+                    title: "Send Email",
                     onPressed: () {
-                      //go to login
-                      Navigator.pushNamed(context, '/login-page');
+                      //go to email sent page
+                      Navigator.pushNamed(context, '/email-sent-page');
                     },
                   ),
 
