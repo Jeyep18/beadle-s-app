@@ -1,19 +1,21 @@
-import 'package:beadles_app_prototype1/main_page.dart';
 import 'package:beadles_app_prototype1/utils/background.dart';
 import 'package:beadles_app_prototype1/utils/save_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-class LogInPage extends StatefulWidget {
-  const LogInPage({super.key});
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({super.key});
 
   @override
-  State<LogInPage> createState() => _LogInPageState();
+  State<SignUpPage> createState() => _SignUpPageState();
 }
 
-class _LogInPageState extends State<LogInPage> {
+class _SignUpPageState extends State<SignUpPage> {
   bool _obscureText = true;
+  bool _obscureText2 = true;
+
   String password = '';
-  bool _checked = false;
+  String confirmPassword = '';
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +37,24 @@ class _LogInPageState extends State<LogInPage> {
         ),
       ),
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          scrolledUnderElevation: 0,
+          elevation: 0,
+          systemOverlayStyle:
+              Theme.of(context).brightness == Brightness.dark
+                  ? SystemUiOverlayStyle
+                      .light // white icons for dark mode
+                  : SystemUiOverlayStyle.dark, // black icons for light mode
+          iconTheme: IconThemeData(
+            color: Theme.of(context).colorScheme.tertiary,
+          ),
+          centerTitle: true,
+          titleSpacing: 0,
+          backgroundColor: Colors.transparent,
+        ),
+
         extendBodyBehindAppBar: true,
         extendBody: true,
 
@@ -56,7 +75,6 @@ class _LogInPageState extends State<LogInPage> {
 
                   SizedBox(height: 50),
 
-                  //REPLACE THIS SHIT WITH CONTENTS
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -81,7 +99,7 @@ class _LogInPageState extends State<LogInPage> {
                   SizedBox(height: 80),
 
                   Text(
-                    "Welcome Atenean!",
+                    "Create your account",
                     style: Theme.of(
                       context,
                     ).textTheme.titleLarge?.copyWith(fontSize: 30),
@@ -90,7 +108,7 @@ class _LogInPageState extends State<LogInPage> {
                   SizedBox(height: 5),
 
                   Text(
-                    "Sign in to your account",
+                    "Please enter required details",
                     style: Theme.of(context).textTheme.titleSmall?.copyWith(
                       fontSize: 15,
                       color: Color.fromARGB(255, 144, 140, 175),
@@ -100,25 +118,16 @@ class _LogInPageState extends State<LogInPage> {
 
                   SizedBox(height: 25),
 
-                  //LENNARD FIX TSHIT ============================================================================================================
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 30),
                     child: SizedBox(
-                      height: 60,
+                      height: 50,
                       child: TextField(
                         textInputAction: TextInputAction.next,
                         //controller: widget.lastNameController,
                         decoration: InputDecoration(
-                          contentPadding: EdgeInsets.symmetric(horizontal: 20),
-                          prefixIcon: Icon(
-                            Icons.email_outlined,
-                            size: 23,
-                            color:
-                                Theme.of(context).brightness == Brightness.light
-                                    ? Color.fromARGB(195, 55, 42, 114)
-                                    : Color.fromARGB(118, 157, 146, 212),
-                          ),
-                          hintText: 'username@gbox.adnu.edu.ph',
+                          contentPadding: EdgeInsets.symmetric(horizontal: 15),
+                          hintText: 'Enter your full name',
                           hintStyle: Theme.of(
                             context,
                           ).textTheme.labelSmall?.copyWith(
@@ -151,15 +160,59 @@ class _LogInPageState extends State<LogInPage> {
                     ),
                   ),
 
-                  SizedBox(height: 7),
+                  SizedBox(height: 15),
 
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 30),
                     child: SizedBox(
                       height: 50,
                       child: TextField(
-                        keyboardType: TextInputType.visiblePassword,
-                        textInputAction: TextInputAction.done,
+                        textInputAction: TextInputAction.next,
+                        //controller: widget.lastNameController,
+                        decoration: InputDecoration(
+                          contentPadding: EdgeInsets.symmetric(horizontal: 15),
+                          hintText: 'Email address',
+                          hintStyle: Theme.of(
+                            context,
+                          ).textTheme.labelSmall?.copyWith(
+                            color:
+                                Theme.of(context).brightness == Brightness.light
+                                    ? Color.fromARGB(195, 55, 42, 114)
+                                    : Color.fromARGB(118, 157, 146, 212),
+                          ),
+                          filled: true,
+                          fillColor:
+                              Theme.of(context).brightness == Brightness.light
+                                  ? Color.fromARGB(255, 239, 246, 250)
+                                  : Color.fromARGB(43, 63, 81, 181),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(
+                              color:
+                                  Theme.of(context).brightness ==
+                                          Brightness.light
+                                      ? Color.fromARGB(195, 55, 42, 114)
+                                      : Color.fromARGB(118, 157, 146, 212),
+                              width: 0.5,
+                            ),
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  SizedBox(height: 15),
+
+                  //PASSWORD TEXT FIELD ==============================================
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 30),
+                    child: SizedBox(
+                      height: 50,
+                      child: TextField(
+                        textInputAction: TextInputAction.next,
                         obscureText: _obscureText,
                         onChanged: (enteredPassword) {
                           setState(() {
@@ -168,14 +221,6 @@ class _LogInPageState extends State<LogInPage> {
                         },
                         decoration: InputDecoration(
                           floatingLabelBehavior: FloatingLabelBehavior.never,
-                          prefixIcon: Icon(
-                            Icons.lock_outline,
-                            size: 23,
-                            color:
-                                Theme.of(context).brightness == Brightness.light
-                                    ? Color.fromARGB(195, 55, 42, 114)
-                                    : Color.fromARGB(118, 157, 146, 212),
-                          ),
                           suffixIcon: GestureDetector(
                             onTap: () {
                               setState(() {
@@ -239,139 +284,103 @@ class _LogInPageState extends State<LogInPage> {
                     ),
                   ),
 
-                  //REMEMBER ME CHECKBOX AND FORGET PASSWORD
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Row(
-                        children: [
-                          SizedBox(width: 20),
-                          Checkbox(
-                            value: _checked,
-                            onChanged: (bool? newValue) {
+                  SizedBox(height: 15),
+
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 30),
+                    child: SizedBox(
+                      height: 50,
+                      child: TextField(
+                        textInputAction: TextInputAction.done,
+                        obscureText: _obscureText2,
+                        onChanged: (enteredPassword) {
+                          setState(() {
+                            confirmPassword = enteredPassword;
+                          });
+                        },
+                        decoration: InputDecoration(
+                          floatingLabelBehavior: FloatingLabelBehavior.never,
+                          suffixIcon: GestureDetector(
+                            onTap: () {
                               setState(() {
-                                _checked = newValue ?? false;
+                                _obscureText2 = !_obscureText2;
                               });
                             },
-                          ),
-                          Text(
-                            "Remember me",
-                            style: Theme.of(
-                              context,
-                            ).textTheme.titleSmall?.copyWith(
-                              fontSize: 14,
+                            child: Icon(
+                              _obscureText2
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
                               color:
                                   Theme.of(context).brightness ==
                                           Brightness.light
-                                      ? Color.fromARGB(255, 50, 45, 83)
-                                      : Color.fromARGB(255, 144, 140, 175),
-                              fontWeight: FontWeight.w300,
+                                      ? const Color.fromARGB(195, 55, 42, 114)
+                                      : const Color.fromARGB(
+                                        118,
+                                        157,
+                                        146,
+                                        212,
+                                      ),
                             ),
                           ),
-                        ],
-                      ),
-
-                      SizedBox(width: 75),
-
-                      TextButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/forgot-password-page');
-                        },
-                        child: Text(
-                          "Forgot password?",
-                          style: Theme.of(
+                          contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 15,
+                          ),
+                          hintText: 'Confirm Password',
+                          hintStyle: Theme.of(
                             context,
-                          ).textTheme.titleSmall?.copyWith(
-                            fontSize: 14,
+                          ).textTheme.labelSmall?.copyWith(
                             color:
                                 Theme.of(context).brightness == Brightness.light
-                                    ? Color.fromARGB(255, 103, 89, 180)
-                                    : Color.fromARGB(255, 103, 89, 180),
-                            fontWeight: FontWeight.w300,
+                                    ? const Color.fromARGB(195, 55, 42, 114)
+                                    : const Color.fromARGB(118, 157, 146, 212),
+                          ),
+                          filled: true,
+                          fillColor:
+                              Theme.of(context).brightness == Brightness.light
+                                  ? const Color.fromARGB(255, 239, 246, 250)
+                                  : const Color.fromARGB(43, 63, 81, 181),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(
+                              color:
+                                  Theme.of(context).brightness ==
+                                          Brightness.light
+                                      ? const Color.fromARGB(195, 55, 42, 114)
+                                      : const Color.fromARGB(
+                                        118,
+                                        157,
+                                        146,
+                                        212,
+                                      ),
+                              width: 0.5,
+                            ),
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
                           ),
                         ),
                       ),
-
-                      SizedBox(width: 15),
-                    ],
+                    ),
                   ),
 
-                  SizedBox(height: 10), //fix the gaps pag kulang niggas
+                  SizedBox(height: 25), //fix the gaps pag kulang niggas
                   //LOG IN BUTTON
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 30),
                     child: SaveButton(
-                      title: "Sign in",
+                      title: "Create Account",
                       onPressed: () {
-                        //navigate to home page,
-                        //Navigator.pushNamed(context, '/main-page');
-                        Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(builder: (context) => MainPage()),
-                          (route) => false,
-                        );
+                        Navigator.pushNamed(context, '/login-page');
                       },
                     ),
                   ),
 
-                  SizedBox(height: 10),
-
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Divider(
-                          color: Colors.white,
-                          thickness: 1,
-                          indent: 35,
-                          endIndent: 10,
-                        ),
-                      ),
-                      Text(
-                        "or",
-                        style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                          fontSize: 15,
-                          color: Color.fromARGB(255, 144, 140, 175),
-                          fontWeight: FontWeight.w300,
-                        ),
-                      ),
-                      Expanded(
-                        child: Divider(
-                          color: Colors.white,
-                          thickness: 1,
-                          indent: 10,
-                          endIndent: 35,
-                        ),
-                      ),
-                    ],
-                  ),
-
-                  SizedBox(height: 10), //fix the gaps pag kulang niggas
-                  //LOG IN BUTTON WITH GBOX
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 30),
-                    child: SizedBox(
-                      height: 70,
-                      child: SaveButton(
-                        title: "Sign in with GBOX Account",
-                        onPressed: () {
-                          //navigate to home page,
-                          Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(builder: (context) => MainPage()),
-                            (route) => false,
-                          );
-                        },
-                        icon: 'assets/images/Ateneo_logo.png',
-                        textAlignLeft: true,
-                      ),
-                    ),
-                  ),
                   SizedBox(height: 100),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Don't have an account?",
+                        "I already have an ",
                         style: Theme.of(context).textTheme.titleSmall?.copyWith(
                           fontSize: 15,
                           color:
@@ -383,12 +392,13 @@ class _LogInPageState extends State<LogInPage> {
                       ),
 
                       TextButton(
+                        style: TextButton.styleFrom(padding: EdgeInsets.zero),
                         onPressed: () {
-                          //Navigate to Sign up page
-                          Navigator.pushNamed(context, '/signup-page');
+                          //go to login page
+                          Navigator.pushNamed(context, '/login-page');
                         },
                         child: Text(
-                          "Sign up",
+                          "account.",
                           style: Theme.of(
                             context,
                           ).textTheme.titleSmall?.copyWith(
@@ -403,9 +413,8 @@ class _LogInPageState extends State<LogInPage> {
                       ),
                     ],
                   ),
-
                   SizedBox(
-                    //PADDING BOTTOM NAVIGATION BAR DONUT MOVE
+                    //PADDING BOTTOM NAVIGATION BAR
                     height: MediaQuery.of(context).padding.bottom,
                   ),
                 ],

@@ -6,6 +6,7 @@ import 'package:beadles_app_prototype1/log_in_page.dart';
 import 'package:beadles_app_prototype1/main_page.dart';
 import 'package:beadles_app_prototype1/profile_page.dart';
 import 'package:beadles_app_prototype1/settings_page.dart';
+import 'package:beadles_app_prototype1/sign_up.dart';
 import 'package:beadles_app_prototype1/utils/pseudo_loading.dart';
 import 'package:beadles_app_prototype1/utils/themes/theme.dart';
 import 'package:flutter/material.dart';
@@ -40,6 +41,7 @@ class MainApp extends StatelessWidget {
           '/settings-page': (context) => SettingsPage(),
           '/profile-page': (context) => ProfilePage(),
           '/login-page': (context) => LogInPage(),
+          '/signup-page': (context) => SignUpPage(),
         },
         themeMode: ThemeMode.system,
         theme: AppTheme.lightTheme,

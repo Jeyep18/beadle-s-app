@@ -44,6 +44,7 @@ class _ClassPageState extends State<ClassPage> {
       resizeToAvoidBottomInset: true,
       backgroundColor: Colors.transparent,
       appBar: AppBar(
+        scrolledUnderElevation: 0,
         systemOverlayStyle:
             Theme.of(context).brightness == Brightness.dark
                 ? SystemUiOverlayStyle
