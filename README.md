@@ -86,6 +86,8 @@ Make sure to have a simulator or a connected Android / iOS device and run the co
   <img src="assets/images/Screenshot 4.jpg" alt="Log-in" width="250"/>
   <img src="assets/images/Screenshot 1.jpg" alt="Home" width="250"/>
   <img src="assets/images/Screenshot 3.jpg" alt="Dashboard" width="250"/>
+  <img src="assets/images/Screenshot 5.jpg" alt="Profile" width="250"/>
+  <img src="assets/images/Screenshot 6.jpg" alt="History" width="250"/>
 </p>
 
 ## License
