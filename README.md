@@ -81,7 +81,10 @@ Make sure to have a simulator or a connected Android / iOS device and run the co
 
 ## App Preview
 
-_Insert screenshots here._
+![Splashscreen Screenshot](assets/images/Screenshot%202.jpg)
+![Log-in Screenshot](assets/images/Screenshot%204.jpg)
+![Home screen Screenshot](assets/images/Screenshot%201.jpg)
+![Class dashboard Screenshot](assets/images/Screenshot%203.jpg)
 
 ## License
 
