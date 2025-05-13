@@ -81,10 +81,12 @@ Make sure to have a simulator or a connected Android / iOS device and run the co
 
 ## App Preview
 
-![Splashscreen Screenshot](assets/images/Screenshot%202.jpg)
-![Log-in Screenshot](assets/images/Screenshot%204.jpg)
-![Home screen Screenshot](assets/images/Screenshot%201.jpg)
-![Class dashboard Screenshot](assets/images/Screenshot%203.jpg)
+<p align="center">
+  <img src="assets/images/Screenshot 2.jpg" alt="SplashScreen" width="250"/>
+  <img src="assets/images/Screenshot 4.jpg" alt="Log-in" width="250"/>
+  <img src="assets/images/Screenshot 1.jpg" alt="Home" width="250"/>
+  <img src="assets/images/Screenshot 3.jpg" alt="Dashboard" width="250"/>
+</p>
 
 ## License
 
