@@ -89,11 +89,11 @@ class ForgotPasswordPage extends StatelessWidget {
                   SizedBox(height: 10),
 
                   Text(
-                    // added subtitle
                     "Please enter email address associated\nwith your account",
                     textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: Theme.of(context).colorScheme.tertiary,
+                    style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                      fontSize: 15,
+                      color: Color.fromARGB(255, 144, 140, 175),
                       fontWeight: FontWeight.w300,
                     ),
                   ),

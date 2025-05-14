@@ -612,7 +612,48 @@ class _ClassPageState extends State<ClassPage> {
                           child: SaveButton(
                             title: "Submit",
                             onPressed: () {
-                              //make func here to open dialog box
+                              showDialog(
+                                context: context,
+                                barrierDismissible: false,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
+                                    title: Text(
+                                      'Are you sure?',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    content: Text(
+                                      'Are you sure you want to submit this item? This action cannot be undone.',
+                                    ),
+                                    actions: <Widget>[
+                                      TextButton(
+                                        child: Text('Cancel'),
+                                        onPressed: () {
+                                          Navigator.of(
+                                            context,
+                                          ).pop(); // close dialog
+                                        },
+                                      ),
+                                      ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: Colors.pink,
+                                        ),
+                                        child: Text('Submit'),
+                                        onPressed: () {
+                                          Navigator.of(
+                                            context,
+                                          ).pop(); // close dialog
+                                          // Perform delete action here
+                                        },
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
                             },
                           ),
                         ),
