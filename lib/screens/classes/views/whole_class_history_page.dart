@@ -10,9 +10,6 @@ class WholeClassHistoryPage extends StatefulWidget {
 }
 
 class _WholeClassHistoryPageState extends State<WholeClassHistoryPage> {
-  // SAIMO NI LENNARD DIPOTA KA
-  // Matalino ka talaga boss
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -101,57 +98,127 @@ class _WholeClassHistoryPageState extends State<WholeClassHistoryPage> {
                         horizontal: 10.0,
                         vertical: 10.0,
                       ),
-                      child: Text(
-                        'Today',
-                        style: Theme.of(context).textTheme.headlineMedium,
+                      child: Animate(
+                        effects: [
+                          FadeEffect(duration: 0.3.seconds),
+                          SlideEffect(
+                            duration: 0.4.seconds,
+                            begin: Offset(0, -0.6),
+                            curve: Curves.easeOutCubic,
+                          ),
+                        ],
+                        child: Text(
+                          'Today',
+                          style: Theme.of(context).textTheme.headlineMedium,
+                        ),
                       ),
                     ),
-                    ClassHistoryCard(
-                      subjectCode: 'CSMC - ZC11Am',
-                      day: 'May 12, 2025',
-                      total: 30,
-                      students: 30,
-                      modality: 'Face to Face',
+                    Animate(
+                      effects: [
+                        FadeEffect(duration: 0.6.seconds),
+                        SlideEffect(
+                          duration: 0.4.seconds,
+                          begin: Offset(1, 0),
+                          curve: Curves.easeOutCubic,
+                        ),
+                      ],
+                      child: ClassHistoryCard(
+                        subjectCode: 'CSMC102 - ZC11Am',
+                        day: 'May 12, 2025',
+                        total: 30,
+                        students: 30,
+                        modality: 'Face to Face',
+                      ),
                     ),
-                    ClassHistoryCard(
-                      subjectCode: 'HCI200 - ZC12Am',
-                      day: 'May 12, 2025',
-                      total: 25,
-                      students: 35,
-                      modality: 'Online',
+                    Animate(
+                      effects: [
+                        FadeEffect(duration: 0.6.seconds, delay: 0.1.seconds),
+                        SlideEffect(
+                          duration: 0.4.seconds,
+                          begin: Offset(1, 0),
+                          curve: Curves.easeOutCubic,
+                        ),
+                      ],
+                      child: ClassHistoryCard(
+                        subjectCode: 'HCI200 - ZC12Am',
+                        day: 'May 12, 2025',
+                        total: 25,
+                        students: 35,
+                        modality: 'Online',
+                      ),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(
                         horizontal: 10.0,
                         vertical: 10.0,
                       ),
-                      child: Text(
-                        'Yesterday',
-                        style: Theme.of(context).textTheme.headlineMedium,
+                      child: Animate(
+                        effects: [
+                          FadeEffect(duration: 0.3.seconds, delay: 0.2.seconds),
+                          SlideEffect(
+                            duration: 0.4.seconds,
+                            begin: Offset(0, -0.6),
+                            curve: Curves.easeOutCubic,
+                          ),
+                        ],
+                        child: Text(
+                          'Yesterday',
+                          style: Theme.of(context).textTheme.headlineMedium,
+                        ),
                       ),
                     ),
 
-                    ClassHistoryCard(
-                      subjectCode: 'HCI200 - ZC11Am',
-                      day: 'May 9, 2025',
-                      total: 29,
-                      students: 30,
-                      modality: 'Face to Face',
+                    Animate(
+                      effects: [
+                        FadeEffect(duration: 0.6.seconds, delay: 0.2.seconds),
+                        SlideEffect(
+                          duration: 0.4.seconds,
+                          begin: Offset(1, 0),
+                          curve: Curves.easeOutCubic,
+                        ),
+                      ],
+                      child: ClassHistoryCard(
+                        subjectCode: 'HCI200 - ZC11Am',
+                        day: 'May 9, 2025',
+                        total: 29,
+                        students: 30,
+                        modality: 'Face to Face',
+                      ),
                     ),
 
-                    ClassHistoryCard(
-                      subjectCode: 'CSMC102 - ZC11Am',
-                      day: 'May 9, 2025',
-                      total: 23,
-                      students: 40,
-                      modality: 'Face to Face',
+                    Animate(
+                      effects: [
+                        FadeEffect(duration: 0.6.seconds, delay: 0.3.seconds),
+                        SlideEffect(
+                          duration: 0.4.seconds,
+                          begin: Offset(1, 0),
+                          curve: Curves.easeOutCubic,
+                        ),
+                      ],
+                      child: ClassHistoryCard(
+                        subjectCode: 'CSMC102 - ZC11Am',
+                        day: 'May 9, 2025',
+                        total: 23,
+                        students: 40,
+                        modality: 'Face to Face',
+                      ),
                     ),
-                    ClassHistoryCard(
-                      subjectCode: 'CSDC200 - ZC12Am',
-                      day: 'May 9, 2025',
-                      total: 22,
-                      students: 30,
-                      modality: 'Online',
+                    Animate(
+                      effects: [
+                        FadeEffect(duration: 0.6.seconds, delay: 0.4.seconds),
+                        SlideEffect(
+                          duration: 0.4.seconds,
+                          begin: Offset(1, 0),
+                          curve: Curves.easeOutCubic,
+                        ),
+                      ],
+                      child: ClassHistoryCard(
+                        subjectCode: 'CSDC200 - ZC12Am',
+                        day: 'May 9, 2025',
+                        total: 22,
+                        students: 30,
+                        modality: 'Online',
+                      ),
                     ),
                   ],
                 ),
@@ -279,50 +346,60 @@ class _MyFilterChipState extends State<MyFilterChip> {
   @override
   Widget build(BuildContext context) {
     final isLight = Theme.of(context).brightness == Brightness.light;
-    return FilterChip(
-      label: Text(widget.label),
+    return Animate(
+      effects: [
+        FadeEffect(duration: 0.4.seconds),
+        SlideEffect(
+          duration: 0.6.seconds,
+          begin: Offset(2, 0),
+          curve: Curves.easeOutCubic,
+        ),
+      ],
+      child: FilterChip(
+        label: Text(widget.label),
 
-      visualDensity: VisualDensity.compact,
-      selected: _selected,
-      showCheckmark: false,
-      onSelected: (value) {
-        setState(() {
-          _selected = value;
-        });
-      },
-      shape: StadiumBorder(),
-      side: BorderSide(
-        color:
-            _selected
-                ? (isLight
-                    ? Color.fromARGB(255, 0, 99, 207)
-                    : Color.fromARGB(255, 130, 180, 255))
-                : (isLight
-                    ? Color.fromARGB(255, 78, 78, 78)
-                    : Color.fromARGB(255, 199, 199, 199)),
-        width: 0.5,
-      ),
-      labelStyle: Theme.of(context).textTheme.labelSmall?.copyWith(
-        fontWeight: FontWeight.w400,
-        color:
-            _selected
-                ? (isLight
-                    ? Color.fromARGB(255, 0, 99, 207)
-                    : Color.fromARGB(255, 130, 180, 255))
-                : (isLight
-                    ? Color.fromARGB(255, 78, 78, 78)
-                    : Color.fromARGB(255, 199, 199, 199)),
-      ),
-      selectedColor:
-          isLight
-              ? Color.fromARGB(255, 234, 243, 255)
-              : Color.fromARGB(255, 26, 30, 41),
+        visualDensity: VisualDensity.compact,
+        selected: _selected,
+        showCheckmark: false,
+        onSelected: (value) {
+          setState(() {
+            _selected = value;
+          });
+        },
+        shape: StadiumBorder(),
+        side: BorderSide(
+          color:
+              _selected
+                  ? (isLight
+                      ? Color.fromARGB(255, 0, 99, 207)
+                      : Color.fromARGB(255, 130, 180, 255))
+                  : (isLight
+                      ? Color.fromARGB(255, 78, 78, 78)
+                      : Color.fromARGB(255, 199, 199, 199)),
+          width: 0.5,
+        ),
+        labelStyle: Theme.of(context).textTheme.labelSmall?.copyWith(
+          fontWeight: FontWeight.w400,
+          color:
+              _selected
+                  ? (isLight
+                      ? Color.fromARGB(255, 0, 99, 207)
+                      : Color.fromARGB(255, 130, 180, 255))
+                  : (isLight
+                      ? Color.fromARGB(255, 78, 78, 78)
+                      : Color.fromARGB(255, 199, 199, 199)),
+        ),
+        selectedColor:
+            isLight
+                ? Color.fromARGB(255, 234, 243, 255)
+                : Color.fromARGB(255, 26, 30, 41),
 
-      backgroundColor:
-          isLight
-              ? Color.fromARGB(255, 234, 243, 255)
-              : Color.fromARGB(255, 26, 30, 41),
-      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+        backgroundColor:
+            isLight
+                ? Color.fromARGB(255, 234, 243, 255)
+                : Color.fromARGB(255, 26, 30, 41),
+        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+      ),
     );
   }
 }
