@@ -409,7 +409,36 @@ class _SettingsPageState extends State<SettingsPage> {
                   color: Colors.transparent,
                   child: InkWell(
                     onTap: () {
-                      //nigger
+                      showDialog(
+                        context: context,
+                        builder:
+                            (context) => AlertDialog(
+                              title: Text(
+                                'About Us',
+                                textAlign: TextAlign.center,
+                                style: Theme.of(context).textTheme.titleLarge,
+                              ),
+                              content: Text(
+                                'HELLO WORLD! THIS IS ABOUT US WOHOOO!',
+                                textAlign: TextAlign.center,
+                                style: Theme.of(context).textTheme.bodyMedium,
+                              ),
+                              actions: [
+                                TextButton(
+                                  onPressed: () => Navigator.of(context).pop(),
+                                  child: Text(
+                                    'Close',
+                                    style: Theme.of(
+                                      context,
+                                    ).textTheme.labelLarge?.copyWith(
+                                      color:
+                                          Theme.of(context).colorScheme.primary,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                      );
                     },
                     borderRadius: BorderRadius.circular(8),
                     splashColor: Theme.of(
