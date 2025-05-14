@@ -56,7 +56,7 @@ class ForgotPasswordPage extends StatelessWidget {
                     height: kToolbarHeight + MediaQuery.of(context).padding.top,
                   ),
 
-                  SizedBox(height: 50),
+                  SizedBox(height: 65),
 
                   Stack(
                     alignment: Alignment.center,
@@ -150,7 +150,7 @@ class ForgotPasswordPage extends StatelessWidget {
                     ),
                   ),
 
-                  SizedBox(height: 20),
+                  SizedBox(height: 10),
 
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 30),
@@ -169,18 +169,11 @@ class ForgotPasswordPage extends StatelessWidget {
                     child: SizedBox(
                       height: 60,
                       child: TextField(
+                        textAlign: TextAlign.center,
                         textInputAction: TextInputAction.next,
                         //controller: widget.lastNameController,
                         decoration: InputDecoration(
                           contentPadding: EdgeInsets.symmetric(horizontal: 20),
-                          prefixIcon: Icon(
-                            Icons.email_outlined,
-                            size: 23,
-                            color:
-                                Theme.of(context).brightness == Brightness.light
-                                    ? Color.fromARGB(195, 55, 42, 114)
-                                    : Color.fromARGB(118, 157, 146, 212),
-                          ),
                           hintText: 'Try another way',
                           hintStyle: Theme.of(
                             context,
