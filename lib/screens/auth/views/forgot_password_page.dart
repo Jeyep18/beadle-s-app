@@ -82,7 +82,7 @@ class ForgotPasswordPage extends StatelessWidget {
                     "Forgot Password",
                     style: Theme.of(context).textTheme.titleLarge?.copyWith(
                       fontSize: 30,
-                      color: Colors.white, // ensure visible in dark mode
+                      color: Theme.of(context).colorScheme.tertiary,
                     ),
                   ),
 
@@ -93,7 +93,7 @@ class ForgotPasswordPage extends StatelessWidget {
                     "Please enter email address associated\nwith your account",
                     textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: Colors.white70,
+                      color: Theme.of(context).colorScheme.tertiary,
                       fontWeight: FontWeight.w300,
                     ),
                   ),
@@ -101,23 +101,50 @@ class ForgotPasswordPage extends StatelessWidget {
                   SizedBox(height: 30),
 
                   Padding(
-                    // added email input
-                    padding: const EdgeInsets.symmetric(horizontal: 24),
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 12),
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.1),
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(color: Colors.white30),
-                      ),
+                    padding: const EdgeInsets.symmetric(horizontal: 30),
+                    child: SizedBox(
+                      height: 60,
                       child: TextField(
-                        controller: emailController,
-                        style: const TextStyle(color: Colors.white),
-                        decoration: const InputDecoration(
-                          icon: Icon(Icons.email_outlined, color: Colors.white),
-                          hintText: "username@gbox.adnu.edu.ph",
-                          hintStyle: TextStyle(color: Colors.white70),
-                          border: InputBorder.none,
+                        textInputAction: TextInputAction.next,
+                        //controller: widget.lastNameController,
+                        decoration: InputDecoration(
+                          contentPadding: EdgeInsets.symmetric(horizontal: 20),
+                          prefixIcon: Icon(
+                            Icons.email_outlined,
+                            size: 23,
+                            color:
+                                Theme.of(context).brightness == Brightness.light
+                                    ? Color.fromARGB(195, 55, 42, 114)
+                                    : Color.fromARGB(118, 157, 146, 212),
+                          ),
+                          hintText: 'username@gbox.adnu.edu.ph',
+                          hintStyle: Theme.of(
+                            context,
+                          ).textTheme.labelSmall?.copyWith(
+                            color:
+                                Theme.of(context).brightness == Brightness.light
+                                    ? Color.fromARGB(195, 55, 42, 114)
+                                    : Color.fromARGB(118, 157, 146, 212),
+                          ),
+                          filled: true,
+                          fillColor:
+                              Theme.of(context).brightness == Brightness.light
+                                  ? Color.fromARGB(255, 239, 246, 250)
+                                  : Color.fromARGB(43, 63, 81, 181),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(
+                              color:
+                                  Theme.of(context).brightness ==
+                                          Brightness.light
+                                      ? Color.fromARGB(195, 55, 42, 114)
+                                      : Color.fromARGB(118, 157, 146, 212),
+                              width: 0.5,
+                            ),
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
                         ),
                       ),
                     ),
@@ -126,24 +153,64 @@ class ForgotPasswordPage extends StatelessWidget {
                   SizedBox(height: 20),
 
                   Padding(
-                    // wrapped SaveButton to match input width
-                    padding: const EdgeInsets.symmetric(horizontal: 24),
+                    padding: const EdgeInsets.symmetric(horizontal: 30),
                     child: SaveButton(
-                      title: "Send Email",
+                      title: "Sign in",
                       onPressed: () {
-                        Navigator.pushNamed(context, '/email-sent-page');
+                        //I DONT FUCKING KNOW
                       },
                     ),
                   ),
 
                   SizedBox(height: 12),
 
-                  TextButton(
-                    // added "Try another way"
-                    onPressed: () {},
-                    child: Text(
-                      "Try another way",
-                      style: TextStyle(color: Colors.white70),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 30),
+                    child: SizedBox(
+                      height: 60,
+                      child: TextField(
+                        textInputAction: TextInputAction.next,
+                        //controller: widget.lastNameController,
+                        decoration: InputDecoration(
+                          contentPadding: EdgeInsets.symmetric(horizontal: 20),
+                          prefixIcon: Icon(
+                            Icons.email_outlined,
+                            size: 23,
+                            color:
+                                Theme.of(context).brightness == Brightness.light
+                                    ? Color.fromARGB(195, 55, 42, 114)
+                                    : Color.fromARGB(118, 157, 146, 212),
+                          ),
+                          hintText: 'Try another way',
+                          hintStyle: Theme.of(
+                            context,
+                          ).textTheme.labelSmall?.copyWith(
+                            color:
+                                Theme.of(context).brightness == Brightness.light
+                                    ? Color.fromARGB(195, 55, 42, 114)
+                                    : Color.fromARGB(118, 157, 146, 212),
+                          ),
+                          filled: true,
+                          fillColor:
+                              Theme.of(context).brightness == Brightness.light
+                                  ? Color.fromARGB(255, 239, 246, 250)
+                                  : Color.fromARGB(43, 63, 81, 181),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(
+                              color:
+                                  Theme.of(context).brightness ==
+                                          Brightness.light
+                                      ? Color.fromARGB(195, 55, 42, 114)
+                                      : Color.fromARGB(118, 157, 146, 212),
+                              width: 0.5,
+                            ),
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
 
