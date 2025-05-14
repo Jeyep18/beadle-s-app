@@ -622,32 +622,84 @@ class _ClassPageState extends State<ClassPage> {
                                     ),
                                     title: Text(
                                       'Are you sure?',
+                                      textAlign: TextAlign.center,
                                       style: TextStyle(
+                                        fontSize: 40,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
                                     content: Text(
                                       'Are you sure you want to submit this item? This action cannot be undone.',
+                                      textAlign: TextAlign.center,
+                                      style: Theme.of(
+                                        context,
+                                      ).textTheme.titleSmall?.copyWith(
+                                        fontSize: 15,
+                                        color: Color.fromARGB(
+                                          255,
+                                          144,
+                                          140,
+                                          175,
+                                        ),
+                                        fontWeight: FontWeight.w300,
+                                      ),
                                     ),
+                                    actionsAlignment: MainAxisAlignment.center,
                                     actions: <Widget>[
-                                      TextButton(
-                                        child: Text('Cancel'),
+                                      // Cancel Button
+                                      OutlinedButton(
+                                        style: OutlinedButton.styleFrom(
+                                          side: BorderSide(color: Colors.grey),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(
+                                              8,
+                                            ),
+                                          ),
+                                          padding: EdgeInsets.symmetric(
+                                            horizontal: 20,
+                                            vertical: 12,
+                                          ),
+                                        ),
+                                        child: Text(
+                                          'Cancel',
+                                          style: TextStyle(
+                                            color:
+                                                Theme.of(
+                                                  context,
+                                                ).colorScheme.tertiary,
+                                          ),
+                                        ),
                                         onPressed: () {
                                           Navigator.of(
                                             context,
                                           ).pop(); // close dialog
                                         },
                                       ),
+                                      // Submit Button
                                       ElevatedButton(
                                         style: ElevatedButton.styleFrom(
-                                          backgroundColor: Colors.pink,
+                                          backgroundColor: Color(
+                                            0xFFFF2D55,
+                                          ), // Match class dashboard pink
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(
+                                              8,
+                                            ),
+                                          ),
+                                          padding: EdgeInsets.symmetric(
+                                            horizontal: 20,
+                                            vertical: 12,
+                                          ),
                                         ),
-                                        child: Text('Submit'),
+                                        child: Text(
+                                          'Submit',
+                                          style: TextStyle(color: Colors.white),
+                                        ),
                                         onPressed: () {
                                           Navigator.of(
                                             context,
                                           ).pop(); // close dialog
-                                          // Perform delete action here
+                                          // Perform submit action here
                                         },
                                       ),
                                     ],
