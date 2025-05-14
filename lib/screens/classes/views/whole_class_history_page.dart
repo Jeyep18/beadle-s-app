@@ -39,13 +39,38 @@ class _WholeClassHistoryPageState extends State<WholeClassHistoryPage> {
               FadeEffect(duration: 0.6.seconds),
               SlideEffect(duration: 0.4.seconds, begin: const Offset(0.2, 0)),
             ],
-            child: IconButton(
-              onPressed: () {
-                // menu page here
+            child: PopupMenuButton<String>(
+              icon: Icon(
+                Icons.more_vert,
+                color: Theme.of(context).colorScheme.tertiary,
+              ),
+              onSelected: (value) {
+                switch (value) {
+                  case 'export':
+                    // Handle export
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('Exporting data...')),
+                    );
+                    break;
+                  case 'settings':
+                    // Navigate to settings or handle
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('Opening settings...')),
+                    );
+                    break;
+                }
               },
-              icon: const Icon(Icons.more_vert),
-              color: Theme.of(context).colorScheme.tertiary,
-              iconSize: 25,
+              itemBuilder:
+                  (BuildContext context) => [
+                    const PopupMenuItem<String>(
+                      value: 'export',
+                      child: Text('Export Data'),
+                    ),
+                    const PopupMenuItem<String>(
+                      value: 'settings',
+                      child: Text('Settings'),
+                    ),
+                  ],
             ),
           ),
         ],
