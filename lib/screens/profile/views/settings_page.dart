@@ -203,7 +203,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   color: Colors.transparent,
                   child: InkWell(
                     onTap: () {
-                      //nigger
+                      Navigator.pushNamed(context, '/notification-page');
                     },
                     borderRadius: BorderRadius.circular(8),
                     splashColor: Theme.of(
