@@ -1,3 +1,4 @@
+// lib/screens/profile/views/notification_page.dart
 import 'package:flutter/material.dart';
 import 'package:beadles_app/core/widgets/background.dart';
 import 'package:flutter/services.dart';
