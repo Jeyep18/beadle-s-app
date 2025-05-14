@@ -49,13 +49,38 @@ class _ClassHistoryPageState extends State<ClassHistoryPage> {
                 curve: Curves.easeOutCubic,
               ),
             ],
-            child: IconButton(
-              onPressed: () {
-                //menu page here
+            child: PopupMenuButton<String>(
+              icon: Icon(
+                Icons.more_vert,
+                color: Theme.of(context).colorScheme.tertiary,
+              ),
+              onSelected: (value) {
+                switch (value) {
+                  case 'export':
+                    // Handle export
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('Exporting data...')),
+                    );
+                    break;
+                  case 'settings':
+                    // Navigate to settings or handle
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('Opening settings...')),
+                    );
+                    break;
+                }
               },
-              icon: Icon(Icons.more_vert),
-              color: Theme.of(context).colorScheme.tertiary,
-              iconSize: 25,
+              itemBuilder:
+                  (BuildContext context) => [
+                    const PopupMenuItem<String>(
+                      value: 'export',
+                      child: Text('Export Data'),
+                    ),
+                    const PopupMenuItem<String>(
+                      value: 'settings',
+                      child: Text('Settings'),
+                    ),
+                  ],
             ),
           ),
         ],
