@@ -63,15 +63,15 @@ class ForgotPasswordPage extends StatelessWidget {
                     children: [
                       Icon(
                         Icons.shield_outlined,
-                        size: 80,
-                        color: Colors.white.withOpacity(0.85),
+                        size: 120,
+                        color: Theme.of(context).colorScheme.tertiary,
                       ),
                       Text(
                         '!',
                         style: TextStyle(
-                          fontSize: 40,
-                          color: Colors.white,
+                          fontSize: 70,
                           fontWeight: FontWeight.bold,
+                          color: Theme.of(context).colorScheme.tertiary,
                         ),
                       ),
                     ],
