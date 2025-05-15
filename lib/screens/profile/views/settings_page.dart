@@ -1,6 +1,7 @@
 import 'package:beadles_app/core/widgets/background.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -411,33 +412,116 @@ class _SettingsPageState extends State<SettingsPage> {
                     onTap: () {
                       showDialog(
                         context: context,
-                        builder:
-                            (context) => AlertDialog(
-                              title: Text(
-                                'About Us',
-                                textAlign: TextAlign.center,
-                                style: Theme.of(context).textTheme.titleLarge,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: Text(
+                              'About Us',
+                              textAlign: TextAlign.center,
+                              style: Theme.of(context).textTheme.titleLarge,
+                            ),
+                            content: SingleChildScrollView(
+                              child: Column(
+                                children: [
+                                  Text(
+                                    'We are a group of four first-year BSCS students from Ateneo de Naga University. '
+                                    'This project was created for our Human-Computer Interaction (HCI) course. ',
+                                    textAlign: TextAlign.center,
+                                    style:
+                                        Theme.of(context).textTheme.bodyMedium,
+                                  ),
+                                  const SizedBox(height: 16),
+                                  Text(
+                                    'Group Members:',
+                                    style:
+                                        Theme.of(context).textTheme.titleMedium,
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text('• John Francis Espiritu'),
+                                      GestureDetector(
+                                        onTap: () {
+                                          launchUrl(
+                                            Uri.parse(
+                                              'https://www.facebook.com/gwenclart',
+                                            ),
+                                          );
+                                        },
+                                        child: Text(
+                                          'facebook.com/gwenclart',
+                                          style: TextStyle(color: Colors.blue),
+                                        ),
+                                      ),
+                                      const SizedBox(height: 8),
+                                      Text('• Jetpatrick Matias'),
+                                      GestureDetector(
+                                        onTap: () {
+                                          launchUrl(
+                                            Uri.parse(
+                                              'https://www.facebook.com/jetpatrick.matias',
+                                            ),
+                                          );
+                                        },
+                                        child: Text(
+                                          'facebook.com/jetpatrick.matias',
+                                          style: TextStyle(color: Colors.blue),
+                                        ),
+                                      ),
+
+                                      const SizedBox(height: 8),
+                                      Text('• Lennard Kyle Belleza'),
+                                      GestureDetector(
+                                        onTap: () {
+                                          launchUrl(
+                                            Uri.parse(
+                                              'https://www.facebook.com/lennardkyle.belleza8293729w037',
+                                            ),
+                                          );
+                                        },
+                                        child: Text(
+                                          'facebook.com/lennarkyle.belleza',
+                                          style: TextStyle(color: Colors.blue),
+                                        ),
+                                      ),
+
+                                      const SizedBox(height: 8),
+                                      Text('• Christian Joshua Tuyay'),
+                                      GestureDetector(
+                                        onTap: () {
+                                          launchUrl(
+                                            Uri.parse(
+                                              'https://www.facebook.com/christian.tuyay',
+                                            ),
+                                          );
+                                        },
+                                        child: Text(
+                                          'facebook.com/christian.tuyay',
+                                          style: TextStyle(color: Colors.blue),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
                               ),
-                              content: Text(
-                                'HELLO WORLD! THIS IS ABOUT US WOHOOO!',
-                                textAlign: TextAlign.center,
-                                style: Theme.of(context).textTheme.bodyMedium,
-                              ),
-                              actions: [
-                                TextButton(
-                                  onPressed: () => Navigator.of(context).pop(),
-                                  child: Text(
-                                    'Close',
-                                    style: Theme.of(
-                                      context,
-                                    ).textTheme.labelLarge?.copyWith(
-                                      color:
-                                          Theme.of(context).colorScheme.primary,
-                                    ),
+                            ),
+                            actions: [
+                              TextButton(
+                                onPressed: () => Navigator.of(context).pop(),
+                                child: Text(
+                                  'Close',
+                                  style: Theme.of(
+                                    context,
+                                  ).textTheme.labelLarge?.copyWith(
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
                                   ),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
+                          );
+                        },
                       );
                     },
                     borderRadius: BorderRadius.circular(8),
