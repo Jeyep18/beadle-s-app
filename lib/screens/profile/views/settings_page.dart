@@ -508,7 +508,10 @@ class _SettingsPageState extends State<SettingsPage> {
                             ),
                             actions: [
                               TextButton(
-                                onPressed: () => Navigator.of(context).pop(),
+                                onPressed: () {
+                                  HapticFeedback.mediumImpact();
+                                  Navigator.of(context).pop();
+                                },
                                 child: Text(
                                   'Close',
                                   style: Theme.of(
