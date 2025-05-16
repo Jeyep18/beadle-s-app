@@ -683,6 +683,10 @@ class _ClassPageState extends State<ClassPage> {
                                             context,
                                           ).pop(); // close dialog
                                           // Perform submit action here
+                                          Navigator.pushNamed(
+                                            context,
+                                            '/main-page',
+                                          );
                                         },
                                       ),
                                     ],
