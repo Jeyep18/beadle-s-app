@@ -142,7 +142,7 @@ class _StudentTileState extends State<StudentTile> {
                       child: Align(
                         alignment: Alignment.center,
                         child: Text(
-                          "picture ni chris",
+                          "student photo",
                           textAlign: TextAlign.center,
                           style: TextStyle(fontSize: 10),
                         ),

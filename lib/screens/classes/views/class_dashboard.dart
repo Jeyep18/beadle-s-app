@@ -621,15 +621,15 @@ class _ClassPageState extends State<ClassPage> {
                                       borderRadius: BorderRadius.circular(12.0),
                                     ),
                                     title: Text(
-                                      'Are you sure?',
+                                      'Submit class attendance?',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
-                                        fontSize: 40,
+                                        fontSize: 20,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
                                     content: Text(
-                                      'Are you sure you want to submit this item? This action cannot be undone.',
+                                      'Changes cannot be made after submitting.',
                                       textAlign: TextAlign.center,
                                       style: Theme.of(
                                         context,
@@ -644,25 +644,15 @@ class _ClassPageState extends State<ClassPage> {
                                         fontWeight: FontWeight.w300,
                                       ),
                                     ),
-                                    actionsAlignment: MainAxisAlignment.center,
+                                    actionsAlignment: MainAxisAlignment.end,
                                     actions: <Widget>[
                                       // Cancel Button
-                                      OutlinedButton(
-                                        style: OutlinedButton.styleFrom(
-                                          side: BorderSide(color: Colors.grey),
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(
-                                              8,
-                                            ),
-                                          ),
-                                          padding: EdgeInsets.symmetric(
-                                            horizontal: 20,
-                                            vertical: 12,
-                                          ),
-                                        ),
+                                      TextButton(
                                         child: Text(
                                           'Cancel',
-                                          style: TextStyle(
+                                          style: GoogleFonts.poppins(
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 16,
                                             color:
                                                 Theme.of(
                                                   context,
@@ -676,24 +666,17 @@ class _ClassPageState extends State<ClassPage> {
                                         },
                                       ),
                                       // Submit Button
-                                      ElevatedButton(
-                                        style: ElevatedButton.styleFrom(
-                                          backgroundColor: Color(
-                                            0xFFFF2D55,
-                                          ), // Match class dashboard pink
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(
-                                              8,
-                                            ),
-                                          ),
-                                          padding: EdgeInsets.symmetric(
-                                            horizontal: 20,
-                                            vertical: 12,
-                                          ),
-                                        ),
+                                      TextButton(
                                         child: Text(
                                           'Submit',
-                                          style: TextStyle(color: Colors.white),
+                                          style: GoogleFonts.poppins(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
+                                            color:
+                                                Theme.of(
+                                                  context,
+                                                ).colorScheme.primary,
+                                          ),
                                         ),
                                         onPressed: () {
                                           Navigator.of(

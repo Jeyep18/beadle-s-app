@@ -16,7 +16,10 @@ class ClassMainNavPage extends StatefulWidget {
 
 class _ClassMainNavPageState extends State<ClassMainNavPage> {
   final List<List<String>> studentList = [
-    ["Sahur", "Tung Tung", "Tung", "BS Computer Science", "100101010"],
+    ["Espiritu", "John Francis", "M.", "BS Computer Science", "202400614"],
+    ["Belleza", "Lennard Kyle", "T.", "BS Computer Science", "202400251"],
+    ["Tuyay", "Christian Joshua", "A.", "BS Computer Science", "202400224"],
+    ["Matias", "Jet Patrick", "", "BS Computer Science", "202401934"],
   ];
 
   //controllers
