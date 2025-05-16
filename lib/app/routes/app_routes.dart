@@ -8,6 +8,7 @@ import 'package:beadles_app/screens/auth/views/sign_up.dart';
 import 'package:beadles_app/screens/home/views/main_page.dart';
 import 'package:beadles_app/screens/profile/views/profile_page.dart';
 import 'package:beadles_app/screens/profile/views/settings_page.dart';
+import 'package:beadles_app/screens/profile/views/beadles_guide.dart';
 
 class AppRoutes {
   static const String classDashboard = '/class-dashboard';
@@ -19,6 +20,7 @@ class AppRoutes {
   static const String mainPage = '/main-page';
   static const String settings = '/settings-page';
   static const String profile = '/profile-page';
+  static const String beadlesGuide = '/beadle-guide-page';
 
   static Map<String, WidgetBuilder> routes = {
     classDashboard: (context) => ClassPage(studentList: []),
@@ -30,5 +32,6 @@ class AppRoutes {
     mainPage: (context) => MainPage(),
     settings: (context) => SettingsPage(),
     profile: (context) => ProfilePage(),
+    beadlesGuide: (context) => BeadlesGuide(),
   };
 }

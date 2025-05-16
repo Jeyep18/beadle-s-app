@@ -50,33 +50,102 @@ class EmailSentPage extends StatelessWidget {
             //==================================MAIN CONTENT==================================
             Center(
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(
                     //PADDING APP BAR
                     height: kToolbarHeight + MediaQuery.of(context).padding.top,
                   ),
 
-                  SizedBox(height: 50),
+                  SizedBox(height: 65),
 
-                  //dapat may icon igdi
-                  SizedBox(height: 80),
+                  Icon(
+                    Icons.mark_email_unread_outlined,
+                    size: 120,
+                    color: Theme.of(context).colorScheme.tertiary,
+                  ),
+                  SizedBox(height: 20),
 
                   Text(
                     "Email has been sent!",
-                    style: Theme.of(
-                      context,
-                    ).textTheme.titleLarge?.copyWith(fontSize: 30),
+                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                      fontSize: 30,
+                      color: Theme.of(context).colorScheme.tertiary,
+                    ),
                   ),
 
-                  //mga text field shit
+                  SizedBox(height: 10),
 
-                  //back to sign in
-                  SaveButton(
-                    title: "Back to Sign in",
-                    onPressed: () {
-                      //go to login
-                      Navigator.pushNamed(context, '/login-page');
-                    },
+                  Text(
+                    "Please check your inbox and follow the\ninstructions to reset your password",
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                      fontSize: 15,
+                      color: Color.fromARGB(255, 144, 140, 175),
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+
+                  SizedBox(height: 30),
+
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 30),
+                    child: SaveButton(
+                      title: "Back to Sign in",
+                      onPressed: () {
+                        //go to login
+                        HapticFeedback.mediumImpact();
+                        Navigator.pushNamed(context, '/login-page');
+                      },
+                    ),
+                  ),
+
+                  SizedBox(height: 30),
+
+                  Text(
+                    "Didn't receive the link?",
+                    style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                      fontSize: 15,
+                      color:
+                          Theme.of(context).brightness == Brightness.light
+                              ? Color.fromARGB(255, 50, 45, 83)
+                              : Color.fromARGB(255, 144, 140, 175),
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    spacing: 0,
+                    children: [
+                      Icon(
+                        Icons.refresh_rounded,
+                        color:
+                            Theme.of(context).brightness == Brightness.light
+                                ? Color.fromARGB(255, 103, 89, 180)
+                                : Color.fromARGB(255, 103, 89, 180),
+                        size: 24,
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          HapticFeedback.lightImpact();
+                          //wala
+                        },
+                        child: Text(
+                          "Resend",
+                          style: Theme.of(
+                            context,
+                          ).textTheme.titleSmall?.copyWith(
+                            fontSize: 15,
+                            color:
+                                Theme.of(context).brightness == Brightness.light
+                                    ? Color.fromARGB(255, 103, 89, 180)
+                                    : Color.fromARGB(255, 103, 89, 180),
+                            fontWeight: FontWeight.w300,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
 
                   SizedBox(

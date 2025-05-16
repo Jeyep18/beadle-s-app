@@ -152,12 +152,12 @@ class _HomePageState extends State<HomePage> {
                           child: Animate(
                             effects: [
                               FadeEffect(
-                                duration: 0.6.seconds,
-                                delay: 0.2.seconds,
+                                duration: 0.4.seconds,
+                                delay: 0.1.seconds,
                               ),
                               SlideEffect(
-                                duration: 0.4.seconds,
-                                begin: Offset(0, 0.3),
+                                duration: 0.3.seconds,
+                                begin: Offset(0, -0.3),
                               ),
                             ],
                             child: Text(
@@ -173,12 +173,12 @@ class _HomePageState extends State<HomePage> {
                           child: Animate(
                             effects: [
                               FadeEffect(
-                                duration: 0.6.seconds,
-                                delay: 0.4.seconds,
+                                duration: 0.4.seconds,
+                                delay: 0.2.seconds,
                               ),
                               SlideEffect(
                                 duration: 0.3.seconds,
-                                begin: Offset(0, 0.5),
+                                begin: Offset(0, -0.3),
                               ),
                             ],
                             child: Text(

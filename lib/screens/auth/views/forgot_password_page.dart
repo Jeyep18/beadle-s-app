@@ -2,14 +2,14 @@ import 'package:beadles_app/core/widgets/background.dart';
 import 'package:beadles_app/core/widgets/save_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+//import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ForgotPasswordPage extends StatelessWidget {
   const ForgotPasswordPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final emailController = TextEditingController(); // added controller
+    //final emailController = TextEditingController(); // added controller
 
     return Container(
       decoration: BoxDecoration(
@@ -117,7 +117,7 @@ class ForgotPasswordPage extends StatelessWidget {
                                     ? Color.fromARGB(195, 55, 42, 114)
                                     : Color.fromARGB(118, 157, 146, 212),
                           ),
-                          hintText: 'username@gbox.adnu.edu.ph',
+                          hintText: 'Email address',
                           hintStyle: Theme.of(
                             context,
                           ).textTheme.labelSmall?.copyWith(
@@ -155,52 +155,70 @@ class ForgotPasswordPage extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 30),
                     child: SaveButton(
-                      title: "Sign in",
+                      title: "Send email",
                       onPressed: () {
-                        //I DONT FUCKING KNOW
+                        HapticFeedback.mediumImpact();
+                        Navigator.pushNamed(context, '/email-sent-page');
                       },
                     ),
                   ),
 
-                  SizedBox(height: 12),
+                  SizedBox(height: 18),
 
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 30),
-                    child: SizedBox(
-                      height: 60,
-                      child: TextField(
-                        textAlign: TextAlign.center,
-                        textInputAction: TextInputAction.next,
-                        //controller: widget.lastNameController,
-                        decoration: InputDecoration(
-                          contentPadding: EdgeInsets.symmetric(horizontal: 20),
-                          hintText: 'Try another way',
-                          hintStyle: Theme.of(
-                            context,
-                          ).textTheme.labelSmall?.copyWith(
-                            color:
-                                Theme.of(context).brightness == Brightness.light
-                                    ? Color.fromARGB(195, 55, 42, 114)
-                                    : Color.fromARGB(118, 157, 146, 212),
-                          ),
-                          filled: true,
-                          fillColor:
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(
+                          color:
                               Theme.of(context).brightness == Brightness.light
-                                  ? Color.fromARGB(255, 239, 246, 250)
-                                  : Color.fromARGB(43, 63, 81, 181),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide(
-                              color:
-                                  Theme.of(context).brightness ==
-                                          Brightness.light
-                                      ? Color.fromARGB(195, 55, 42, 114)
-                                      : Color.fromARGB(118, 157, 146, 212),
-                              width: 0.5,
-                            ),
+                                  ? const Color.fromARGB(195, 55, 42, 114)
+                                  : const Color.fromARGB(118, 157, 146, 212),
+                          width: 0.5,
+                        ),
+                        color:
+                            Theme.of(context).brightness == Brightness.light
+                                ? const Color.fromARGB(255, 239, 246, 250)
+                                : const Color.fromARGB(43, 63, 81, 181),
+                      ),
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.transparent,
+                          shadowColor: Colors.transparent,
+                          minimumSize: Size(
+                            MediaQuery.of(context).size.width * 0.92,
+                            55,
                           ),
-                          border: OutlineInputBorder(
+                          shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                        onPressed: () {
+                          //wala
+                          HapticFeedback.mediumImpact();
+                        },
+                        child: Align(
+                          alignment: Alignment.center,
+                          child: Padding(
+                            padding: EdgeInsets.only(left: 0),
+                            child: Text(
+                              "Try another way",
+                              style: Theme.of(
+                                context,
+                              ).textTheme.labelSmall?.copyWith(
+                                color:
+                                    Theme.of(context).brightness ==
+                                            Brightness.light
+                                        ? const Color.fromARGB(195, 55, 42, 114)
+                                        : const Color.fromARGB(
+                                          118,
+                                          224,
+                                          217,
+                                          255,
+                                        ),
+                              ),
+                            ),
                           ),
                         ),
                       ),

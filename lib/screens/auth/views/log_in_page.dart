@@ -378,7 +378,7 @@ class _LogInPageState extends State<LogInPage> {
                       Text(
                         "Don't have an account?",
                         style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                          fontSize: 15,
+                          fontSize: 14,
                           color:
                               Theme.of(context).brightness == Brightness.light
                                   ? Color.fromARGB(255, 50, 45, 83)
@@ -398,7 +398,7 @@ class _LogInPageState extends State<LogInPage> {
                           style: Theme.of(
                             context,
                           ).textTheme.titleSmall?.copyWith(
-                            fontSize: 15,
+                            fontSize: 14,
                             color:
                                 Theme.of(context).brightness == Brightness.light
                                     ? Color.fromARGB(255, 103, 89, 180)

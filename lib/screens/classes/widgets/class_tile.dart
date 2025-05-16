@@ -48,8 +48,8 @@ class ClassTile extends StatelessWidget {
       },
       child: Animate(
         effects: [
-          FadeEffect(duration: 0.6.seconds, delay: 0.6.seconds),
-          SlideEffect(duration: 0.4.seconds, begin: Offset(0, 0.2)),
+          FadeEffect(duration: 0.4.seconds, delay: 0.3.seconds),
+          SlideEffect(duration: 0.3.seconds, begin: Offset(0, -0.1)),
         ],
         child: Padding(
           padding: const EdgeInsets.only(right: 10, left: 10, bottom: 14),
