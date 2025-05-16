@@ -1,6 +1,7 @@
 import 'package:beadles_app/core/widgets/date_picker.dart';
 import 'package:beadles_app/core/widgets/save_button.dart';
 import 'package:beadles_app/screens/classes/widgets/student_tile.dart';
+import 'package:beadles_app/screens/home/views/main_page.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -612,6 +613,7 @@ class _ClassPageState extends State<ClassPage> {
                           child: SaveButton(
                             title: "Submit",
                             onPressed: () {
+                              HapticFeedback.mediumImpact();
                               showDialog(
                                 context: context,
                                 barrierDismissible: false,
@@ -660,6 +662,7 @@ class _ClassPageState extends State<ClassPage> {
                                           ),
                                         ),
                                         onPressed: () {
+                                          HapticFeedback.mediumImpact();
                                           Navigator.of(
                                             context,
                                           ).pop(); // close dialog
@@ -679,13 +682,17 @@ class _ClassPageState extends State<ClassPage> {
                                           ),
                                         ),
                                         onPressed: () {
+                                          HapticFeedback.mediumImpact();
                                           Navigator.of(
                                             context,
                                           ).pop(); // close dialog
                                           // Perform submit action here
-                                          Navigator.pushNamed(
+                                          Navigator.pushAndRemoveUntil(
                                             context,
-                                            '/main-page',
+                                            MaterialPageRoute(
+                                              builder: (context) => MainPage(),
+                                            ),
+                                            (route) => false,
                                           );
                                         },
                                       ),
