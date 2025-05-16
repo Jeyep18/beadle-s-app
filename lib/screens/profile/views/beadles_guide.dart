@@ -3,21 +3,21 @@ import 'package:beadles_app/core/widgets/background.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:url_launcher/url_launcher.dart';
+// import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
+
+Future<void> _launchURL() async {
+  if (!await launchUrlString(
+    'https://youtu.be/xvFZjo5PgG0?si=gmDuKTdYEluMsIQT',
+  )) {
+    throw 'Could not launch YouTube video';
+  }
+}
 
 class BeadlesGuide extends StatelessWidget {
-  final String youtubeUrl = 'https://www.youtube.com/watch?v=MBOa-2b4uQQ';
+  // final String youtubeUrl = 'https://www.youtube.com/watch?v=MBOa-2b4uQQ';
 
   const BeadlesGuide({super.key});
-
-  void _launchURL() async {
-    final uri = Uri.parse(youtubeUrl);
-    if (await canLaunchUrl(uri)) {
-      await launchUrl(uri, mode: LaunchMode.externalApplication);
-    } else {
-      throw 'Could not launch $youtubeUrl';
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -188,14 +188,15 @@ class BeadlesGuide extends StatelessWidget {
                           style: GoogleFonts.poppins(fontSize: 18),
                         ),
                         SizedBox(height: 8),
-                        GestureDetector(
-                          onTap: _launchURL,
-                          child: Text(
-                            "YouTube Video Demo",
-                            style: GoogleFonts.poppins(
-                              color: Colors.blue,
-                              fontSize: 18,
-                              decoration: TextDecoration.underline,
+                        Center(
+                          child: TextButton(
+                            onPressed: _launchURL,
+                            child: Text(
+                              "YouTube Video Demo",
+                              style: GoogleFonts.poppins(
+                                color: Colors.blue,
+                                fontSize: 18,
+                              ),
                             ),
                           ),
                         ),
