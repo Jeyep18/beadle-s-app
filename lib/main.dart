@@ -6,12 +6,6 @@ import 'package:flutter/services.dart';
 //import 'package:beadles_app/screens/profile/views/notification_page.dart';
 
 //THIS IS THE MAIN.DART FILE OF THE BEADLES APP WOHOO
-//class AppRoutes {
-//  static final routes = <String, WidgetBuilder>{
-//    '/notification-page': (context) => const NotificationPage(),
-//    // other routes...
-//  };
-//}
 
 void main() {
   runApp(const MainApp());

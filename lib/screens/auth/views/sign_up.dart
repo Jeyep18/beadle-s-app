@@ -365,7 +365,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                   ),
 
-                  SizedBox(height: 25), //fix the gaps pag kulang niggas
+                  SizedBox(height: 25), //fix the gaps pag kulang
                   //LOG IN BUTTON
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 30),

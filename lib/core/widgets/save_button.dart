@@ -47,9 +47,7 @@ class SaveButton extends StatelessWidget {
             if (icon != null)
               Positioned.fill(
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(
-                    10,
-                  ), // matches button corners
+                  borderRadius: BorderRadius.circular(10),
                   child: Align(
                     alignment: Alignment.centerRight,
                     child: Opacity(
@@ -57,7 +55,7 @@ class SaveButton extends StatelessWidget {
                       child: Image.asset(
                         icon!,
                         fit: BoxFit.cover,
-                        width: 90, // keeps image large
+                        width: 90,
                         height: 90,
                       ),
                     ),

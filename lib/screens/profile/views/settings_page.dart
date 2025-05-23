@@ -141,7 +141,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   color: Colors.transparent,
                   child: InkWell(
                     onTap: () {
-                      //nigger
+                      //matalino
                     },
                     borderRadius: BorderRadius.circular(8),
                     splashColor: Theme.of(
@@ -244,7 +244,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   color: Colors.transparent,
                   child: InkWell(
                     onTap: () {
-                      //nigger
+                      //amen
                     },
                     borderRadius: BorderRadius.circular(8),
                     splashColor: Theme.of(
@@ -307,7 +307,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   color: Colors.transparent,
                   child: InkWell(
                     onTap: () {
-                      //nigger
+                      //ahhhhhhhh
                     },
                     borderRadius: BorderRadius.circular(8),
                     splashColor: Theme.of(

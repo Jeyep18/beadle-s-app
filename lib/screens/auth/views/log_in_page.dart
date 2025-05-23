@@ -101,7 +101,7 @@ class _LogInPageState extends State<LogInPage> {
 
                   SizedBox(height: 25),
 
-                  //LENNARD FIX TSHIT ============================================================================================================
+                  //LENNARD FIX ============================================================================================================
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 30),
                     child: SizedBox(
@@ -300,7 +300,7 @@ class _LogInPageState extends State<LogInPage> {
                     ],
                   ),
 
-                  SizedBox(height: 10), //fix the gaps pag kulang niggas
+                  SizedBox(height: 10), //fix the gaps pag kulang
                   //LOG IN BUTTON
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 30),
@@ -349,7 +349,7 @@ class _LogInPageState extends State<LogInPage> {
                     ],
                   ),
 
-                  SizedBox(height: 10), //fix the gaps pag kulang niggas
+                  SizedBox(height: 10), //fix the gaps pag kulan
                   //LOG IN BUTTON WITH GBOX
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 30),

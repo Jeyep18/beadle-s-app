@@ -41,7 +41,6 @@ class _DaySelect extends State<DaysSelector> {
   @override
   Widget build(BuildContext context) {
     return Wrap(
-      // Wrap handles responsiveness better than Row
       alignment: WrapAlignment.center,
       spacing: 10,
       children:
